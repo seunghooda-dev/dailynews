@@ -41,6 +41,12 @@ jobs:
           printf '%s' "$FIREBASE_CREDENTIALS_JSON" > serviceAccountKey.json
           chmod 600 serviceAccountKey.json
 
+      - name: Validate runtime environment
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          FIREBASE_CREDENTIALS_PATH: serviceAccountKey.json
+        run: python scripts/check_env.py --strict
+
       - name: Run news pipeline
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}

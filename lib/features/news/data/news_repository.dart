@@ -25,7 +25,7 @@ final newsRepositoryProvider = Provider<NewsRepository>((ref) {
 });
 
 final targetDateProvider = StateProvider<DateTime>((ref) {
-  return DateTime.now().subtract(const Duration(days: 1));
+  return DateTime.now();
 });
 
 final selectedArticleIndexProvider = StateProvider<int>((ref) {

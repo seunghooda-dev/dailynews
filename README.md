@@ -8,8 +8,10 @@
 
 ```bash
 py -3 -m pip install -r requirements.txt
+copy .env.example .env
 $env:LLM_API_KEY="..."
 $env:FIREBASE_CREDENTIALS_PATH="C:\path\to\serviceAccountKey.json"
+py -3 scripts/check_env.py
 py -3 main.py --filter-config filter.example.json
 ```
 
@@ -25,8 +27,17 @@ py -3 main.py --filter-config filter.example.json
 - `ARTICLE_LIMIT_PER_SOURCE`: 매체별 수집 기사 수, 기본값 `8`
 - `REQUEST_TIMEOUT_SECONDS`: 크롤링 요청 타임아웃, 기본값 `20`
 - `LLM_TIMEOUT_SECONDS`: LLM 요청 타임아웃, 기본값 `60`
+- `MAX_LLM_RETRIES`: LLM 재시도 횟수, 기본값 `4`
 
 Firestore 저장 경로는 `korea_economy_news/{YYYY-MM-DD}`이며, 문서 안의 `articles` 배열에 중복 URL을 제외하고 병합됩니다.
+
+Firebase Admin SDK에서 보이는 `client_email` 값만으로는 인증할 수 없습니다. 로컬 실행에는 서비스 계정 JSON 전체 파일이 필요하고, GitHub Actions에는 같은 JSON 전체 문자열을 Secret으로 넣어야 합니다.
+
+키 없이 로컬 기사 카드만 확인하려면 오늘자 스냅샷을 만들고 정적 웹 서버를 띄웁니다.
+
+```powershell
+.\scripts\refresh_news.ps1
+```
 
 ## Flutter App
 
@@ -48,6 +59,8 @@ Firebase를 붙여 실행할 때는 `flutterfire configure`로 클라이언트 �
 ```bash
 flutter run --dart-define=USE_FIREBASE=true
 ```
+
+Flutter 앱에는 Firebase Admin SDK JSON을 넣지 않습니다. 앱에서 Firestore를 직접 읽게 할 때 필요한 것은 `flutterfire configure`가 생성하는 클라이언트 설정(`lib/firebase_options.dart`)이며, 이 값은 Admin 비밀키와 다른 종류입니다.
 
 ## GitHub Actions
 

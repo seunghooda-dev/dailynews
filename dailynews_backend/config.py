@@ -9,6 +9,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def _env_int(name: str, default: int, minimum: int = 1) -> int:
+    raw_value = os.getenv(name)
+    if raw_value is None or raw_value.strip() == "":
+        return default
+    try:
+        value = int(raw_value)
+    except ValueError as exc:
+        raise ValueError(f"{name} must be an integer.") from exc
+    if value < minimum:
+        raise ValueError(f"{name} must be greater than or equal to {minimum}.")
+    return value
+
+
 @dataclass(frozen=True)
 class PipelineConfig:
     llm_api_key: str = field(default_factory=lambda: os.getenv("LLM_API_KEY", ""))
@@ -23,15 +36,15 @@ class PipelineConfig:
         )
     )
     article_limit_per_source: int = field(
-        default_factory=lambda: int(os.getenv("ARTICLE_LIMIT_PER_SOURCE", "8"))
+        default_factory=lambda: _env_int("ARTICLE_LIMIT_PER_SOURCE", 8)
     )
     request_timeout_seconds: int = field(
-        default_factory=lambda: int(os.getenv("REQUEST_TIMEOUT_SECONDS", "20"))
+        default_factory=lambda: _env_int("REQUEST_TIMEOUT_SECONDS", 20)
     )
     llm_timeout_seconds: int = field(
-        default_factory=lambda: int(os.getenv("LLM_TIMEOUT_SECONDS", "60"))
+        default_factory=lambda: _env_int("LLM_TIMEOUT_SECONDS", 60)
     )
-    max_llm_retries: int = field(default_factory=lambda: int(os.getenv("MAX_LLM_RETRIES", "4")))
+    max_llm_retries: int = field(default_factory=lambda: _env_int("MAX_LLM_RETRIES", 4))
     firestore_collection: str = "korea_economy_news"
 
     def validate(self) -> None:
