@@ -25,7 +25,7 @@ class ArticleCard extends StatelessWidget {
       margin: EdgeInsets.zero,
       clipBehavior: Clip.antiAlias,
       color: selected
-          ? theme.colorScheme.primary.withValues(alpha: 0.06)
+          ? theme.colorScheme.primaryContainer.withValues(alpha: 0.68)
           : theme.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -197,12 +197,12 @@ class ArticleDetailPanel extends StatelessWidget {
 
 Color sectorColor(String sector) {
   const colors = [
-    Color(0xFF1F4E79),
-    Color(0xFF0F766E),
-    Color(0xFF946200),
-    Color(0xFF6B4E9B),
-    Color(0xFF8A3A4B),
-    Color(0xFF3F6B36),
+    Color(0xFF0077C8),
+    Color(0xFFFFB703),
+    Color(0xFF00A896),
+    Color(0xFFFF7A6B),
+    Color(0xFF7C5CFF),
+    Color(0xFF00B4D8),
   ];
   final index = sector.runes.fold<int>(0, (sum, rune) => sum + rune);
   return colors[index % max(colors.length, 1)];
@@ -228,8 +228,8 @@ class _SectorChip extends StatelessWidget {
             fontSize: 12,
           ),
         ),
-        backgroundColor: color.withValues(alpha: 0.09),
-        side: BorderSide(color: color.withValues(alpha: 0.28)),
+        backgroundColor: color.withValues(alpha: 0.12),
+        side: BorderSide(color: color.withValues(alpha: 0.34)),
         visualDensity: VisualDensity.compact,
       ),
     );

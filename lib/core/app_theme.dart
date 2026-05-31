@@ -1,29 +1,37 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const corporateBlue = Color(0xFF1F4E79);
-  static const ink = Color(0xFF172033);
-  static const mutedInk = Color(0xFF5F6B7A);
-  static const page = Color(0xFFF4F7FA);
+  static const sky = Color(0xFF18B7FF);
+  static const skyDeep = Color(0xFF0077C8);
+  static const yuzu = Color(0xFFFFD84D);
+  static const mint = Color(0xFF27D3B5);
+  static const coral = Color(0xFFFF7A6B);
+  static const violet = Color(0xFF8B7CFF);
+  static const ink = Color(0xFF123047);
+  static const blueInk = Color(0xFF3F6F94);
+  static const page = Color(0xFFEFFBFF);
   static const surface = Color(0xFFFFFFFF);
-  static const line = Color(0xFFD7E0EA);
-  static const teal = Color(0xFF0F766E);
-  static const amber = Color(0xFF946200);
+  static const line = Color(0xFFAEE5FF);
 
   static ThemeData light() {
     final scheme =
         ColorScheme.fromSeed(
-          seedColor: corporateBlue,
+          seedColor: sky,
           brightness: Brightness.light,
         ).copyWith(
-          primary: corporateBlue,
-          secondary: teal,
-          tertiary: amber,
+          primary: skyDeep,
+          primaryContainer: const Color(0xFFD9F4FF),
+          secondary: yuzu,
+          secondaryContainer: const Color(0xFFFFF3B8),
+          tertiary: mint,
+          tertiaryContainer: const Color(0xFFD6FFF6),
           surface: surface,
           outline: line,
           outlineVariant: line,
+          onPrimary: surface,
+          onSecondary: ink,
           onSurface: ink,
-          onSurfaceVariant: mutedInk,
+          onSurfaceVariant: blueInk,
         );
 
     return ThemeData(
@@ -31,7 +39,7 @@ class AppTheme {
       useMaterial3: true,
       scaffoldBackgroundColor: page,
       appBarTheme: const AppBarTheme(
-        backgroundColor: surface,
+        backgroundColor: Color(0xFFF8FDFF),
         foregroundColor: ink,
         elevation: 0,
         centerTitle: false,
@@ -39,7 +47,7 @@ class AppTheme {
         titleTextStyle: TextStyle(
           color: ink,
           fontSize: 20,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w900,
           letterSpacing: 0,
         ),
       ),
@@ -55,7 +63,9 @@ class AppTheme {
       chipTheme: ChipThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         side: const BorderSide(color: line),
+        backgroundColor: const Color(0xFFE8F8FF),
       ),
+      iconTheme: const IconThemeData(color: skyDeep),
       textTheme: const TextTheme(
         headlineSmall: TextStyle(
           color: ink,
@@ -82,53 +92,35 @@ class AppTheme {
           color: ink,
           fontSize: 14,
           letterSpacing: 0,
-          height: 1.6,
+          height: 1.62,
         ),
         bodySmall: TextStyle(
-          color: mutedInk,
+          color: blueInk,
           fontSize: 12,
           letterSpacing: 0,
           height: 1.45,
         ),
         labelLarge: TextStyle(
-          color: mutedInk,
+          color: skyDeep,
           fontSize: 13,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.w900,
           letterSpacing: 0,
         ),
         labelMedium: TextStyle(
-          color: mutedInk,
+          color: blueInk,
           fontSize: 12,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w800,
           letterSpacing: 0,
         ),
         labelSmall: TextStyle(
-          color: mutedInk,
+          color: blueInk,
           fontSize: 11,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           letterSpacing: 0,
         ),
       ),
       dividerTheme: const DividerThemeData(color: line, thickness: 1),
       visualDensity: VisualDensity.standard,
-    );
-  }
-
-  static ThemeData dark() {
-    final scheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xFF8EB8E5),
-      brightness: Brightness.dark,
-    );
-
-    return ThemeData(
-      colorScheme: scheme,
-      useMaterial3: true,
-      scaffoldBackgroundColor: const Color(0xFF0F141C),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF141A24),
-        elevation: 0,
-        surfaceTintColor: Colors.transparent,
-      ),
     );
   }
 }

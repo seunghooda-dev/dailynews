@@ -6,8 +6,8 @@ class NewsSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base = Theme.of(context).colorScheme.surfaceContainerHighest;
-    final highlight = Theme.of(context).colorScheme.surface;
+    final base = Theme.of(context).colorScheme.primaryContainer;
+    final highlight = Theme.of(context).colorScheme.secondaryContainer;
 
     return ListView.builder(
       padding: const EdgeInsets.all(24),

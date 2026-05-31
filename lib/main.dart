@@ -34,9 +34,8 @@ class DailyNewsApp extends StatelessWidget {
     return MaterialApp(
       title: 'Daily News',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
       home: const NewsDashboardPage(),
     );
   }

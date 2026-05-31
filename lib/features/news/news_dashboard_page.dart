@@ -213,11 +213,11 @@ class _DashboardHeader extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: theme.colorScheme.outlineVariant),
-        ),
+        color: theme.colorScheme.primaryContainer.withValues(alpha: 0.54),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+        borderRadius: BorderRadius.circular(8),
       ),
-      padding: const EdgeInsets.only(bottom: 18),
+      padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
       child: Row(
         children: [
           Expanded(
@@ -265,8 +265,8 @@ class _Metric extends StatelessWidget {
     return Container(
       width: 108,
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        border: Border.all(color: theme.colorScheme.outlineVariant),
+        color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.92),
+        border: Border.all(color: theme.colorScheme.secondary),
         borderRadius: BorderRadius.circular(8),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
