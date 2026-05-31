@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 from typing import Any
 
@@ -12,32 +13,58 @@ from dailynews_backend.models import RawArticle
 
 class AIEngine:
     REQUIRED_KEYS = {"sector", "what_happened", "context", "implication"}
+    SYSTEM_PROMPT = """\
+당신은 여의도 대형 증권사의 리서치 센터장이다.
+목표는 단순 기사 요약이 아니라 "이 기사가 오늘 한국 주식시장과 내 계좌에 어떤 실질적 영향을 주는가"를 구조화하는 것이다.
+
+출력 규칙:
+- 반드시 JSON object 하나만 반환한다. Markdown, 코드블록, 주석, 추가 설명은 금지한다.
+- JSON key는 정확히 sector, what_happened, context, implication 네 개만 사용한다.
+- 모든 값은 한국어 문자열이어야 하며 빈 문자열은 금지한다.
+- 미사여구, 수식어, 일반론, "관심이 쏠린다" 같은 느슨한 문장은 제거한다.
+- 기사에 없는 사실은 만들지 않는다. 추론은 기사에 제시된 팩트와 수치에서 이어지는 범위로 제한한다.
+
+분석 원칙:
+- 기사 내부의 숫자, 퍼센트, 금액, 계약 규모, 실적, 가이던스, 주가/지수, 금리, 환율, 수급, 기간, 순위는 절대 생략하지 않는다.
+- 단순 사실 나열을 금지한다. 원인 -> 전이 경로 -> 시장/종목 결과의 인과관계를 명시한다.
+- sector는 "IT", "금융" 같은 큰 분류가 아니라 "HBM 메모리 공급망", "증권사 가상자산 수탁", "거시 매크로 금리"처럼 구체적인 테마로 쓴다.
+- implication은 한국 증시, 관련 섹터, 밸류체인 기업, 외국인/기관/개인 수급, 밸류에이션 리스크, 다음 관전 지표 중 기사와 연결되는 항목을 중심으로 쓴다.
+"""
+    USER_INSTRUCTIONS = """\
+아래 기사를 증권사 애널리스트 보고서 스타일로 구조화하라.
+
+필드별 작성 규칙:
+- sector: 기사가 다루는 구체적인 테마/산업군을 한 줄로 쓴다. 가능한 경우 기업명보다 투자 테마와 밸류체인을 우선한다.
+- what_happened: 기사에서 발생한 핵심 사건과 정량 팩트를 쓴다. 수치, 퍼센트, 금액, 계약 규모, 가이던스, 기간, 비교 기준을 빠뜨리지 않는다.
+- context: 왜 이 사건이 발생했는지 전후 맥락을 쓴다. 과거 지표 대비 변화, 전방 산업 수요, 경쟁사/정책/매크로 변수와의 연결을 설명한다.
+- implication: 한국 주식시장과 관련 종목/업종에 미칠 수혜 또는 타격을 쓴다. 수혜/피해 가능 밸류체인, 수급 변화, 리스크, 다음 확인 포인트를 분리해서 명확히 연결한다.
+
+품질 기준:
+- "좋을 것으로 보인다" 같은 결론만 쓰지 말고, 왜 그렇게 연결되는지 경로를 쓴다.
+- 기사에 수치가 있으면 최소한 what_happened에는 핵심 수치를 포함한다.
+- 기사에 직접 근거가 없는 기업명이나 숫자는 추가하지 않는다.
+- 최종 출력은 아래 JSON 스키마와 정확히 일치해야 한다.
+{
+  "sector": "구체적인 테마/산업군",
+  "what_happened": "정량적 팩트 중심 분석",
+  "context": "사건의 전후 맥락과 원인",
+  "implication": "한국 시장과 관련 밸류체인 영향"
+}
+"""
+    QUANTITATIVE_PATTERN = re.compile(
+        r"(?<![A-Za-z0-9])"
+        r"(?:\d{1,3}(?:,\d{3})+|\d+)"
+        r"(?:\.\d+)?"
+        r"\s?"
+        r"(?:%|％|조원|억원|만원|원|달러|엔|위안|유로|bp|bps|포인트|p|배|"
+        r"명|개|건|대|주|위|년|월|일|분기|개월|거래일|조|억|만|천)?"
+    )
 
     def __init__(self, config: PipelineConfig) -> None:
         self.config = config
 
     def summarize(self, article: RawArticle) -> dict[str, Any]:
-        payload = {
-            "model": self.config.llm_model,
-            "response_format": {"type": "json_object"},
-            "messages": [
-                {
-                    "role": "system",
-                    "content": (
-                        "You are a Korean equity market analyst. Return only a JSON object "
-                        "with exactly these keys: sector, what_happened, context, implication. "
-                        "Write in Korean, preserve quantitative figures, and do not invent facts."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": (
-                        "아래 한국 경제/증권 기사를 구조화해 주세요. JSON 스키마를 엄격히 지키세요.\n\n"
-                        f"{article.to_prompt_payload()}"
-                    ),
-                },
-            ],
-        }
+        payload = self._build_payload(article)
 
         last_error: Exception | None = None
         for attempt in range(self.config.max_llm_retries):
@@ -63,7 +90,60 @@ class AIEngine:
                 time.sleep(min(2**attempt, 16))
         raise RuntimeError(f"LLM summarization failed for {article.url}: {last_error}")
 
+    def _build_payload(self, article: RawArticle) -> dict[str, Any]:
+        quantitative_markers = self._extract_quantitative_markers(article)
+        marker_text = (
+            ", ".join(quantitative_markers)
+            if quantitative_markers
+            else "기사 본문에서 명확한 숫자 후보가 감지되지 않음"
+        )
+
+        return {
+            "model": self.config.llm_model,
+            "response_format": {"type": "json_object"},
+            "messages": [
+                {
+                    "role": "system",
+                    "content": self.SYSTEM_PROMPT,
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"{self.USER_INSTRUCTIONS}\n\n"
+                        f"기사에서 감지된 정량 후보(누락 검토용): {marker_text}\n\n"
+                        f"{article.to_prompt_payload()}"
+                    ),
+                },
+            ],
+        }
+
+    def _extract_quantitative_markers(self, article: RawArticle) -> list[str]:
+        text = f"{article.title}\n{article.content or ''}"
+        markers: list[str] = []
+        seen: set[str] = set()
+        for match in self.QUANTITATIVE_PATTERN.finditer(text):
+            marker = " ".join(match.group(0).split())
+            if not marker or marker in seen:
+                continue
+            seen.add(marker)
+            markers.append(marker)
+            if len(markers) >= 40:
+                break
+        return markers
+
     def _validate_summary(self, summary: dict[str, Any]) -> None:
+        if not isinstance(summary, dict):
+            raise ValueError("Structured output must be a JSON object.")
         missing = self.REQUIRED_KEYS.difference(summary)
         if missing:
             raise ValueError(f"Structured output is missing keys: {sorted(missing)}")
+        extra = set(summary).difference(self.REQUIRED_KEYS)
+        if extra:
+            raise ValueError(f"Structured output has unexpected keys: {sorted(extra)}")
+        invalid = [
+            key
+            for key in self.REQUIRED_KEYS
+            if not isinstance(summary[key], str) or not summary[key].strip()
+        ]
+        if invalid:
+            raise ValueError(f"Structured output has empty or non-string values: {sorted(invalid)}")
