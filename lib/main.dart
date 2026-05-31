@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/app_theme.dart';
 import 'features/news/data/news_repository.dart';
 import 'features/news/news_dashboard_page.dart';
 
@@ -34,18 +35,8 @@ class DailyNewsApp extends StatelessWidget {
       title: 'Daily News',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF176B5D)),
-        useMaterial3: true,
-        scaffoldBackgroundColor: const Color(0xFFF7F8FA),
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF67D7C2),
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
       home: const NewsDashboardPage(),
     );
   }

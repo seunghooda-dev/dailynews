@@ -10,15 +10,15 @@ class NewsSkeleton extends StatelessWidget {
     final highlight = Theme.of(context).colorScheme.surface;
 
     return ListView.builder(
-      padding: const EdgeInsets.only(top: 12, bottom: 24),
+      padding: const EdgeInsets.all(24),
       itemCount: 8,
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
           baseColor: base,
           highlightColor: highlight,
           child: Container(
-            height: 88,
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            height: 104,
+            margin: const EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
               color: base,
               borderRadius: BorderRadius.circular(8),

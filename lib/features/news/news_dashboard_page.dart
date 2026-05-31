@@ -17,9 +17,18 @@ class NewsDashboardPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('경제 뉴스'),
+        title: const Text('Dailynews'),
         centerTitle: false,
         actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 4),
+            child: Center(
+              child: Text(
+                'Korea Market',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ),
+          ),
           IconButton(
             tooltip: '새로고침',
             onPressed: () => ref.invalidate(newsProvider),
@@ -92,34 +101,39 @@ class _SelectableNewsLayout extends StatelessWidget {
         );
 
         if (isWide) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                header,
-                const SizedBox(height: 16),
-                Expanded(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: _ArticleGrid(
-                          articles: articles,
-                          selectedIndex: selectedIndex,
-                          onSelect: onSelect,
-                        ),
+          return Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1440),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    header,
+                    const SizedBox(height: 20),
+                    Expanded(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 7,
+                            child: _ArticleGrid(
+                              articles: articles,
+                              selectedIndex: selectedIndex,
+                              onSelect: onSelect,
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                          Expanded(
+                            flex: 5,
+                            child: ArticleDetailPanel(article: selectedArticle),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        flex: 2,
-                        child: ArticleDetailPanel(article: selectedArticle),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           );
         }
@@ -127,20 +141,20 @@ class _SelectableNewsLayout extends StatelessWidget {
         return RefreshIndicator(
           onRefresh: onRefresh,
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
             children: [
               header,
-              const SizedBox(height: 14),
+              const SizedBox(height: 16),
               for (var index = 0; index < articles.length; index++) ...[
                 SizedBox(
-                  height: 232,
+                  height: 228,
                   child: ArticleCard(
                     article: articles[index],
                     selected: selectedIndex == index,
                     onTap: () => onSelect(index),
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 12),
               ],
               ArticleDetailPanel(article: selectedArticle, scrollable: false),
             ],
@@ -166,10 +180,10 @@ class _ArticleGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 330,
-        mainAxisExtent: 232,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
+        maxCrossAxisExtent: 304,
+        mainAxisExtent: 228,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
       ),
       itemCount: articles.length,
       itemBuilder: (context, index) {
@@ -197,37 +211,81 @@ class _DashboardHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                date,
-                style: theme.textTheme.labelLarge?.copyWith(
-                  color: theme.colorScheme.primary,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                '선택해서 읽는 구조화 뉴스 $count건',
-                style: theme.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ],
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: theme.colorScheme.outlineVariant),
         ),
-        if (usingSampleData)
-          Chip(
-            avatar: const Icon(Icons.storage, size: 16),
-            label: const Text('로컬 샘플'),
-            visualDensity: VisualDensity.compact,
-            side: BorderSide(color: theme.colorScheme.outlineVariant),
+      ),
+      padding: const EdgeInsets.only(bottom: 18),
+      child: Row(
+        children: [
+          Expanded(
+            child: Wrap(
+              spacing: 20,
+              runSpacing: 8,
+              crossAxisAlignment: WrapCrossAlignment.end,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      date,
+                      style: theme.textTheme.labelLarge?.copyWith(
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text('시장 브리핑', style: theme.textTheme.headlineSmall),
+                  ],
+                ),
+                _Metric(label: '뉴스', value: '$count'),
+                _Metric(
+                  label: '데이터',
+                  value: usingSampleData ? 'Local' : 'Firestore',
+                ),
+              ],
+            ),
           ),
-      ],
+        ],
+      ),
+    );
+  }
+}
+
+class _Metric extends StatelessWidget {
+  const _Metric({required this.label, required this.value});
+
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: 108,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(label, style: theme.textTheme.labelSmall),
+          const SizedBox(height: 2),
+          Text(
+            value,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.titleSmall?.copyWith(
+              color: theme.colorScheme.primary,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -249,12 +307,7 @@ class _ErrorView extends StatelessWidget {
           children: [
             Icon(Icons.cloud_off, size: 42, color: theme.colorScheme.error),
             const SizedBox(height: 16),
-            Text(
-              '뉴스를 불러오지 못했습니다',
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w800,
-              ),
-            ),
+            Text('뉴스를 불러오지 못했습니다', style: theme.textTheme.titleMedium),
             const SizedBox(height: 8),
             Text(
               message,

@@ -22,11 +22,10 @@ class ArticleCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Card(
-      elevation: selected ? 2 : 0,
       margin: EdgeInsets.zero,
       clipBehavior: Clip.antiAlias,
       color: selected
-          ? theme.colorScheme.primaryContainer.withValues(alpha: 0.35)
+          ? theme.colorScheme.primary.withValues(alpha: 0.06)
           : theme.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -39,83 +38,87 @@ class ArticleCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  _SectorChip(label: article.sector, color: color),
-                  const Spacer(),
-                  AnimatedOpacity(
-                    opacity: selected ? 1 : 0,
-                    duration: const Duration(milliseconds: 160),
-                    child: Icon(
-                      Icons.check_circle,
-                      size: 20,
-                      color: theme.colorScheme.primary,
+        child: Row(
+          children: [
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 160),
+              width: 4,
+              color: selected ? theme.colorScheme.primary : color,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        _SectorChip(label: article.sector, color: color),
+                        const Spacer(),
+                        AnimatedOpacity(
+                          opacity: selected ? 1 : 0,
+                          duration: const Duration(milliseconds: 160),
+                          child: Icon(
+                            Icons.check,
+                            size: 18,
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                article.title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w800,
-                  height: 1.25,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                article.whatHappened,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  height: 1.45,
-                  letterSpacing: 0,
-                ),
-              ),
-              const Spacer(),
-              const SizedBox(height: 14),
-              Row(
-                children: [
-                  Icon(
-                    Icons.newspaper,
-                    size: 16,
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                  const SizedBox(width: 6),
-                  Expanded(
-                    child: Text(
-                      article.source ?? '뉴스',
-                      maxLines: 1,
+                    const SizedBox(height: 12),
+                    Text(
+                      article.title,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.labelMedium?.copyWith(
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      article.whatHappened,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
+                        height: 1.5,
                       ),
                     ),
-                  ),
-                  if (article.publishedAt != null) ...[
-                    const SizedBox(width: 8),
-                    Flexible(
-                      child: Text(
-                        article.publishedAt!,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.labelSmall?.copyWith(
+                    const Spacer(),
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.article_outlined,
+                          size: 15,
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
-                      ),
+                        const SizedBox(width: 6),
+                        Expanded(
+                          child: Text(
+                            article.source ?? '뉴스',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.labelMedium,
+                          ),
+                        ),
+                        if (article.publishedAt != null) ...[
+                          const SizedBox(width: 8),
+                          Flexible(
+                            child: Text(
+                              article.publishedAt!,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.labelSmall,
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
                   ],
-                ],
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -142,25 +145,18 @@ class ArticleDetailPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _SectorChip(label: article.sector, color: color),
-          const SizedBox(height: 14),
-          Text(
-            article.title,
-            style: theme.textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w900,
-              height: 1.18,
-            ),
-          ),
+          const SizedBox(height: 16),
+          Text(article.title, style: theme.textTheme.headlineSmall),
           const SizedBox(height: 10),
           Text(
             [
               if (article.source != null) article.source,
               if (article.publishedAt != null) article.publishedAt,
             ].whereType<String>().join(' · '),
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+            style: theme.textTheme.bodySmall,
           ),
           const SizedBox(height: 22),
+          const Divider(height: 1),
           _ArticleSection(
             icon: Icons.lightbulb_outline,
             title: '핵심 팩트 및 수치',
@@ -180,30 +176,33 @@ class ArticleDetailPanel extends StatelessWidget {
       ),
     );
 
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         border: Border.all(color: theme.colorScheme.outlineVariant),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: scrollable
-          ? SingleChildScrollView(
-              padding: const EdgeInsets.all(24),
-              child: content,
-            )
-          : Padding(padding: const EdgeInsets.all(24), child: content),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: scrollable
+            ? SingleChildScrollView(
+                padding: const EdgeInsets.all(28),
+                child: content,
+              )
+            : Padding(padding: const EdgeInsets.all(24), child: content),
+      ),
     );
   }
 }
 
 Color sectorColor(String sector) {
   const colors = [
-    Color(0xFF176B5D),
-    Color(0xFFB25E09),
-    Color(0xFF345995),
-    Color(0xFF8E3B46),
-    Color(0xFF4C6B36),
-    Color(0xFF6D597A),
+    Color(0xFF1F4E79),
+    Color(0xFF0F766E),
+    Color(0xFF946200),
+    Color(0xFF6B4E9B),
+    Color(0xFF8A3A4B),
+    Color(0xFF3F6B36),
   ];
   final index = sector.runes.fold<int>(0, (sum, rune) => sum + rune);
   return colors[index % max(colors.length, 1)];
@@ -229,8 +228,8 @@ class _SectorChip extends StatelessWidget {
             fontSize: 12,
           ),
         ),
-        backgroundColor: color.withValues(alpha: 0.12),
-        side: BorderSide(color: color.withValues(alpha: 0.24)),
+        backgroundColor: color.withValues(alpha: 0.09),
+        side: BorderSide(color: color.withValues(alpha: 0.28)),
         visualDensity: VisualDensity.compact,
       ),
     );
@@ -252,7 +251,7 @@ class _ArticleSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(top: 18),
+      padding: const EdgeInsets.only(top: 22),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -265,20 +264,13 @@ class _ArticleSection extends StatelessWidget {
                   title,
                   style: theme.textTheme.titleSmall?.copyWith(
                     color: theme.colorScheme.primary,
-                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          Text(
-            body,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              height: 1.6,
-              letterSpacing: 0,
-            ),
-          ),
+          const SizedBox(height: 10),
+          Text(body, style: theme.textTheme.bodyMedium),
         ],
       ),
     );
