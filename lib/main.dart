@@ -1,0 +1,52 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'features/news/data/news_repository.dart';
+import 'features/news/news_dashboard_page.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  const useFirebase = bool.fromEnvironment('USE_FIREBASE');
+  var firebaseEnabled = false;
+  if (useFirebase) {
+    try {
+      await Firebase.initializeApp();
+      firebaseEnabled = true;
+    } catch (_) {
+      firebaseEnabled = false;
+    }
+  }
+  runApp(
+    ProviderScope(
+      overrides: [firebaseEnabledProvider.overrideWithValue(firebaseEnabled)],
+      child: const DailyNewsApp(),
+    ),
+  );
+}
+
+class DailyNewsApp extends StatelessWidget {
+  const DailyNewsApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Daily News',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF176B5D)),
+        useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xFFF7F8FA),
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF67D7C2),
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
+      home: const NewsDashboardPage(),
+    );
+  }
+}
