@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../models/news_article.dart';
@@ -42,6 +45,10 @@ class NewsRepository {
 
   Future<DailyNewsDocument> fetchByDate(String dateId) async {
     if (_firestore == null) {
+      final snapshot = await _fetchLocalSnapshot(dateId);
+      if (snapshot != null) {
+        return snapshot;
+      }
       await Future<void>.delayed(const Duration(milliseconds: 450));
       return sampleDailyNews;
     }
@@ -50,5 +57,23 @@ class NewsRepository {
         .doc(dateId)
         .get();
     return DailyNewsDocument.fromSnapshot(snapshot);
+  }
+
+  Future<DailyNewsDocument?> _fetchLocalSnapshot(String dateId) async {
+    try {
+      final cacheBuster = DateTime.now().millisecondsSinceEpoch;
+      final uri = Uri.base.resolve('news_snapshot.json?v=$cacheBuster');
+      final response = await http.get(uri).timeout(const Duration(seconds: 4));
+      if (response.statusCode != 200 || response.body.trim().isEmpty) {
+        return null;
+      }
+      final decoded = jsonDecode(response.body);
+      if (decoded is! Map<String, dynamic>) {
+        return null;
+      }
+      return DailyNewsDocument.fromMap(dateId, decoded);
+    } catch (_) {
+      return null;
+    }
   }
 }

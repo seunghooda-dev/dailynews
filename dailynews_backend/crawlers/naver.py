@@ -45,8 +45,27 @@ class NaverFinanceCrawler(BaseCrawler):
                 return self.clean_text(body.get_text(" ", strip=True))
         return self.clean_text(soup.get_text(" ", strip=True))
 
+    def fetch_article(self, article: RawArticle) -> RawArticle:
+        soup = self._get_soup(article.url)
+        return RawArticle(
+            title=article.title,
+            url=article.url,
+            source=self.parse_source(soup) or article.source,
+            published_at=article.published_at or self.parse_published_at(soup),
+            content=self.parse_content(soup),
+        )
+
     def parse_published_at(self, soup: BeautifulSoup) -> str | None:
         node = soup.select_one(
             ".article_info .wdate, span.wdate, .media_end_head_info_datestamp_time, ._ARTICLE_DATE_TIME"
         )
         return self.clean_text(node.get_text(" ", strip=True)) if node else None
+
+    def parse_source(self, soup: BeautifulSoup) -> str | None:
+        logo = soup.select_one(".media_end_head_top_logo img")
+        if logo and logo.get("alt"):
+            return self.clean_text(logo["alt"])
+        meta = soup.select_one("meta[property='og:article:author'], meta[name='twitter:creator']")
+        if meta and meta.get("content"):
+            return self.clean_text(meta["content"].replace("| 네이버", ""))
+        return None

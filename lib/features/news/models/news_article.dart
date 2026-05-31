@@ -45,9 +45,16 @@ class DailyNewsDocument {
     DocumentSnapshot<Map<String, dynamic>> snapshot,
   ) {
     final data = snapshot.data() ?? {};
+    return DailyNewsDocument.fromMap(snapshot.id, data);
+  }
+
+  factory DailyNewsDocument.fromMap(
+    String fallbackDate,
+    Map<String, dynamic> data,
+  ) {
     final rawArticles = data['articles'] as List<dynamic>? ?? const [];
     return DailyNewsDocument(
-      date: snapshot.id,
+      date: data['date'] as String? ?? fallbackDate,
       articles: rawArticles
           .whereType<Map<String, dynamic>>()
           .map(NewsArticle.fromMap)

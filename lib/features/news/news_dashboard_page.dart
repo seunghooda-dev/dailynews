@@ -17,7 +17,7 @@ class NewsDashboardPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('어제자 경제 뉴스'),
+        title: const Text('경제 뉴스'),
         centerTitle: false,
         actions: [
           IconButton(
