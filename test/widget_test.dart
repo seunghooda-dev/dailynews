@@ -25,4 +25,24 @@ void main() {
     expect(find.text('반도체'), findsOneWidget);
     expect(find.text('반도체 업종 실적 개선 기대가 커지고 있다'), findsOneWidget);
   });
+
+  testWidgets('ArticleDetailPanel shows original article link', (tester) async {
+    const article = NewsArticle(
+      title: '금융시장 변동성이 확대됐다',
+      sector: '금융',
+      whatHappened: '시장 금리가 상승했다.',
+      context: '정책 불확실성이 투자 심리에 영향을 줬다.',
+      implication: '금융주와 성장주의 차별화가 커질 수 있다.',
+      url: 'https://example.com/news/1',
+    );
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: ArticleDetailPanel(article: article)),
+      ),
+    );
+
+    expect(find.text('원문 보기'), findsOneWidget);
+    expect(find.byIcon(Icons.open_in_new), findsOneWidget);
+  });
 }

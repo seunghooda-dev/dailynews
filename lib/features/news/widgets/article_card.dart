@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../models/news_article.dart';
 
@@ -155,6 +156,10 @@ class ArticleDetailPanel extends StatelessWidget {
             ].whereType<String>().join(' · '),
             style: theme.textTheme.bodySmall,
           ),
+          if (_isUsableUrl(article.url)) ...[
+            const SizedBox(height: 14),
+            _OriginalLinkButton(url: article.url!),
+          ],
           const SizedBox(height: 22),
           const Divider(height: 1),
           _ArticleSection(
@@ -192,6 +197,42 @@ class ArticleDetailPanel extends StatelessWidget {
             : Padding(padding: const EdgeInsets.all(24), child: content),
       ),
     );
+  }
+}
+
+bool _isUsableUrl(String? value) {
+  if (value == null || value.trim().isEmpty) {
+    return false;
+  }
+  final uri = Uri.tryParse(value.trim());
+  return uri != null && (uri.scheme == 'http' || uri.scheme == 'https');
+}
+
+class _OriginalLinkButton extends StatelessWidget {
+  const _OriginalLinkButton({required this.url});
+
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: FilledButton.tonalIcon(
+        onPressed: () => _openUrl(context),
+        icon: const Icon(Icons.open_in_new, size: 18),
+        label: const Text('원문 보기'),
+      ),
+    );
+  }
+
+  Future<void> _openUrl(BuildContext context) async {
+    final uri = Uri.parse(url.trim());
+    final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (!opened && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('원문 링크를 열 수 없습니다')),
+      );
+    }
   }
 }
 
