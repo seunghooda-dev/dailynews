@@ -37,6 +37,12 @@ flutter pub get
 flutter run
 ```
 
+인앱 브라우저에서 흰 화면이 보이면 Flutter dev-server 대신 CDN 의존성이 없는 정적 빌드를 서빙합니다.
+
+```powershell
+.\scripts\serve_web.ps1
+```
+
 Firebase를 붙여 실행할 때는 `flutterfire configure`로 클라이언트 설정 파일을 생성한 뒤 아래처럼 실행합니다.
 
 ```bash
