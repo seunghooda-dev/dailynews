@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Iterable
@@ -12,17 +11,17 @@ from dailynews_backend.crawlers import HankyungCrawler, MaeilCrawler, NaverFinan
 from dailynews_backend.models import RawArticle, StructuredArticle
 
 
-def collect_articles(limit: int) -> list[RawArticle]:
+def collect_articles(limit: int, target_date: str | None) -> list[RawArticle]:
     naver = NaverFinanceCrawler(15)
     naver.list_urls = tuple(
         [
             f"https://finance.naver.com/news/mainnews.naver?page={page}"
-            for page in range(1, 11)
+            for page in range(1, 21)
         ]
         + [
             "https://finance.naver.com/news/news_list.naver"
             f"?mode=LSS2D&section_id=101&section_id2=258&page={page}"
-            for page in range(1, 8)
+            for page in range(1, 16)
         ]
     )
     crawlers = [
@@ -55,19 +54,39 @@ def collect_articles(limit: int) -> list[RawArticle]:
                 except Exception as exc:
                     print(f"skip article {candidate.url}: {exc}")
                     continue
-                if article.content and len(article.content.strip()) >= 220:
+                if (
+                    article.content
+                    and len(article.content.strip()) >= 220
+                    and is_target_date(article, target_date)
+                ):
                     articles.append(article)
     return articles
 
 
-def build_snapshot(articles: Iterable[RawArticle]) -> dict[str, object]:
+def build_snapshot(articles: Iterable[RawArticle], target_date: str) -> dict[str, object]:
     structured = [structure_locally(article) for article in articles]
-    today = datetime.now().strftime("%Y-%m-%d")
     return {
-        "date": today,
+        "date": target_date,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "articles": [article.to_firestore_map() for article in structured],
     }
+
+
+def is_target_date(article: RawArticle, target_date: str | None) -> bool:
+    if not target_date:
+        return True
+
+    compact = target_date.replace("-", "")
+    dotted = target_date.replace("-", ".")
+    slashed = target_date.replace("-", "/")
+    haystack = f"{article.published_at or ''} {article.url}"
+
+    return (
+        target_date in haystack
+        or compact in haystack
+        or dotted in haystack
+        or slashed in haystack
+    )
 
 
 def structure_locally(article: RawArticle) -> StructuredArticle:
@@ -142,10 +161,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Create a local news snapshot for Flutter web.")
     parser.add_argument("--limit", type=int, default=80)
     parser.add_argument("--output", default="web/news_snapshot.json")
+    parser.add_argument(
+        "--date",
+        default=datetime.now().strftime("%Y-%m-%d"),
+        help="Keep only articles matching this date. Format: YYYY-MM-DD.",
+    )
     args = parser.parse_args()
 
-    articles = collect_articles(args.limit)
-    snapshot = build_snapshot(articles)
+    articles = collect_articles(args.limit, args.date)
+    snapshot = build_snapshot(articles, args.date)
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
