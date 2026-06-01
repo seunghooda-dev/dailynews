@@ -9,23 +9,32 @@ from dailynews_backend.models import RawArticle
 class HankyungCrawler(BaseCrawler):
     source_name = "한국경제"
     base_url = "https://www.hankyung.com"
+    headline_list_url_fragments = ("https://www.hankyung.com/koreamarket/news/all-news",)
     list_urls = (
         "https://www.hankyung.com/koreamarket/news/all-news",
         "https://www.hankyung.com/koreamarket/news/markets",
         "https://www.hankyung.com/koreamarket/news/equities",
     )
 
-    def parse_list(self, soup: BeautifulSoup) -> list[RawArticle]:
+    def parse_list(self, soup: BeautifulSoup, list_url: str | None = None) -> list[RawArticle]:
         articles: list[RawArticle] = []
-        for anchor in soup.select("a[href*='hankyung.com/article'], a[href^='/article']"):
+        for anchor in soup.select(
+            "a[href*='hankyung.com/article'], a[href^='/article']"
+        ):
             title = self.clean_text(anchor.get_text(" ", strip=True))
             href = anchor.get("href")
             if len(title) >= 8 and href:
+                article_index = len(articles)
                 articles.append(
                     RawArticle(
                         title=title,
                         url=self.absolute_url(href),
                         source=self.source_name,
+                        is_headline=self.is_headline_anchor(
+                            anchor,
+                            list_url,
+                            article_index,
+                        ),
                     )
                 )
         return articles

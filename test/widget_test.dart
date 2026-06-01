@@ -13,6 +13,9 @@ void main() {
       whatHappened: '주요 기업의 실적 전망이 상향됐다.',
       context: 'AI 서버 투자 확대가 수요를 견인했다.',
       implication: '관련 공급망 기업의 변동성이 확대될 수 있다.',
+      isHeadline: true,
+      clusterCount: 3,
+      issueKeyword: '삼성전자 HBM',
     );
 
     await tester.pumpWidget(
@@ -24,6 +27,9 @@ void main() {
     );
 
     expect(find.text('반도체'), findsOneWidget);
+    expect(find.text('주요'), findsOneWidget);
+    expect(find.text('🔥 핫이슈 (3곳 보도)'), findsOneWidget);
+    expect(find.text('삼성전자 HBM'), findsOneWidget);
     expect(find.text('반도체 업종 실적 개선 기대가 커지고 있다'), findsOneWidget);
     expect(find.text('주요 기업의 실적 전망이 상향됐다.'), findsNothing);
   });

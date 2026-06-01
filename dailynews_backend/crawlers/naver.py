@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from urllib.parse import parse_qs, urlparse
+
 from bs4 import BeautifulSoup
 
 from dailynews_backend.crawlers.base import BaseCrawler
@@ -14,17 +16,23 @@ class NaverFinanceCrawler(BaseCrawler):
         "https://finance.naver.com/news/news_list.naver?mode=LSS2D&section_id=101&section_id2=258",
     )
 
-    def parse_list(self, soup: BeautifulSoup) -> list[RawArticle]:
+    def parse_list(self, soup: BeautifulSoup, list_url: str | None = None) -> list[RawArticle]:
         articles: list[RawArticle] = []
         for anchor in soup.select("dd.articleSubject a, li.newsList.top a, ul.newsList a"):
             title = self.clean_text(anchor.get_text(" ", strip=True))
             href = anchor.get("href")
             if title and href:
+                article_index = len(articles)
                 articles.append(
                     RawArticle(
                         title=title,
                         url=self.absolute_url(href),
                         source=self.source_name,
+                        is_headline=self.is_headline_anchor(
+                            anchor,
+                            list_url,
+                            article_index,
+                        ),
                     )
                 )
         return articles
@@ -53,7 +61,16 @@ class NaverFinanceCrawler(BaseCrawler):
             source=self.parse_source(soup) or article.source,
             published_at=article.published_at or self.parse_published_at(soup),
             content=self.parse_content(soup),
+            is_headline=article.is_headline,
+            cluster_count=article.cluster_count,
+            issue_keyword=article.issue_keyword,
         )
+
+    def is_headline_list_url(self, url: str) -> bool:
+        if "mainnews.naver" not in url:
+            return False
+        page = parse_qs(urlparse(url).query).get("page", ["1"])[0]
+        return page == "1"
 
     def parse_published_at(self, soup: BeautifulSoup) -> str | None:
         node = soup.select_one(

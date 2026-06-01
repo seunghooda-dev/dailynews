@@ -8,6 +8,9 @@ const sampleDailyNews = DailyNewsDocument(
       sector: '반도체',
       source: '네이버페이 증권',
       publishedAt: '2026.05.31 19:40',
+      isHeadline: true,
+      clusterCount: 4,
+      issueKeyword: '삼성전자 SK하이닉스',
       url:
           'https://finance.naver.com/news/news_read.naver?article_id=0002650314&office_id=016&mode=mainnews&type=&date=2026-05-31&page=1',
       whatHappened:

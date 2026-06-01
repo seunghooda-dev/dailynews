@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Iterable
 
 from dailynews_backend.crawlers import HankyungCrawler, MaeilCrawler, NaverFinanceCrawler
+from dailynews_backend.importance import enrich_article_importance
 from dailynews_backend.models import RawArticle, StructuredArticle
 
 
@@ -32,19 +33,23 @@ def collect_articles(limit: int, target_date: str | None) -> list[RawArticle]:
 
     articles: list[RawArticle] = []
     seen_urls: set[str] = set()
-    for crawler in crawlers:
+    base_limit = max(1, limit // len(crawlers))
+    extra_slots = limit % len(crawlers)
+    for crawler_index, crawler in enumerate(crawlers):
+        crawler_limit = base_limit + (1 if crawler_index < extra_slots else 0)
+        crawler_count = 0
         for list_url in crawler.list_urls:
-            if len(articles) >= limit:
-                return articles
+            if crawler_count >= crawler_limit:
+                break
             try:
                 soup = crawler._get_soup(list_url)
-                candidates = crawler.parse_list(soup)
+                candidates = crawler.parse_list(soup, list_url)
             except Exception as exc:
                 print(f"skip list {list_url}: {exc}")
                 continue
             for candidate in candidates:
-                if len(articles) >= limit:
-                    return articles
+                if crawler_count >= crawler_limit:
+                    break
                 clean_url = candidate.url.split("#", 1)[0]
                 if clean_url in seen_urls:
                     continue
@@ -60,11 +65,12 @@ def collect_articles(limit: int, target_date: str | None) -> list[RawArticle]:
                     and is_target_date(article, target_date)
                 ):
                     articles.append(article)
+                    crawler_count += 1
     return articles
 
 
 def build_snapshot(articles: Iterable[RawArticle], target_date: str) -> dict[str, object]:
-    structured = [structure_locally(article) for article in articles]
+    structured = [structure_locally(article) for article in enrich_article_importance(articles)]
     return {
         "date": target_date,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
@@ -98,6 +104,9 @@ def structure_locally(article: RawArticle) -> StructuredArticle:
         source=article.source,
         published_at=article.published_at,
         collected_at=datetime.now().isoformat(timespec="seconds"),
+        is_headline=article.is_headline,
+        cluster_count=article.cluster_count,
+        issue_keyword=article.issue_keyword,
         sector=sector,
         what_happened=extract_summary(content, 0),
         context=extract_summary(content, 1),

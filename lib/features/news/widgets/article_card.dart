@@ -19,21 +19,31 @@ class ArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = sectorColor(article.sector);
     final theme = Theme.of(context);
+    final hotColor = const Color(0xFFE25555);
+    final borderColor = article.isHotIssue
+        ? hotColor.withValues(alpha: 0.48)
+        : theme.colorScheme.primary.withValues(alpha: 0.34);
 
     return Card(
       margin: EdgeInsets.zero,
-      elevation: selected ? 4 : 1.1,
+      elevation: article.isHotIssue
+          ? 4.5
+          : selected
+          ? 4
+          : 1.1,
       shadowColor: theme.colorScheme.primary.withValues(
-        alpha: selected ? 0.24 : 0.08,
+        alpha: article.isHotIssue
+            ? 0.18
+            : selected
+            ? 0.24
+            : 0.08,
       ),
       clipBehavior: Clip.antiAlias,
       color: selected ? const Color(0xFFF0F7FF) : theme.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: selected
-            ? BorderSide(
-                color: theme.colorScheme.primary.withValues(alpha: 0.34),
-              )
+        side: article.isHotIssue || selected
+            ? BorderSide(color: borderColor)
             : BorderSide.none,
       ),
       child: InkWell(
@@ -47,26 +57,52 @@ class ArticleCard extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(18, 15, 18, 15),
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _SectorChip(label: article.sector, color: color),
-                        const Spacer(),
-                        AnimatedOpacity(
-                          opacity: selected ? 1 : 0,
-                          duration: const Duration(milliseconds: 160),
-                          child: Icon(
-                            Icons.check,
-                            size: 18,
-                            color: theme.colorScheme.primary,
+                        Expanded(
+                          child: Wrap(
+                            spacing: 6,
+                            runSpacing: 4,
+                            children: [
+                              _SectorChip(label: article.sector, color: color),
+                              if (article.isHeadline) const _HeadlineBadge(),
+                            ],
                           ),
                         ),
+                        if (selected) ...[
+                          const SizedBox(width: 8),
+                          Icon(
+                            Icons.check_circle,
+                            size: 18,
+                            color: theme.colorScheme.primary.withValues(
+                              alpha: 0.88,
+                            ),
+                          ),
+                        ],
                       ],
                     ),
-                    const SizedBox(height: 12),
+                    if (article.isHotIssue) ...[
+                      const SizedBox(height: 6),
+                      _HotIssueBadge(count: article.clusterCount),
+                    ],
+                    if (article.isHotIssue && article.issueKeyword != null) ...[
+                      const SizedBox(height: 5),
+                      Text(
+                        article.issueKeyword!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: hotColor,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: 8),
                     Text(
                       article.title,
                       maxLines: 2,
@@ -74,7 +110,7 @@ class ArticleCard extends StatelessWidget {
                       style: theme.textTheme.titleMedium,
                     ),
                     const Spacer(),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 8),
                     Row(
                       children: [
                         Icon(
@@ -184,7 +220,25 @@ class _ArticleDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _SectorChip(label: article.sector, color: color),
+        Wrap(
+          spacing: 8,
+          runSpacing: 6,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            _SectorChip(label: article.sector, color: color),
+            if (article.isHeadline) const _HeadlineBadge(),
+            if (article.isHotIssue) _HotIssueBadge(count: article.clusterCount),
+          ],
+        ),
+        if (article.isHotIssue && article.issueKeyword != null) ...[
+          const SizedBox(height: 14),
+          Text(
+            article.issueKeyword!,
+            style: theme.textTheme.labelLarge?.copyWith(
+              color: const Color(0xFFE25555),
+            ),
+          ),
+        ],
         const SizedBox(height: 16),
         Text(
           article.title,
@@ -307,9 +361,15 @@ class _SectorChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 120),
-      child: Chip(
-        label: Text(
+      child: Container(
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.11),
+          borderRadius: BorderRadius.circular(999),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+        child: Text(
           label,
+          maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: color,
@@ -317,9 +377,58 @@ class _SectorChip extends StatelessWidget {
             fontSize: 12,
           ),
         ),
-        backgroundColor: color.withValues(alpha: 0.11),
-        side: BorderSide.none,
-        visualDensity: VisualDensity.compact,
+      ),
+    );
+  }
+}
+
+class _HeadlineBadge extends StatelessWidget {
+  const _HeadlineBadge();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFEEEE),
+        borderRadius: BorderRadius.circular(999),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+      child: const Text(
+        '주요',
+        style: TextStyle(
+          color: Color(0xFFD63D3D),
+          fontSize: 12,
+          fontWeight: FontWeight.w900,
+          letterSpacing: 0,
+        ),
+      ),
+    );
+  }
+}
+
+class _HotIssueBadge extends StatelessWidget {
+  const _HotIssueBadge({required this.count});
+
+  final int count;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFF1F1),
+        borderRadius: BorderRadius.circular(999),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+      child: Text(
+        '🔥 핫이슈 ($count곳 보도)',
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(
+          color: Color(0xFFE25555),
+          fontSize: 12,
+          fontWeight: FontWeight.w900,
+          letterSpacing: 0,
+        ),
       ),
     );
   }

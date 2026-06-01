@@ -15,17 +15,23 @@ class MaeilCrawler(BaseCrawler):
         "https://stock.mk.co.kr/news/marketCondition",
     )
 
-    def parse_list(self, soup: BeautifulSoup) -> list[RawArticle]:
+    def parse_list(self, soup: BeautifulSoup, list_url: str | None = None) -> list[RawArticle]:
         articles: list[RawArticle] = []
         for anchor in soup.select("a[href*='/news/'], a[href*='stock.mk.co.kr/news']"):
             title = self.clean_text(anchor.get_text(" ", strip=True))
             href = anchor.get("href")
             if len(title) >= 8 and href:
+                article_index = len(articles)
                 articles.append(
                     RawArticle(
                         title=title,
                         url=self.absolute_url(href),
                         source=self.source_name,
+                        is_headline=self.is_headline_anchor(
+                            anchor,
+                            list_url,
+                            article_index,
+                        ),
                     )
                 )
         return articles

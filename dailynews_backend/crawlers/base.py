@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from urllib.parse import urljoin
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from dailynews_backend.models import RawArticle
 
@@ -23,6 +23,24 @@ class BaseCrawler(ABC):
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
     )
+    headline_container_tokens = (
+        "headline",
+        "head-line",
+        "lead",
+        "leading",
+        "major",
+        "highlight",
+        "editor",
+        "pick",
+        "featured",
+        "important",
+        "주요",
+        "헤드라인",
+        "톱",
+        "탑",
+    )
+    headline_list_url_fragments: tuple[str, ...] = ()
+    headline_anchor_limit = 6
 
     def __init__(self, timeout_seconds: int = 20) -> None:
         self.timeout_seconds = timeout_seconds
@@ -33,7 +51,7 @@ class BaseCrawler(ABC):
         seen_urls: set[str] = set()
         for list_url in self.list_urls:
             soup = self._get_soup(list_url)
-            for article in self.parse_list(soup):
+            for article in self.parse_list(soup, list_url):
                 if article.url in seen_urls:
                     continue
                 seen_urls.add(article.url)
@@ -51,6 +69,9 @@ class BaseCrawler(ABC):
             source=article.source,
             published_at=article.published_at or self.parse_published_at(soup),
             content=self.parse_content(soup),
+            is_headline=article.is_headline,
+            cluster_count=article.cluster_count,
+            issue_keyword=article.issue_keyword,
         )
 
     def _get_soup(self, url: str) -> BeautifulSoup:
@@ -82,8 +103,47 @@ class BaseCrawler(ABC):
     def absolute_url(self, href: str) -> str:
         return urljoin(self.base_url, href)
 
+    def is_headline_anchor(
+        self,
+        anchor: Tag,
+        list_url: str | None = None,
+        index: int | None = None,
+    ) -> bool:
+        if (
+            list_url
+            and index is not None
+            and index < self.headline_anchor_limit
+            and self.is_headline_list_url(list_url)
+        ):
+            return True
+
+        current: Tag | None = anchor
+        depth = 0
+        while current is not None and depth < 6:
+            attributes = " ".join(
+                str(value)
+                for value in (
+                    current.get("id", ""),
+                    " ".join(current.get("class", [])),
+                    current.get("role", ""),
+                    current.get("aria-label", ""),
+                    current.get("data-area", ""),
+                    current.get("data-section", ""),
+                )
+                if value
+            ).lower()
+            if any(token in attributes for token in self.headline_container_tokens):
+                return True
+            parent = current.parent
+            current = parent if isinstance(parent, Tag) else None
+            depth += 1
+        return False
+
+    def is_headline_list_url(self, url: str) -> bool:
+        return any(fragment in url for fragment in self.headline_list_url_fragments)
+
     @abstractmethod
-    def parse_list(self, soup: BeautifulSoup) -> list[RawArticle]:
+    def parse_list(self, soup: BeautifulSoup, list_url: str | None = None) -> list[RawArticle]:
         raise NotImplementedError
 
     @abstractmethod

@@ -12,6 +12,9 @@ class RawArticle:
     source: str
     published_at: str | None = None
     content: str | None = None
+    is_headline: bool = False
+    cluster_count: int = 1
+    issue_keyword: str = ""
 
     def to_prompt_payload(self) -> str:
         content = self.content or ""
@@ -35,6 +38,9 @@ class StructuredArticle:
     implication: str
     published_at: str | None = None
     collected_at: str = ""
+    is_headline: bool = False
+    cluster_count: int = 1
+    issue_keyword: str = ""
 
     @classmethod
     def from_raw_and_summary(
@@ -48,6 +54,9 @@ class StructuredArticle:
             source=raw.source,
             published_at=raw.published_at,
             collected_at=datetime.now(timezone.utc).isoformat(),
+            is_headline=raw.is_headline,
+            cluster_count=raw.cluster_count,
+            issue_keyword=raw.issue_keyword,
             sector=str(summary["sector"]),
             what_happened=str(summary["what_happened"]),
             context=str(summary["context"]),

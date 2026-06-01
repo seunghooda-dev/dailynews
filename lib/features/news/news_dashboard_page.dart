@@ -205,7 +205,7 @@ class _SelectableNewsLayout extends StatelessWidget {
               const SizedBox(height: 18),
               for (var index = 0; index < articles.length; index++) ...[
                 SizedBox(
-                  height: 158,
+                  height: 176,
                   child: ArticleCard(
                     article: articles[index],
                     selected: selectedIndex == index,
@@ -239,7 +239,7 @@ class _ArticleGrid extends StatelessWidget {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 304,
-        mainAxisExtent: 158,
+        mainAxisExtent: 176,
         mainAxisSpacing: 20,
         crossAxisSpacing: 20,
       ),
