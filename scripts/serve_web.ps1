@@ -1,5 +1,6 @@
 param(
-  [int]$Port = 5555
+  [int]$Port = 5555,
+  [switch]$Clean
 )
 
 $ErrorActionPreference = "Stop"
@@ -11,6 +12,11 @@ foreach ($connection in $connections) {
   Stop-Process -Id $connection.OwningProcess -Force -ErrorAction SilentlyContinue
 }
 
+if ($Clean) {
+  flutter clean
+}
+
+flutter pub get
 flutter build web --no-web-resources-cdn
 
 $outLog = Join-Path $root "static_web.out.log"

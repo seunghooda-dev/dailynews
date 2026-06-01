@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:url_launcher/link.dart';
 
 import 'package:dailynews/features/news/models/news_article.dart';
 import 'package:dailynews/features/news/widgets/article_card.dart';
@@ -45,6 +46,7 @@ void main() {
 
     expect(find.text('원문 보기'), findsOneWidget);
     expect(find.byIcon(Icons.open_in_new), findsOneWidget);
+    expect(find.byType(Link), findsOneWidget);
   });
 
   test('sectorColor maps major sectors to distinct colors', () {

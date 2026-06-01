@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/link.dart';
 
 import '../models/news_article.dart';
 
@@ -130,53 +130,21 @@ class ArticleDetailPanel extends StatelessWidget {
     final theme = Theme.of(context);
     final color = sectorColor(article.sector);
 
-    final content = SelectionArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _SectorChip(label: article.sector, color: color),
-          const SizedBox(height: 16),
-          Text(
-            article.title,
-            style: theme.textTheme.headlineSmall?.copyWith(
-              fontSize: 27,
-              height: 1.32,
-              letterSpacing: 0,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            [
-              if (article.source != null) article.source,
-              if (article.publishedAt != null) article.publishedAt,
-            ].whereType<String>().join(' · '),
-            style: theme.textTheme.bodySmall,
-          ),
-          const SizedBox(height: 22),
+    final articleContent = SelectionArea(
+      child: _ArticleDetailContent(article: article, color: color),
+    );
+
+    final content = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        articleContent,
+        if (_parseUsableUrl(article.url) case final uri?) ...[
+          const SizedBox(height: 28),
           const Divider(height: 1),
-          _ArticleSection(
-            icon: Icons.lightbulb_outline,
-            title: '핵심 팩트 및 수치',
-            body: article.whatHappened,
-          ),
-          _ArticleSection(
-            icon: Icons.search,
-            title: '시장 배경 분석',
-            body: article.context,
-          ),
-          _ArticleSection(
-            icon: Icons.trending_up,
-            title: '향후 주가 전망',
-            body: article.implication,
-          ),
-          if (_isUsableUrl(article.url)) ...[
-            const SizedBox(height: 28),
-            const Divider(height: 1),
-            const SizedBox(height: 18),
-            _OriginalLinkButton(url: article.url!),
-          ],
+          const SizedBox(height: 18),
+          _OriginalLinkButton(uri: uri),
         ],
-      ),
+      ],
     );
 
     return DecoratedBox(
@@ -204,43 +172,92 @@ class ArticleDetailPanel extends StatelessWidget {
   }
 }
 
-bool _isUsableUrl(String? value) {
+class _ArticleDetailContent extends StatelessWidget {
+  const _ArticleDetailContent({required this.article, required this.color});
+
+  final NewsArticle article;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _SectorChip(label: article.sector, color: color),
+        const SizedBox(height: 16),
+        Text(
+          article.title,
+          style: theme.textTheme.headlineSmall?.copyWith(
+            fontSize: 27,
+            height: 1.32,
+            letterSpacing: 0,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          [
+            if (article.source != null) article.source,
+            if (article.publishedAt != null) article.publishedAt,
+          ].whereType<String>().join(' · '),
+          style: theme.textTheme.bodySmall,
+        ),
+        const SizedBox(height: 22),
+        const Divider(height: 1),
+        _ArticleSection(
+          icon: Icons.lightbulb_outline,
+          title: '핵심 팩트 및 수치',
+          body: article.whatHappened,
+        ),
+        _ArticleSection(
+          icon: Icons.search,
+          title: '시장 배경 분석',
+          body: article.context,
+        ),
+        _ArticleSection(
+          icon: Icons.trending_up,
+          title: '향후 주가 전망',
+          body: article.implication,
+        ),
+      ],
+    );
+  }
+}
+
+Uri? _parseUsableUrl(String? value) {
   if (value == null || value.trim().isEmpty) {
-    return false;
+    return null;
   }
   final uri = Uri.tryParse(value.trim());
-  return uri != null && (uri.scheme == 'http' || uri.scheme == 'https');
+  if (uri == null || (uri.scheme != 'http' && uri.scheme != 'https')) {
+    return null;
+  }
+  return uri;
 }
 
 class _OriginalLinkButton extends StatelessWidget {
-  const _OriginalLinkButton({required this.url});
+  const _OriginalLinkButton({required this.uri});
 
-  final String url;
+  final Uri uri;
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: FilledButton.tonalIcon(
-        style: FilledButton.styleFrom(
-          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-          foregroundColor: Theme.of(context).colorScheme.primary,
+      child: Link(
+        uri: uri,
+        target: LinkTarget.blank,
+        builder: (context, followLink) => FilledButton.tonalIcon(
+          style: FilledButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+            foregroundColor: Theme.of(context).colorScheme.primary,
+          ),
+          onPressed: followLink,
+          icon: const Icon(Icons.open_in_new, size: 18),
+          label: const Text('원문 보기'),
         ),
-        onPressed: () => _openUrl(context),
-        icon: const Icon(Icons.open_in_new, size: 18),
-        label: const Text('원문 보기'),
       ),
     );
-  }
-
-  Future<void> _openUrl(BuildContext context) async {
-    final uri = Uri.parse(url.trim());
-    final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
-    if (!opened && context.mounted) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('원문 링크를 열 수 없습니다')));
-    }
   }
 }
 
