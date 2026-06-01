@@ -42,7 +42,7 @@ Firebase Admin SDK에서 보이는 `client_email` 값만으로는 인증할 수 
 ## Flutter App
 
 앱은 Firestore의 지정 날짜 문서를 읽어 선택형 뉴스 카드와 상세 분석 패널로 렌더링합니다. Firebase 설정이 없으면 로컬 샘플 데이터로 먼저 실행됩니다.
-상단의 `Korea Market` / `World Market` 토글로 한국 경제 뉴스와 Google News/Yahoo Finance 기반 월드 마켓 뉴스를 전환할 수 있습니다.
+상단의 `Korea Market` / `World Market` 토글로 한국 경제 뉴스와 Google News/Yahoo Finance 기반 월드 마켓 뉴스를 전환할 수 있습니다. 월드 마켓 스냅샷은 생성 시점에 기사 제목과 핵심 요약을 한국어로 자동 번역해 저장합니다.
 
 ```bash
 flutter pub get

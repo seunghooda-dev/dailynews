@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import time
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from datetime import datetime
@@ -24,11 +25,78 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"
 )
 
+SECTOR_LABELS = {
+    "AI": "AI",
+    "US Stocks": "미국 주식",
+    "Rates": "금리",
+    "Crypto": "가상자산",
+    "Energy": "에너지",
+    "FX": "외환",
+    "China": "중국",
+    "Europe": "유럽",
+    "Commodities": "원자재",
+    "Global Markets": "글로벌 시장",
+}
+
 
 @dataclass(frozen=True)
 class FeedSource:
     name: str
     url: str
+
+
+class TranslationClient:
+    def __init__(self, enabled: bool = True, timeout_seconds: int = 12) -> None:
+        self.enabled = enabled
+        self.timeout_seconds = timeout_seconds
+        self.session = requests.Session()
+        self.cache: dict[str, str] = {}
+
+    def to_korean(self, text: str) -> str:
+        text = _normalize_text(text)
+        if not text or _contains_hangul(text) or not self.enabled:
+            return text
+        if text in self.cache:
+            return self.cache[text]
+
+        translated = self._request_translation(text)
+        self.cache[text] = translated
+        return translated
+
+    def _request_translation(self, text: str) -> str:
+        last_error: Exception | None = None
+        for attempt in range(3):
+            try:
+                response = self.session.get(
+                    "https://translate.googleapis.com/translate_a/single",
+                    params={
+                        "client": "gtx",
+                        "sl": "en",
+                        "tl": "ko",
+                        "dt": "t",
+                        "q": text,
+                    },
+                    headers={
+                        "User-Agent": USER_AGENT,
+                        "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
+                    },
+                    timeout=self.timeout_seconds,
+                )
+                response.raise_for_status()
+                data = response.json()
+                translated = "".join(
+                    segment[0]
+                    for segment in data[0]
+                    if isinstance(segment, list) and segment and segment[0]
+                )
+                translated = _normalize_text(translated)
+                return translated or text
+            except (requests.RequestException, ValueError, TypeError, IndexError) as exc:
+                last_error = exc
+                if attempt < 2:
+                    time.sleep(0.4 * (attempt + 1))
+        print(f"skip translation: {last_error}")
+        return text
 
 
 def build_feed_sources() -> tuple[FeedSource, ...]:
@@ -121,11 +189,19 @@ def _read_feed(source: FeedSource) -> list[RawArticle]:
     return articles
 
 
-def build_world_snapshot(articles: Iterable[RawArticle], target_date: str) -> dict[str, object]:
+def build_world_snapshot(
+    articles: Iterable[RawArticle],
+    target_date: str,
+    translator: TranslationClient | None = None,
+) -> dict[str, object]:
+    translator = translator or TranslationClient()
     representative_articles = select_representative_articles(
         enrich_article_importance(articles)
     )
-    structured = [structure_world_article(article) for article in representative_articles]
+    structured = [
+        structure_world_article(article, translator)
+        for article in representative_articles
+    ]
     return {
         "date": target_date,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
@@ -133,21 +209,28 @@ def build_world_snapshot(articles: Iterable[RawArticle], target_date: str) -> di
     }
 
 
-def structure_world_article(article: RawArticle) -> StructuredArticle:
+def structure_world_article(
+    article: RawArticle,
+    translator: TranslationClient | None = None,
+) -> StructuredArticle:
+    translator = translator or TranslationClient()
     content = article.content or article.title
-    sector = classify_world_sector(f"{article.title} {content}")
-    what_happened = extract_world_summary(content)
+    sector_key = classify_world_sector_key(f"{article.title} {content}")
+    sector = SECTOR_LABELS[sector_key]
+    title = translator.to_korean(article.title)
+    issue_keyword = translator.to_korean(article.issue_keyword) if article.issue_keyword else ""
+    what_happened = translator.to_korean(extract_world_summary(content))
     context = build_world_context(sector, article.source)
     implication = build_world_implication(sector)
     return StructuredArticle(
-        title=article.title,
+        title=title,
         url=article.url,
         source=article.source,
         published_at=article.published_at,
         collected_at=datetime.now().isoformat(timespec="seconds"),
         is_headline=article.is_headline,
         cluster_count=article.cluster_count,
-        issue_keyword=article.issue_keyword,
+        issue_keyword=issue_keyword,
         related_sources=article.related_sources,
         sector=sector,
         what_happened=what_happened,
@@ -157,6 +240,10 @@ def structure_world_article(article: RawArticle) -> StructuredArticle:
 
 
 def classify_world_sector(text: str) -> str:
+    return SECTOR_LABELS[classify_world_sector_key(text)]
+
+
+def classify_world_sector_key(text: str) -> str:
     normalized = text.lower()
     rules = [
         ("AI", ("ai", "artificial intelligence", "nvidia", "gpu", "semiconductor")),
@@ -248,12 +335,9 @@ def _build_content(
     summary: str,
     published_at: str | None,
 ) -> str:
-    parts = [f"Publisher: {publisher}", f"Title: {title}"]
-    if published_at:
-        parts.append(f"Published: {published_at}")
-    if summary:
-        parts.append(f"Summary: {summary}")
-    return "\n".join(parts)
+    if summary and _normalize_text(summary).lower() != _normalize_text(title).lower():
+        return summary
+    return title
 
 
 def _format_published_at(value: str) -> str | None:
@@ -272,7 +356,11 @@ def _html_to_text(value: str) -> str:
 
 
 def _normalize_text(value: str) -> str:
-    return " ".join(unescape(value).split())
+    return " ".join(unescape(value).replace("\u200b", "").split())
+
+
+def _contains_hangul(value: str) -> bool:
+    return bool(re.search(r"[가-힣]", value))
 
 
 def _strip_source_suffix(title: str, publisher: str) -> str:
@@ -288,6 +376,11 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=80)
     parser.add_argument("--output", default="web/world_news_snapshot.json")
     parser.add_argument(
+        "--no-translate",
+        action="store_true",
+        help="Keep English titles and summaries without machine translation.",
+    )
+    parser.add_argument(
         "--date",
         default=datetime.now().strftime("%Y-%m-%d"),
         help="Snapshot date label. Format: YYYY-MM-DD.",
@@ -295,7 +388,11 @@ def main() -> None:
     args = parser.parse_args()
 
     articles = collect_world_articles(args.limit)
-    snapshot = build_world_snapshot(articles, args.date)
+    snapshot = build_world_snapshot(
+        articles,
+        args.date,
+        TranslationClient(enabled=not args.no_translate),
+    )
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
