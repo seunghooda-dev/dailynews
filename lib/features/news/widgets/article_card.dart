@@ -70,7 +70,6 @@ class ArticleCard extends StatelessWidget {
                             runSpacing: 4,
                             children: [
                               _SectorChip(label: article.sector, color: color),
-                              if (article.isHeadline) const _HeadlineBadge(),
                             ],
                           ),
                         ),
@@ -88,7 +87,7 @@ class ArticleCard extends StatelessWidget {
                     ),
                     if (article.isHotIssue) ...[
                       const SizedBox(height: 6),
-                      _HotIssueBadge(count: article.clusterCount),
+                      _ReportCountBadge(count: article.clusterCount),
                     ],
                     if (article.isHotIssue && article.issueKeyword != null) ...[
                       const SizedBox(height: 5),
@@ -222,8 +221,8 @@ class _ArticleDetailContent extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             _SectorChip(label: article.sector, color: color),
-            if (article.isHeadline) const _HeadlineBadge(),
-            if (article.isHotIssue) _HotIssueBadge(count: article.clusterCount),
+            if (article.isHotIssue)
+              _ReportCountBadge(count: article.clusterCount),
           ],
         ),
         if (article.isHotIssue && article.issueKeyword != null) ...[
@@ -417,32 +416,8 @@ class _IssueKeywordBadge extends StatelessWidget {
   }
 }
 
-class _HeadlineBadge extends StatelessWidget {
-  const _HeadlineBadge();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFFFFEEEE),
-        borderRadius: BorderRadius.circular(999),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-      child: const Text(
-        '주요',
-        style: TextStyle(
-          color: Color(0xFFD63D3D),
-          fontSize: 12,
-          fontWeight: FontWeight.w900,
-          letterSpacing: 0,
-        ),
-      ),
-    );
-  }
-}
-
-class _HotIssueBadge extends StatelessWidget {
-  const _HotIssueBadge({required this.count});
+class _ReportCountBadge extends StatelessWidget {
+  const _ReportCountBadge({required this.count});
 
   final int count;
 
@@ -455,7 +430,7 @@ class _HotIssueBadge extends StatelessWidget {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
       child: Text(
-        '🔥 핫이슈 ($count곳 보도)',
+        '($count곳 보도)',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(

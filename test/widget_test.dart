@@ -29,8 +29,8 @@ void main() {
     );
 
     expect(find.text('반도체'), findsOneWidget);
-    expect(find.text('주요'), findsOneWidget);
-    expect(find.text('🔥 핫이슈 (3곳 보도)'), findsOneWidget);
+    expect(find.text('주요'), findsNothing);
+    expect(find.text('(3곳 보도)'), findsOneWidget);
     expect(find.text('삼성전자 HBM'), findsOneWidget);
     expect(find.text('한국경제 외 2곳'), findsOneWidget);
     expect(find.text('반도체 업종 실적 개선 기대가 커지고 있다'), findsOneWidget);
