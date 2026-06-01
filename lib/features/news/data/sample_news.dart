@@ -11,6 +11,7 @@ const sampleDailyNews = DailyNewsDocument(
       isHeadline: true,
       clusterCount: 4,
       issueKeyword: '삼성전자 SK하이닉스',
+      relatedSources: ['매일경제', '한국경제', '이데일리'],
       url:
           'https://finance.naver.com/news/news_read.naver?article_id=0002650314&office_id=016&mode=mainnews&type=&date=2026-05-31&page=1',
       whatHappened:

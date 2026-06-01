@@ -72,6 +72,7 @@ class BaseCrawler(ABC):
             is_headline=article.is_headline,
             cluster_count=article.cluster_count,
             issue_keyword=article.issue_keyword,
+            related_sources=article.related_sources,
         )
 
     def _get_soup(self, url: str) -> BeautifulSoup:

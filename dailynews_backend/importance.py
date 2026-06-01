@@ -47,6 +47,76 @@ def enrich_article_importance(articles: Iterable[RawArticle]) -> list[RawArticle
         return []
 
     tokens_by_index = [_title_tokens(article.title) for article in article_list]
+    groups = _cluster_indices(article_list, tokens_by_index)
+
+    enriched = list(article_list)
+    for indices in groups:
+        sources = _unique_sources(article_list, indices)
+        if len(indices) >= 2 and len(sources) >= 2:
+            issue_keyword = _issue_keyword([tokens_by_index[index] for index in indices])
+            cluster_count = len(sources)
+            for index in indices:
+                enriched[index] = replace(
+                    enriched[index],
+                    cluster_count=cluster_count,
+                    issue_keyword=issue_keyword,
+                    related_sources=_related_sources(sources, article_list[index].source),
+                )
+        else:
+            for index in indices:
+                enriched[index] = replace(
+                    enriched[index],
+                    cluster_count=1,
+                    issue_keyword="",
+                    related_sources=(),
+                )
+    return enriched
+
+
+def select_representative_articles(articles: Iterable[RawArticle]) -> list[RawArticle]:
+    article_list = list(articles)
+    if not article_list:
+        return []
+
+    tokens_by_index = [_title_tokens(article.title) for article in article_list]
+    representatives: list[tuple[int, RawArticle]] = []
+    for indices in _cluster_indices(article_list, tokens_by_index):
+        sources = _unique_sources(article_list, indices)
+        if len(indices) < 2 or len(sources) < 2:
+            representatives.extend((index, article_list[index]) for index in indices)
+            continue
+
+        representative_index = max(
+            indices,
+            key=lambda index: (
+                len(article_list[index].content or ""),
+                article_list[index].is_headline,
+                -index,
+            ),
+        )
+        representative = article_list[representative_index]
+        representatives.append(
+            (
+                representative_index,
+                replace(
+                    representative,
+                    cluster_count=len(sources),
+                    issue_keyword=representative.issue_keyword
+                    or _issue_keyword([tokens_by_index[index] for index in indices]),
+                    related_sources=_related_sources(sources, representative.source),
+                    is_headline=any(article_list[index].is_headline for index in indices),
+                ),
+            )
+        )
+
+    representatives.sort(key=lambda item: item[0])
+    return [article for _, article in representatives]
+
+
+def _cluster_indices(
+    article_list: list[RawArticle],
+    tokens_by_index: list[set[str]],
+) -> list[list[int]]:
     normalized_titles = [_normalize_title(article.title) for article in article_list]
     parent = list(range(len(article_list)))
 
@@ -75,27 +145,22 @@ def enrich_article_importance(articles: Iterable[RawArticle]) -> list[RawArticle
     groups: dict[int, list[int]] = defaultdict(list)
     for index in range(len(article_list)):
         groups[find(index)].append(index)
+    return list(groups.values())
 
-    enriched = list(article_list)
-    for indices in groups.values():
-        sources = {article_list[index].source for index in indices}
-        if len(indices) >= 3 and len(sources) >= 3:
-            issue_keyword = _issue_keyword([tokens_by_index[index] for index in indices])
-            cluster_count = len(indices)
-            for index in indices:
-                enriched[index] = replace(
-                    enriched[index],
-                    cluster_count=cluster_count,
-                    issue_keyword=issue_keyword,
-                )
-        else:
-            for index in indices:
-                enriched[index] = replace(
-                    enriched[index],
-                    cluster_count=1,
-                    issue_keyword="",
-                )
-    return enriched
+
+def _unique_sources(article_list: list[RawArticle], indices: Iterable[int]) -> tuple[str, ...]:
+    sources: list[str] = []
+    seen: set[str] = set()
+    for index in indices:
+        source = article_list[index].source.strip()
+        if source and source not in seen:
+            seen.add(source)
+            sources.append(source)
+    return tuple(sources)
+
+
+def _related_sources(sources: tuple[str, ...], representative_source: str) -> tuple[str, ...]:
+    return tuple(source for source in sources if source != representative_source)
 
 
 def _normalize_title(title: str) -> str:

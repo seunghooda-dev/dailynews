@@ -92,24 +92,20 @@ class ArticleCard extends StatelessWidget {
                     ],
                     if (article.isHotIssue && article.issueKeyword != null) ...[
                       const SizedBox(height: 5),
-                      Text(
-                        article.issueKeyword!,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: hotColor,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
+                      _IssueKeywordBadge(label: article.issueKeyword!),
                     ],
                     const SizedBox(height: 8),
-                    Text(
-                      article.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.titleMedium,
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          article.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.titleMedium,
+                        ),
+                      ),
                     ),
-                    const Spacer(),
                     const SizedBox(height: 8),
                     Row(
                       children: [
@@ -121,7 +117,7 @@ class ArticleCard extends StatelessWidget {
                         const SizedBox(width: 6),
                         Expanded(
                           child: Text(
-                            article.source ?? '뉴스',
+                            article.sourceSummary,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.labelMedium,
@@ -232,12 +228,7 @@ class _ArticleDetailContent extends StatelessWidget {
         ),
         if (article.isHotIssue && article.issueKeyword != null) ...[
           const SizedBox(height: 14),
-          Text(
-            article.issueKeyword!,
-            style: theme.textTheme.labelLarge?.copyWith(
-              color: const Color(0xFFE25555),
-            ),
-          ),
+          _IssueKeywordBadge(label: article.issueKeyword!, compact: false),
         ],
         const SizedBox(height: 16),
         Text(
@@ -251,11 +242,20 @@ class _ArticleDetailContent extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           [
-            if (article.source != null) article.source,
+            article.sourceSummary,
             if (article.publishedAt != null) article.publishedAt,
           ].whereType<String>().join(' · '),
           style: theme.textTheme.bodySmall,
         ),
+        if (article.relatedSources.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Text(
+            '관련 보도: ${_formatRelatedSources(article.relatedSources)}',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
         const SizedBox(height: 22),
         const Divider(height: 1),
         _ArticleSection(
@@ -382,6 +382,41 @@ class _SectorChip extends StatelessWidget {
   }
 }
 
+class _IssueKeywordBadge extends StatelessWidget {
+  const _IssueKeywordBadge({required this.label, this.compact = true});
+
+  final String label;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: compact ? 168 : 360),
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFFEFF2F5),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: compact ? 7 : 9,
+          vertical: compact ? 4 : 5,
+        ),
+        child: Text(
+          label,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: theme.textTheme.labelSmall?.copyWith(
+            color: const Color(0xFF596675),
+            fontWeight: FontWeight.w800,
+            letterSpacing: 0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _HeadlineBadge extends StatelessWidget {
   const _HeadlineBadge();
 
@@ -432,6 +467,16 @@ class _HotIssueBadge extends StatelessWidget {
       ),
     );
   }
+}
+
+String _formatRelatedSources(List<String> sources) {
+  const previewCount = 4;
+  final preview = sources.take(previewCount).join(', ');
+  final rest = sources.length - previewCount;
+  if (rest <= 0) {
+    return preview;
+  }
+  return '$preview 외 $rest곳';
 }
 
 class _ArticleSection extends StatelessWidget {

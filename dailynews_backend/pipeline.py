@@ -9,7 +9,7 @@ from dailynews_backend.config import PipelineConfig
 from dailynews_backend.crawlers import HankyungCrawler, MaeilCrawler, NaverFinanceCrawler
 from dailynews_backend.filters import ArticleFilter
 from dailynews_backend.firestore_client import FirestoreClient
-from dailynews_backend.importance import enrich_article_importance
+from dailynews_backend.importance import enrich_article_importance, select_representative_articles
 from dailynews_backend.models import StructuredArticle
 
 
@@ -30,7 +30,9 @@ class NewsPipeline:
         for crawler in self.crawlers:
             raw_articles.extend(crawler.crawl(limit=self.config.article_limit_per_source))
 
-        candidates = enrich_article_importance(self.article_filter.apply(raw_articles))
+        candidates = select_representative_articles(
+            enrich_article_importance(self.article_filter.apply(raw_articles))
+        )
         structured_articles: list[StructuredArticle] = []
         for raw_article in candidates:
             summary = self.ai_engine.summarize(raw_article)

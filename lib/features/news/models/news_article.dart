@@ -13,6 +13,7 @@ class NewsArticle {
     this.isHeadline = false,
     this.clusterCount = 1,
     this.issueKeyword,
+    this.relatedSources = const [],
   });
 
   final String title;
@@ -26,11 +27,26 @@ class NewsArticle {
   final bool isHeadline;
   final int clusterCount;
   final String? issueKeyword;
+  final List<String> relatedSources;
 
   bool get isHotIssue => clusterCount >= 3;
+  int get relatedSourceCount => relatedSources.length;
+
+  String get sourceSummary {
+    final primarySource = source?.trim();
+    if (primarySource == null || primarySource.isEmpty) {
+      return relatedSources.isEmpty ? '뉴스' : '${relatedSources.length}곳 보도';
+    }
+    if (relatedSources.isEmpty) {
+      return primarySource;
+    }
+    return '$primarySource 외 ${relatedSources.length}곳';
+  }
 
   factory NewsArticle.fromMap(Map<String, dynamic> map) {
     final rawIssueKeyword = map['issue_keyword'] as String?;
+    final rawRelatedSources =
+        map['related_sources'] as List<dynamic>? ?? const [];
     return NewsArticle(
       title: map['title'] as String? ?? '',
       sector: map['sector'] as String? ?? '기타',
@@ -45,6 +61,11 @@ class NewsArticle {
       issueKeyword: rawIssueKeyword == null || rawIssueKeyword.trim().isEmpty
           ? null
           : rawIssueKeyword.trim(),
+      relatedSources: rawRelatedSources
+          .whereType<String>()
+          .map((source) => source.trim())
+          .where((source) => source.isNotEmpty)
+          .toList(growable: false),
     );
   }
 }

@@ -15,6 +15,7 @@ class RawArticle:
     is_headline: bool = False
     cluster_count: int = 1
     issue_keyword: str = ""
+    related_sources: tuple[str, ...] = ()
 
     def to_prompt_payload(self) -> str:
         content = self.content or ""
@@ -41,6 +42,7 @@ class StructuredArticle:
     is_headline: bool = False
     cluster_count: int = 1
     issue_keyword: str = ""
+    related_sources: tuple[str, ...] = ()
 
     @classmethod
     def from_raw_and_summary(
@@ -57,6 +59,7 @@ class StructuredArticle:
             is_headline=raw.is_headline,
             cluster_count=raw.cluster_count,
             issue_keyword=raw.issue_keyword,
+            related_sources=raw.related_sources,
             sector=str(summary["sector"]),
             what_happened=str(summary["what_happened"]),
             context=str(summary["context"]),
@@ -64,4 +67,6 @@ class StructuredArticle:
         )
 
     def to_firestore_map(self) -> dict[str, Any]:
-        return asdict(self)
+        data = asdict(self)
+        data["related_sources"] = list(self.related_sources)
+        return data

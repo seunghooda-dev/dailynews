@@ -64,6 +64,7 @@ class NaverFinanceCrawler(BaseCrawler):
             is_headline=article.is_headline,
             cluster_count=article.cluster_count,
             issue_keyword=article.issue_keyword,
+            related_sources=article.related_sources,
         )
 
     def is_headline_list_url(self, url: str) -> bool:

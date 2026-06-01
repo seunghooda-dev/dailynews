@@ -1,7 +1,99 @@
 {
   "date": "2026-06-01",
-  "generated_at": "2026-06-01T11:19:59",
+  "generated_at": "2026-06-01T11:37:02",
   "articles": [
+    {
+      "title": "LG, AI·로봇 역량 부각에 순자산가치 역대 최고…삼성전기, AI 부품 '전례 없는 호황'에 목표가 2배↑ [株토피아]",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005528933&office_id=014&mode=mainnews&type=&date=2026-06-01&page=1",
+      "source": "파이낸셜뉴스",
+      "sector": "반도체",
+      "what_happened": "LG, AI·로봇 신사업 역량 부각에 순자산가치 역대 최고 ▶ 키움증권 삼성전기, MLCC·반도체 기판 동시 호황으로 증권가 최고 눈높이 ▶ DB증권 한화시스템, 천궁-Ⅱ 등 방공망 수출 확대로 경쟁사 앞선 이익 성장 기대 ▶ 한국투자증권 LG가 LG전자·LG씨엔에스 등 상장 자회사 주가 상승과 함께 인공지능(AI)·로봇 신사업 역량이 부각되면서 그룹 가치가 재조명받고 있다. /사진=뉴시스 [파이낸셜뉴스] 6월 1일 오전, 주요 증권사 리포트를 정리해드립니다.",
+      "context": "LG는 인공지능(AI)·로봇 신사업 역량이 부각되면서 AI와 로봇 등 순자산가치(NAV)가 역대 최고치를 새로 썼다는 분석이 나왔습니다. 삼성전기는 AI 부품 초호황을 타고 증권가에서 가장 높은 목표가를, 한화시스템은 천궁-Ⅱ 등 방공망 수출 확대를 발판으로 경쟁사보다 빠른 이익 성장이 기대된다는 평가를 받았습니다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "2026.06.01. 오전 11:28",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": true,
+      "cluster_count": 2,
+      "issue_keyword": "삼성전기 2배",
+      "related_sources": [
+        "머니투데이"
+      ]
+    },
+    {
+      "title": "반도체 잔치 속 은행株는 소외",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002650646&office_id=016&mode=mainnews&type=&date=2026-06-01&page=1",
+      "source": "헤럴드경제",
+      "sector": "반도체",
+      "what_happened": "올들어 은행지수 14% 상승에 그쳐 PBR 저평가·금리인상 기대는 여전 자사주 매입·배당확대, 재평가 예고 올해 들어 코스피가 사상 최고치 랠리를 펼치고 있지만, 은행주는 증시에서 소외되고 있다. 증시 호황의 수혜를 직접 입는 증권주로 자금이 대거 몰리면서, 안전자산 성격이 강한 은행주의 투자 매력이 떨어진 탓이다.",
+      "context": "증권업계는 하반기 금리 인상 가능성과 수익성 대비 낮은 밸류에이션, 적극적인 주주 환원 정책 등을 근거로 향후 주가 상승 여력이 높다고 전망한다. 1일 한국거래소가 산출하는 KRX 산업지수에 따르면 은행지수는 올해 들어 지난달 29일까지 14.46% 상승하는 데 그치며, 코스피 상승률(101.13%)을 크게 밑돌았다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "2026.06.01. 오전 11:27",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": true,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "팔천피 시대 전략…“레버리지 투자 경계, 현금 반드시 보유”",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002650636&office_id=016&mode=mainnews&type=&date=2026-06-01&page=1",
+      "source": "헤럴드경제",
+      "sector": "반도체",
+      "what_happened": "인공지능·반도체 중심 재편된 시장 글로벌·국내·방어 자산으로 배분해야 현금비중 유지가 하락장 견뎌낼 무기 목표수익 도달시 기계적 리밸런싱도 [게티이미지뱅크] 코스피가 마침내 8000선을 돌파했다. 불과 1년 전 2600선 부근에서 움직이던 시장이 이제는 ‘팔천피(코스피 지수 8000)’ 시대라는 전혀 새로운 풍경을 만들어내고 있다.",
+      "context": "올해 초 5000선을 넘어선 이후 6000, 7000을 거쳐 단기간에 8000선까지 도달한 상승 속도는 한국 증시 역사에서도 전례가 없다. 시장 어디를 가든 삼성전자와 SK하이닉스 이야기가 끊이지 않는다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "2026.06.01. 오전 11:26",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": true,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "끝나지 않은 동양생명 악몽…유안타證, 1300억 소송 패소에 \"상급심 간다\"",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0000503924&office_id=629&mode=mainnews&type=&date=2026-06-01&page=1",
+      "source": "더팩트",
+      "sector": "금융",
+      "what_happened": "법원 \"구상권은 인정\"…분배금 반환은 불가 ICC 손배 판정부터 국내 소송까지 장기전 유안타증권이 동양생명 매각 과정에서 발생한 육류담보대출 관련 손해배상금 일부를 공동 매도인들에게 돌려받기 위해 제기한 1300억원대 소송에서 1심 패소했다. 유안타증권은 판결문을 검토한 뒤 항소에 나설 방침이다.",
+      "context": "/유안타증권 [더팩트ㅣ박지웅 기자] 유안타증권이 동양생명 매각 과정에서 발생한 손해배상금 일부를 공동 매도인들에게 돌려받기 위해 제기한 1300억원대 소송에서 1심 패소했다. 유안타증권은 판결에 불복해 항소를 검토하고 있어, 10년 넘게 이어진 '육류담보대출' 악몽이 당분간 계속될 전망이다.",
+      "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
+      "published_at": "2026.06.01. 오전 11:23",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": true,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "ESS 수혜주 저가 매수해볼까…삼성SDI, 순매수 1위 [주식 초고수는 지금]",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0004626533&office_id=011&mode=mainnews&type=&date=2026-06-01&page=1",
+      "source": "서울경제",
+      "sector": "반도체",
+      "what_happened": "[미래에셋증권 집계] 2위에 기아, 3위에 LG디스플레이 1일 초고수 미래에셋증권에서 거래하는 고수익 투자자들이 1일 오전 가장 많이 순매수한 종목은 삼성SDI(006400) , 기아(000270) , LG디스플레이(034220) , SK하이닉스 순으로 집계됐다. 이날 미래에셋증권에 따르면 미래에셋증권 주식 거래 고객 중 최근 1개월 동안 투자수익률 상위 1%에 해당하는 ‘주식 초고수’들이 오전 11시까지 가장 많이 사들인 종목은 삼성SDI다.",
+      "context": "삼성SDI의 주가는 이날 오전 11시게 4.80%가량 하락하고 있다. 에너지저장장치(ESS) 수혜가 예상되는 가운데 주가가 하락하자 저가 매수에 나선 것으로 풀이된다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "2026.06.01. 오전 11:22",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "CG인바이츠, 사옥 가압류에 배임성 손배소까지…신사업 성과는 언제",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005365488&office_id=008&mode=mainnews&type=&date=2026-06-01&page=1",
+      "source": "머니투데이",
+      "sector": "AI",
+      "what_happened": "코스닥 상장사 CG인바이츠의 서울 마곡동 사옥이 가압류당했다. 회사에서 물러난 창업주 조중명 전 대표가 회사로부터 합의금을 받지 못했다며 법원에 제기한 가압류가 인용되면서다.",
+      "context": "조 전 대표는 현 경영진이 자신을 상대로 한 배임성 손해배상소송 1심에서 패소하자 반격에 나선 것으로 풀이된다. 현 경영진이 CG인바이츠 인수 후에도 뚜렷한 경영 성과를 내지 못하고 있는 상황에서 양측의 다툼이 결국 소액주주 피해로 이어지고 있다는 지적이 나온다.",
+      "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
+      "published_at": "2026.06.01. 오전 11:06",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
     {
       "title": "삼전 61만·하이닉스 400만원 가나… 증권가서 '여전히 저평가' 말 나온 이유",
       "url": "https://finance.naver.com/news/news_read.naver?article_id=0000933766&office_id=469&mode=mainnews&type=&date=2026-06-01&page=1",
@@ -11,10 +103,11 @@
       "context": "SK증권은 1일 보고서를 통해 삼성전자와 SK하이닉스 목표주가를 각각 61만 원, 400만 원으로 상향 조정했다. 지난달 7일 목표주가를 각각 50만 원, 300만 원으로 올린 지 한 달도 채 되지 않아 다시 눈높이를 대폭 높인 것이다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:56",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "삼전닉스 이어 미국 마이크론도 '1조 달러 클럽'…AI 거품 논란 재점화",
@@ -25,10 +118,11 @@
       "context": "반도체 업종이 뛰어난 성과를 내면서 미 증시 대표 지수인 스탠더드앤드푸어스(S&P) 500 지수는 이란 전쟁에 따른 에너지 공급 불안 속에도 사상 최고치 경신 행진을 이어왔습니다. 반도체 업종 중에서도 메모리 반도체 업종이 유례없는 수요 폭증으로 업종 전반의 강세를 주도했습니다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:54",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "'삼성·LG 급등' 장중 8700도 뚫었다...'도파민 증시'에 나온 경고",
@@ -39,24 +133,11 @@
       "context": "무단 전재 및 재배포, AI학습 이용 금지. /사진=(서울=뉴스1) 이광호 기자 1일 코스피지수가 기관 중심의 매수세에 힘입어 장중에 사상 처음 8700을 넘어섰다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:46",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "\"35만전자 초읽기\" 삼성전자, 시총 첫 2000조 돌파에 '급등'",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0006295184&office_id=018&mode=mainnews&type=&date=2026-06-01&page=1",
-      "source": "이데일리",
-      "sector": "반도체",
-      "what_happened": "삼성전자 8% 급등 [특징주] [이데일리 박순엽 기자] 삼성전자가 장중 8% 넘게 급등하며 보통주 기준 시가총액 2000조원을 처음으로 넘어섰다. 인공지능(AI) 메모리 수요 확대에 따른 반도체 슈퍼사이클 기대가 이어지는 가운데 차세대 고대역폭메모리(HBM) 시장 선점 기대까지 맞물리며 매수세가 몰리는 모습이다.",
-      "context": "1일 엠피닥터에 따르면 삼성전자(005930)는 이날 오전 10시 38분 현재 전 거래일 대비 2만 7000원(8.52%) 오른 34만 4000원에 거래되고 있다. 이 가격 기준 삼성전자의 시가총액은 2011조 1198억원에 달한다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 10:45",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "“61만전자·400만닉스 간다”…SK증권, 목표주가 대폭 상향 [종목Pick]",
@@ -67,10 +148,11 @@
       "context": "한동희 SK증권 연구원은 “삼성전자와 SK하이닉스의 12개월 선행 주당순이익(EPS)에 각각 11배, 10배의 목표 주가수익비율(PER)을 적용했다”고 설명했다. SK증권은 목표주가 상향의 근거로 ▷장기공급계약(LTA) 확대에 따른 수요 가시성 확보 ▷2027년향 고대역폭메모리(HBM) 가격 인상 ▷구조적 업황 강세 장기화를 제시했다 한 연구원은 장기공급계약이 메모리 업황의 변동성을 낮추고 안정적인 성장을 이끌 것으로 전망했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:39",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"300만전기 간다\"…삼성전기 담은 반도체 ETF 수익률 '싹쓸이'",
@@ -81,10 +163,11 @@
       "context": "삼성전자는 각각의 원료인 세라믹(도자기)과 금속(니켈)을 얇게 만드는 재료기술과 간섭 없이 균일하게 층을 쌓을 수 있는 제조 기술에서 세계 최고 수준의 기술을 가지고 있다. 특히 초부가가치 시장인 AI(인공지능) 서버용 제품 시장에서 40%의 점유율로, 일본 무라타와 함께 글로벌 선두권을 형성하고 있다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:37",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "'빚투' 37조 사상최대…삼전·닉스 신용거래 3배↑",
@@ -95,10 +178,11 @@
       "context": "원·달러 환율은 전 거래일 주간거래 종가(1507.9원)보다 0.9원 오른 1508.8원에 출발했다. jini@newsis.com [서울=뉴시스] 박주연 기자 = 신용거래융자 잔고가 사상 최초로 37조원을 돌파했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:29",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "삼성 KODEX ETF, 국내 첫 순자산 200조 돌파…“아시아 1위”",
@@ -109,10 +193,13 @@
       "context": "지난해 10월 15일 순자산 100조원을 돌파한 지 7개월 여 만에 2배 성장한 규모다. KODEX ETF는 국내 1위인 동시에 아시아 1위 ETF운용사(ETFGI 기준, 일본 제외)라는 기념비적인 성과를 달성했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:24",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "cluster_count": 2,
+      "issue_keyword": "kodex 200조",
+      "related_sources": [
+        "서울경제"
+      ]
     },
     {
       "title": "젠슨 황 방한에 LG그룹株 들썩…LG전자 24% 급등 [종목Pick]",
@@ -123,10 +210,16 @@
       "context": "구광모 LG그룹 회장과의 회동 가능성이 부각되면서 인공지능(AI)과 로봇 사업을 중심으로 한 LG그룹의 성장성이 재조명되는 분위기다. 한국거래소에 따르면 이날 오전 9시55분 기준 LG전자는 전 거래일 대비 24.06% 오른 36만3500원에 거래되고 있다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "2026.06.01. 오전 10:20",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
-      "cluster_count": 6,
-      "issue_keyword": "lg전자 lg그룹"
+      "cluster_count": 5,
+      "issue_keyword": "lg전자 24",
+      "related_sources": [
+        "문화일보",
+        "한국경제",
+        "조선일보",
+        "뉴시스"
+      ]
     },
     {
       "title": "'역대급 불장' 반도체 건재…'삼전닉스' 6월에도 고공행진?",
@@ -137,24 +230,11 @@
       "context": "1일 한국거래소에 따르면 코스피는 장 초반 전 거래일보다 1% 넘게 상승하며 장중 8600선을 처음 넘어섰다. 오전 9시 30분 기준 코스피는 8630선 안팎에서 거래되며 또다시 역사적 고점을 경신했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:20",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "삼성 KODEX ETF 순자산 200조 돌파…국내 운용업계 첫 기록",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0004626486&office_id=011&mode=mainnews&type=&date=2026-06-01&page=1",
-      "source": "서울경제",
-      "sector": "반도체",
-      "what_happened": "100조 돌파 이후 226일 만에 2배↑ ETF 시장 점유율 약 40% 차지 5조 원 이상 메가 ETF도 10개 삼성자산운용 삼성자산운용의 상장지수펀드(ETF) 브랜드 ‘KODEX’의 순자산이 200조 원을 넘어섰다. 국내 자산운용업계에서 ETF 순자산이 200조 원을 돌파한 것은 처음이다.",
-      "context": "삼성자산운용은 KODEX ETF 순자산 총액이 지난달 29일 기준 201조 4589억 원을 기록했다고 1일 밝혔다. 지난해 10월 15일 순자산 100조원을 돌파한 이후 226일 만에 두 배 규모로 성장했다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 10:13",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"나홀로 상승률 낮아\" 삼전 레버리지 7개 중 1개 '따로 논다'...왜?",
@@ -165,136 +245,116 @@
       "context": "무단 전재 및 재배포, AI학습 이용 금지. /사진=(서울=뉴스1) 이호윤 기자 삼성전자 단일종목 레버리지 ETF(상장지수펀드) 7개 중 6개가 10%대 상승률을 기록하고 있는 상황에서 'PLUS 삼성전자단일종목레버리지'만 8%대 상승률을 나타내고 있다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:06",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "[속보]‘젠슨 황 효과 이 정도?’ LG전자 또 29.8%↑상한가, 그룹주 일제히 불기둥",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002794761&office_id=021&mode=mainnews&type=&date=2026-06-01&page=1",
-      "source": "문화일보",
-      "sector": "반도체",
-      "what_happened": "젠슨 황 엔비디아 최고경영자가 지난해 10월 방한해 이재용 삼성전자 회장, 정의선 현대차그룹 회장과 회동하고 있다. 공동취재 젠슨 황 엔비디아 최고경영자(CEO)가 곧 방한해 국내 주요 기업 대표들과 회동해 인공지능(AI) 협업을 논할 것이라는 소식이 전해지며 1일 관련 종목들이 전 거래일에 이어 급등하고 있다.",
-      "context": "이날 유가증권시장에서 장초반 LG전자는 급등세를 보이며 상한가(29.86%)인 38만500원을 기록했다. 오는 10시 기준으로는 24.74% 오른 36만5500원에 거래되고 있다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 10:06",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 6,
-      "issue_keyword": "lg전자 lg그룹"
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "‘85만전자’ 파격전망 내놓은 월가…하이닉스엔 “지금도 과하다”",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005687600&office_id=009&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005687600&office_id=009&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "매일경제",
       "sector": "반도체",
       "what_happened": "85만원 도달땐 시총 5000조원 돌파 엔비디아·애플·구글과 ‘세계 톱4’에 마이크론·샌디스크 목표가 대폭상향 하이닉스 230만원…“상승여력 제한” 월가에서 ‘85만전자’ 전망이 나왔다. 1일 금융투자업계와 블룸버그 등에 따르면 미국 투자사 서스퀘하나의 메흐디 호세이니 선임연구원은 지난달 29일 삼성전자에 대해 투자의견 ‘긍정(positive)’과 85만원 목표가를 제시했다.",
       "context": "이 목표가가 실현될 경우 삼성전자는 시가총액 5000조원대 기업으로 올라선다. 현재 엔비디아, 애플, 구글만이 올라 있는 경지다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:06",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "“LG전자가 로봇대장주였어?”…젠슨 황만으론 설명 안되는 상한가행진",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005687594&office_id=009&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005687594&office_id=009&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "매일경제",
       "sector": "반도체",
       "what_happened": "젠슨 황 엔비디아 최고경영자(CEO). [연합뉴스] 엔비디아 최고경영자(CEO) 젠슨 황의 방한 가능성이 부각되면서 LG그룹 계열사들이 이틀 연속 강세를 이어가고 있다.",
       "context": "인공지능(AI) 협력 확대 기대감이 커지면서 LG전자는 장 초반 상한가에 직행했고, 계열사 전반으로 매수세가 확산되는 모습이다. 1일 오전 9시35분 현재 LG전자는 전일 대비 8만1500원(27.82%) 오른 37만4500원에 거래되고 있다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:01",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "‘삼전·닉스’에 마이크론·샌디스크까지…한화운용 ‘글로벌HBM반도체’ ETF 순자산 1조 클럽 입성",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002650509&office_id=016&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002650509&office_id=016&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "헤럴드경제",
       "sector": "반도체",
       "what_happened": "삼전·닉스·마이크론·샌디스크에 약 84% 집중 투자 위상 달라진 ‘메모리 반도체’ … 실적 가시성 높아져 [한화자산운용 제공] [헤럴드경제=정윤희 기자] 한화자산운용은 ‘PLUS 글로벌HBM반도체’ 상장지수펀드(ETF)의 순자산 총액이 1조원을 돌파했다고 1일 밝혔다. 한국거래소에 따르면, 해당 ETF는 지난달 29일 장마감 기준 순자산총액 1조원을 넘어섰다.",
       "context": "이달 초 5000억원 돌파 이후, 약 3주 만에 2배 규모로 불어난 것이다. ‘PLUS 글로벌HBM반도체’ ETF는 마이크론(30.1%), 삼성전자(21.6%), SK하이닉스(28.2%), 샌디스크(4.2%) 등 국내외 메모리 반도체 핵심 기업에 약 84.0% 비중으로 집중 투자한다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 10:00",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"치맥 사진 아닌 주문서 보라\"…2차 깐부회동, 결론은 '삼전닉스'",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0008977097&office_id=421&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0008977097&office_id=421&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "뉴스1",
       "sector": "반도체",
       "what_happened": "하나증권 \"1차 회동 당시 SK하이닉스 22% 급등\" \"진짜 주도주는 '병목' 쥔 기업…결국 메모리 반도체로 귀결\" 젠슨 황 엔비디아 최고경영자(CEO) 가 14일(현지 시간) 중국 베이징 인민대회당에서 열린 도널드 트럼프 미국 대통령 환영식 후 취재진을 향해 손을 흔들고 있다. ⓒ AFP=뉴스1 (서울=뉴스1) 손엄지 기자 = 이번 '2차 깐부회동'의 가장 확실한 수혜주는 여전히 삼성전자(005930)와 SK하이닉스(000660)가 될 것이라는 분석이 나왔다.",
       "context": "인공지능(AI) 생태계 확장으로 다양한 기업이 주목받고 있지만 본질은 '매출'과 '공급망 내 병목 장악력'이기 때문이다. 1일 김두언 하나증권 연구원은 \"젠슨 황 이벤트는 사되, 사진이 아니라 주문서를 사야 한다\"며 이같이 밝혔다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:57",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "대신증권 \"LS, 과도한 급락…목표가 63만원 유지\"",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0000098523&office_id=243&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0000098523&office_id=243&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "이코노미스트",
       "sector": "반도체",
       "what_happened": "[사진 연합뉴스] [이코노미스트 박재우 기자] 대신증권은 1일 LS에 대해 최근 공시 정정 이슈와 전력기기 업종 조정으로 주가가 급락했지만 시장 반응은 과도하다고 평가했다. 인공지능(AI) 데이터센터 확산에 따른 배전설비 수요 증가를 감안하면 중장기 실적 성장세가 이어질 것이라며 투자의견 ‘매수(BUY)’와 목표주가 63만원을 유지했다.",
       "context": "허민호 대신증권 연구원은 \"최근 삼성전자, SK하이닉스로의 수급 쏠림으로 전력기기 업체들의 주가가 급락했다\"며 \"4월 이후 주가 급등에 따른 부담과 국내 전력기기 업체의 밸류에이션 부담 등에 따른 것\"라고 분석했다. 특히 최근 LS의 공시 정정 이슈와 관련해서는 실질적인 펀더멘털 훼손과는 무관하다고 선을 그었다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:57",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "코스피 시총 7000조 시대 열렸다…장중 8600선도 돌파 [투자360]",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002650495&office_id=016&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0002650495&office_id=016&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "헤럴드경제",
       "sector": "반도체",
       "what_happened": "삼성전자 HBM4E 출하·미국 증시 최고치 경신에 강세 LG전자·두산로보틱스 등 로봇주 급등 코스피가 상승 출발해 장중 사상 처음 8600선을 넘어선 1일 서울 중구 하나은행 딜링룸에서 직원이 업무를 보고 있다. [연합] [헤럴드경제=송하준 기자] 코스피 시가총액이 사상 처음으로 7000조원을 돌파했다.",
       "context": "지수도 장중 8600선을 넘어서며 또 한 번 역사를 썼다. 1일 한국거래소에 따르면 오전 9시36분 기준 코스피 시가총액은 7036조929억원으로 집계됐다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:51",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "‘착시’ 빠진 증시… 반도체 빼면 코스피 4100선 불과",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0003979563&office_id=023&mode=mainnews&type=&date=2026-06-01&page=1",
+      "url": "https://finance.naver.com/news/news_read.naver?article_id=0003979563&office_id=023&mode=mainnews&type=&date=2026-06-01&page=2",
       "source": "조선일보",
       "sector": "반도체",
       "what_happened": "“나머지는 살 주식이 없다” 코스피가 장중 첫 8600선을 돌파한 1일 오전 서울 중구 하나은행 본점 딜링룸 현황판에 전장대비 176.32포인트(2.08%) 상승한 8,652.47을 나타내고 있다./뉴스1 1일 코스피가 8600을 넘는 등 연일 급등세를 보이고 있지만, 삼성전자와 SK하이닉스 등 반도체 업종을 제외한 실질적인 코스피 지수는 4100~4200선에 불과하다는 분석이 제기됐다. 증시 상승 이면에는 철저한 반도체 쏠림 현상이 자리 잡고 있어, 다른 업체들의 주가 부진은 올해 더 심해지는 등 시장 내 양극화가 뚜렷해지고 있다는 것이다.",
       "context": "유진투자증권 허재환 연구원이 작성한 ‘반도체 거인의 그림자’ 보고서에 따르면, 올해 반도체 시가총액 비중은 지난해 6월 25% 수준에서 54.6%까지 급증했다. 올해 코스피 전체 영업이익에서 반도체가 차지하는 비중은 60% 후반에서 70%대까지 확대될 것으로 추정된다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:48",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "삼전·SK하닉 제외하면 코스피 반토막…“박탈감 더 심해졌다”",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0003029439&office_id=029&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "디지털타임스",
-      "sector": "반도체",
-      "what_happened": "코스피가 상승 출발해 장중 사상 처음 8,600선을 넘어선 1일 서울 중구 하나은행 딜링룸에서 직원이 업무를 보고 있다. [연합뉴스] 코스피가 반도체를 제외하면 4100~4200선에 그친다는 분석이 나왔다.",
-      "context": "지난해 이후 반도체를 제외한 다른 업종의 주가 부진이 심해지고 있다는 지적이다. 허재환 유진투자증권 연구원은 1일 보고서에서 “삼성전자, 마이크론, SK하이닉스 메모리 3사 시가총액은 모두 1조달러를 넘어섰다”며 “메모리 반도체 업체들의 주가가 4월 이후 급등했지만 12개월 예상 이익 대비 주가수익비율(PER)은 여전히 6~10배 정도로 반도체 업종 자체에 대한 투자 매력은 높다”고 밝혔다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 9:43",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "①\"활황일 땐 인덱스…변동성 이기는 적립식 투자해야\"[퇴직연금 투자전략]",
@@ -305,24 +365,11 @@
       "context": "하지만 가파른 성장에 비해 퇴직연금 가입자들의 수익률은 양극화가 심화되고 있어 퇴직연금 수익률 제고가 시급한 상황이다. 금융감독원과 고용노동부가 발표한 '2025년 우리나라 퇴직연금 투자 백서'에 따르면 퇴직연금 가입자의 절반은 수익률이 연 2%대에 머문 것으로 나타났다.",
       "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
       "published_at": "2026.06.01. 오전 9:40",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "'젠슨 황 회동 기대감' LG 삼형제, 장 초반 급등…LG전자 '上'",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005293452&office_id=015&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "한국경제",
-      "sector": "AI",
-      "what_happened": "사진=연합뉴스 젠슨 황 엔비디아 최고경영자(CEO) 방한 기대감에 LG그룹 주요 계열사 주가가 장 초반 일제히 급등하고 있다. 1일 오전 9시14분 현재 LG전자는 전장 대비 27.99% 오른 37만5000원에 거래되고 있다.",
-      "context": "LG전자는 장 초반 한때 가격제한폭까지 뛰기도 했다. 같은 시각 LG는 20.33% 상승한 17만6400원, LG씨엔에스는 21.70% 오른 13만8500원을 기록 중이다.",
-      "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
-      "published_at": "2026.06.01. 오전 9:38",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 6,
-      "issue_keyword": "lg전자 lg그룹"
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "미래에셋운용, 글로벌 ETF 순자산 400조 돌파…세계 12위",
@@ -333,38 +380,11 @@
       "context": "ETF 리서치 업체 ETFGI에 따르면 해당 수치는 글로벌 ETF 운용사 기준 세계 12위에 달하는 운용자산 규모다. 미래에셋자산운용의 글로벌 ETF AUM은 2024년 말 200조원, 지난해 말 300조원을 돌파했으며 이후 5개월 만에 400조원을 넘어섰다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:32",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "‘사랑해요 LG’ LG전자 27% 폭등, LG그룹주 일제히 급등",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0003979562&office_id=023&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "조선일보",
-      "sector": "반도체",
-      "what_happened": "엔비디아 젠슨 황 CEO 방한 기대감이 주가 자극, LG이노텍, LG, LG씨엔에스 등 나란히 급등 서울 여의도 LG전자 사옥./뉴스1 1일 개장한 국내 증시에서 LG그룹 계열사 주가가 일제히 급등하고 있다. 젠슨 황 엔비디아 최고경영자(CEO)가 한국을 방문해 LG그룹 구광모 회장과 회동할 것으로 예상되는 등 인공지능(AI)과 로봇 등 신사업 성장에 대한 기대감이 커진 데 따른 것으로 분석된다.",
-      "context": "한국거래소에 따르면 이날 오전 LG전자는 전 거래일 대비 27% 폭등한 37만원 선에서 거래되고 있다. 또 LG씨엔에스(CNS)는 24%가량 급등한 14만원대를 기록 중이고, LG(20%), LG이노텍(14%), LG디스플레이(7%), 유플러스(6%) 등이 나란히 급등하는 등 LG그룹 계열사 전반이 초강세를 보이고 있다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 9:31",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 6,
-      "issue_keyword": "lg전자 lg그룹"
-    },
-    {
-      "title": "LG그룹株, 젠슨 황 회동 기대감에 일제히 급등…LG전자 24%↑",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0013978744&office_id=003&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "뉴시스",
-      "sector": "AI",
-      "what_happened": "[다보스=AP/뉴시스] 젠슨 황 엔비디아 최고경영자(CEO)의 다음주 방한이 알려지면서 국내 주요 기업과의 인공지능(AI) 협력 구도에 관심이 쏠린다. 29일 재계와 외신에 따르면 황 CEO는 내달 1~4일 대만 타이베이에서 열리는 'GTC 타이베이 2026' 일정을 마친 직후인 5일 서울에서 최태원 SK그룹 회장, 정의선 현대차그룹 회장, 구광모 LG그룹 회장, 이해진 네이버 창업자(의장) 등과 만날 예정이다.",
-      "context": "사진은 황 CEO가 2026년 1월 21일(현지 시간) 스위스 다보스에서 열린 세계경제포럼(WEF) 연차총회 기간 도널드 트럼프 미국 대통령과 회동한 후의 모습. [서울=뉴시스] 김경택 기자 = LG그룹주가 일제히 강세다.",
-      "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
-      "published_at": "2026.06.01. 오전 9:23",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 6,
-      "issue_keyword": "lg전자 lg그룹"
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"엔비디아 협력 기대\" LG전자 '上' 찍었다…LG그룹주 강세[핫종목]",
@@ -375,10 +395,11 @@
       "context": "이번 주 방한 예정인 젠슨 황 엔비디아 최고경영자(CEO)가 구광모 LG그룹 회장과 공식 회동할 가능성이 거론되면서 피지컬 AI(인공지능)와 로보틱스 협력 기대감이 투자심리를 자극한 것으로 풀이된다. 29일 한국거래소에 따르면 LG전자(066570)는 전일 대비 8만 7500원(29.86%) 오른 38만 500원에 거래 중이다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "2026.06.01. 오전 9:21",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "코스피, 장 초반 1%대 상승…사상 첫 8500선 돌파",
@@ -389,10 +410,11 @@
       "context": "1일 엠피닥터에 따르면 이날 오전 9시 7분 현재 코스피는 전 거래일 대비 100.49포인트(1.19%) 오른 8576.64를 기록하고 있다. 장 초반 한때 8600선을 넘어서기도 했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:18",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "“8000피 코스피, 반도체 제외하면 반토막…양극화 해소 기미 無”",
@@ -403,10 +425,13 @@
       "context": "유진투자증권은 1일 “반도체를 제외한 코스피는 4100∼4200으로 추정된다”며 “2025년 이후 반도체를 제외한 다른 업체들의 주가 부진은 올해 더 심해지고 있다”고 짚었다. 허재환 연구원은 이날 보고서에서 “삼성전자, 마이크론, SK하이닉스 메모리 3사 시가총액은 모두 1조달러를 넘어섰다”면서 “메모리 반도체 업체들의 주가가 4월 이후 급등했지만 12개월 예상 이익 대비 주가수익비율(PER)은 여전히 6∼10배 정도로 반도체 업종 자체에 대한 투자 매력은 높고, 주가 상승이 닷컴버블만큼 가파르나 멈출 요인을 찾기 어렵다”고 밝혔다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 9:06",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "cluster_count": 2,
+      "issue_keyword": "제외하면 sk하닉",
+      "related_sources": [
+        "디지털타임스"
+      ]
     },
     {
       "title": "\"역대급 '불장'이라는데 내 주식만 한겨울\"…이유 있었네",
@@ -417,10 +442,11 @@
       "context": "\"반도체 빼면 4100~4200선\" 1일 허재환 유진투자증권 연구원은 '반도체 거인의 그림자' 보고서에서 \"반도체를 제외한 코스피는 4100~4200선으로 추정된다\"고 밝혔다. 허 연구원은 \"2025년 이후 반도체를 제외한 다른 업체들의 주가 부진은 올해 더 심해지고 있다\"고 분석했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01. 오전 8:58",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "유진증권 \"현대모비스 피지컬 AI 핵심 부품사 성장 기대\"[아침밥]",
@@ -431,139 +457,32 @@
       "context": "/사진=현대모비스 홈페이지 캡쳐 유진투자증권이 현대모비스에 대해 로봇 및 모빌리티 분야에서 핵심 공급사로 부상할 것이라 관측했다. 이에 투자 의견은 매수를 유지하고 목표 주가는 91만원으로 상향했다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "2026.06.01. 오전 8:57",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
-      "title": "\"전례 없는 호황 왔다\" 삼성전기 목표가 160만→300만-DB",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005365339&office_id=008&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "머니투데이",
-      "sector": "반도체",
-      "what_happened": "지난해 9월4일 인천 연수구 송도컨벤시아에서 열린 '제22회 국제 첨단 반도체 기판 및 패키징 산업전'을 찾은 관람객들이 삼성전기 부스에서 반도체 관련 영상을 시청하고 있다. /사진=뉴시스 DB증권이 삼성전기의 목표주가를 기존 160만원에서 300만원으로 2배 가까이 올렸다.",
-      "context": "조현지 DB증권 연구원은 \"FC-BGA(플립칩 볼그리드어레이)와 MLCC(적층세라믹콘덴서) 업체들의 멀티플(수익성 대비 기업가치) 역시 지속 상향하고 있다\"며 \"두 부품 모두 상위급 기술력을 보유하고 있다는 점에서 삼성전기는 대체 불가한 입지를 점유하고 있다\"고 말했다. MLCC는 전자제품의 회로에 전류가 일정하게 흐르도록 제어하고, FC-BGA는 고성능 반도체 칩을 PCB(인쇄회로기판)에 연결하는 제품으로 모두 AI(인공지능) 서버 확충에 필수적이다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:54",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "“반도체 빼면 코스피 4100포인트”…쏠림 현상 심화 [이런국장 저런주식]",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0004626408&office_id=011&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "서울경제",
-      "sector": "반도체",
-      "what_happened": "업종간 양극화 뚜렷 29일 서울 중구 하나은행 본점 딜링룸 전광판에 코스피가 표시돼 있다. 연합뉴스 유진투자증권이 1일 “반도체를 제외한 코스피는 4100∼4200포인트로 추정된다”며 “2025년 이후 반도체를 제외한 다른 업체들의 주가 부진은 올해 더 심해지고 있다”고 지적했다.",
-      "context": "허재환 연구원은 이날 보고서를 통해 “삼성전자, 마이크론, SK하이닉스 메모리 3사 시가총액은 모두 1조 달러를 넘어섰다”면서 “메모리 반도체 업체들의 주가가 4월 이후 급등했지만 12개월 예상 이익 대비 주가수익비율(PER)은 여전히 6∼10배 정도로 반도체 업종 자체에 대한 투자 매력은 높다”고 밝혔다. 허 연구원은 “반도체 주가 상승은 닷컴버블만큼 가파르나 멈출 요인을 찾기 어렵다”면서 “올해 반도체 영업이익이 코스피 영업이익에서 차지하는 비중은 60%대 후반대에 이를 것으로 추정된다”고 분석했다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:51",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "8천피인데 내 주식은 왜...\"반도체 빼면 4천피\"",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005528792&office_id=014&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "파이낸셜뉴스",
-      "sector": "반도체",
-      "what_happened": "챗GPT가 제작한 가상 이미지 [파이낸셜뉴스] \"코스피가 8000인데 내가 갖고 있는 주식은 오르지 않았어요.\" 많은 투자자들이 하는 이야기다. 증권가에서도 반도체를 제외하면 코스피지수는 4000대에 머물고 있다는 지적이 나왔다.",
-      "context": "허재환 유진투자증권 연구원은 1일 \"반도체를 제외한 코스피는 4100∼4,200으로 추정된다\"라며 \"2025년 이후 반도체를 제외한 다른 업체들의 주가 부진은 올해 더 심해지고 있다\"고 지적했다. 허 연구원은 이날 보고서에서 \"삼성전자, 마이크론, SK하이닉스 메모리 3사 시가총액은 모두 1조달러를 넘어섰다\"면서 \"메모리 반도체 업체들의 주가가 4월 이후 급등했지만 12개월 예상 이익 대비 주가수익비율(PER)은 여전히 6∼10배 정도로 반도체 업종 자체에 대한 투자 매력은 높다\"고 밝혔다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:49",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "키움 \"LG AI·로봇사업 드디어 부각…목표가 20만원\"[아침밥]",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0001145561&office_id=417&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "동행미디어 시대",
-      "sector": "AI",
-      "what_happened": "[편집자주] 동행미디어 시대 증권전문기자들이 매일 아침 쏟아지는 증권사 리포트 중에서 가장 알찬 리포트의 핵심을 요약해 제공하는 '아침밥'을 통해 든든하게 성공투자를 시작하세요. 키움증권이 LG의 목표주가를 20만원으로 상향 제시했다.",
-      "context": "/사진=뉴시스 키움증권이 LG그룹 지주사인 LG에 대한 타자의견 매수 유지와 함께 목표주가는 20만원으로 상향 설정했다. LG전자와 LG씨엔에스 등 주요 자회사의 주가 상승으로 NAV(순자산가치)가 최고치를 경신하는 등 AI(인공지능)와 로봇 관련 사업 역량이 부각되고 있다는 판단이다.",
-      "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
-      "published_at": "2026.06.01. 오전 8:46",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "'코스피 고점' 같아 다 팔았는데…\"만이천피 간다\" 파격 전망",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005293398&office_id=015&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "한국경제",
-      "sector": "반도체",
-      "what_happened": "100% 넘게 상승한 코스피 AI·반도체가 랠리 주도 9000선 전망 잇따라 제시 1만선 시나리오도 등장 사진=뉴스1 코스피가 올 들어 가파른 상승세를 이어가면서 증권가의 지수 전망치도 빠르게 높아지고 있다. 국내외 주요 증권사들은 인공지능(AI) 투자 확대와 반도체 이익 전망 상향을 근거로 코스피 9000선 안팎을 제시하고 있다.",
-      "context": "일부 증권사는 1만선을 넘어서는 시나리오까지 내놨다. 100% 넘게 뛴 코스피 1일 한경 인공지능(AI) 기반 투자 정보 플랫폼 에픽AI를 활용해 국내외 주요 증권사들의 코스피 전망치를 종합한 결과 NH투자증권과 골드만삭스는 코스피 목표치를 9000선으로 제시했다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:43",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "두달새 주가 150% 올랐는데 “이제 시작”…‘쏘캠 대장주’에 쏠리는 눈 [오늘 나온 보고서]",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0005687541&office_id=009&mode=mainnews&type=&date=2026-06-01&page=2",
+      "title": "“27년 철옹성 흔들리나 했더니”…삼성전자, 사상 첫 시총 2000조 돌파",
+      "url": "https://www.mk.co.kr/news/stock/12062685",
       "source": "매일경제",
       "sector": "반도체",
-      "what_happened": "SK증권, 티엘비 매출전망 상향 기판산업 구조적 공급부족 전망 SK증권 국내, 해외 할 것 없이 반도체 제조사들의 주가 상승 흐름이 뚜렷하게 나타나고 있는 가운데 반도체 핵심 부품 관련주들도 들썩이고 있다. SK증권은 국내 쏘캠(SOCAMM) 대장주 티엘비의 성장세에 주목했다.",
-      "context": "티엘비 주가는 지난 두달 새 150% 올랐다. SK증권은 1일 발간한 보고서를 통해 티엘비 매출 중 쏘캠, LPCAMM, CXL 등 고부가 신규기판의 비중이 빠르게 확대될 것으로 전망했다.",
+      "what_happened": "삼성전자 9%대 급등, 시가총액 첫 2000조 돌파 AI 슈퍼사이클 수혜 속 ‘반도체 투톱’ 시총 경쟁 격화 “하이닉스 추월은 강세장 막바지 신호” 분석도 사진 확대 서울 삼성전자 서초사옥. [연합뉴스] 삼성전자가 인공지능(AI) 반도체 훈풍을 타고 사상 처음으로 시가총액 2000조원을 돌파하면서 27년째 지켜온 국내 증시 ‘왕좌’를 다시 한번 과시했다.",
+      "context": "최근 SK하이닉스가 시가총액 격차를 빠르게 좁혀왔지만, 삼성전자가 9% 넘게 급등하며 다시 앞서 나간 모습이다. 1일 증권가에 따르면 삼성전자는 이날 오전 장중 9%대 급등세를 기록하며 시가총액 2000조원을 처음 넘어섰다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:41",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "published_at": "입력 : 2026.06.01 11:27",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": true,
+      "cluster_count": 3,
+      "issue_keyword": "2000조 삼성전자",
+      "related_sources": [
+        "헤럴드경제",
+        "이데일리"
+      ]
     },
     {
-      "title": "비트코인, 1억900만원…시총 순위 13위로 밀려",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0013978560&office_id=003&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "뉴시스",
-      "sector": "반도체",
-      "what_happened": "7만4000달러선 붕괴…중동 리스크에 투자심리 위축 [서울=뉴시스] 참고용 이미지. 재판매 및 DB 금지/ 유토이미지 [서울=뉴시스]송혜리 기자 = 비트코인이 1일 1억900만원선에서 거래되며 약보합권 흐름을 이어갔다.",
-      "context": "달러 기준 가격은 7만4000달러선 아래로 밀려났다. 지정학적 불확실성이 다시 부각된 가운데 투자자금이 금과 인공지능(AI)·반도체주식 등으로 이동하고 있다는 분석이 나온다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:37",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "NH아문디운용 'HANARO Fn K-반도체', 순자산 4조 돌파",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0006294978&office_id=018&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "이데일리",
-      "sector": "반도체",
-      "what_happened": "[이데일리 김경은 기자] NH아문디자산운용은 국내 반도체 산업의 핵심 종목에 투자하는 ‘HANARO Fn K-반도체 상장지수펀드(ETF)’의 순자산총액이 4조원을 돌파했다고 1일 밝혔다. 한국거래소에 따르면 지난달 28일 기준 HANARO Fn K-반도체 ETF의 순자산은 4조303억원으로 집계됐다.",
-      "context": "지난 4월 말 2조원, 지난달 중순 3조원을 차례로 넘어선 데 이어 약 2주 만에 규모가 1조원 늘어났다. HANARO Fn K-반도체 ETF는 국내 반도체 산업의 핵심 20종목에 투자하는 상품이다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:37",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "넥스트 주도주 찾아라?…코스피 불장 속 투심 갈팡질팡",
-      "url": "https://finance.naver.com/news/news_read.naver?article_id=0003096426&office_id=119&mode=mainnews&type=&date=2026-06-01&page=2",
-      "source": "데일리안",
-      "sector": "반도체",
-      "what_happened": "삼전닉스 주도 강세…합산 시가총액 비중 50% 돌파 일각선 의존도 심화 우려…대안 투자처 필요성 부각 비반도체 접근법 중요 vs 반도체 중심 주도주 교체매매 코스피가 8000선을 굳힌 가운데 투자자들은 반도체와 함께 증시 상승을 이어갈 차기 주도주를 찾고 있다. [데일리안 = 서진주 기자] 코스피가 8000선에 안착했으나 삼성전자와 SK하이닉스 중심의 강세장으로 ‘반도체 쏠림’이 커지고 있다는 우려가 적지 않다.",
-      "context": "이에 반도체 조정을 대비해 증시 상승을 이어갈 차기 주도주를 찾는 데 분주한 모습이다. 1일 한국거래소에 따르면 올해(1월 2일~5월 29일) 코스피는 101.13%(4214.17→8476.15) 상승했다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01. 오전 8:33",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "‘85만전자’ 파격전망 내놓은 월가…하이닉스엔 “지금도 과하다” 85만원 도달땐 시총 5000조원 돌파 엔비디아·애플·구글과 ‘세계 톱4’에 마이크론·샌디스크 목표가 대폭상향 하이닉스 230만원…“상승여력 제한”월가에서 ‘85만전자’ 전망이 나왔다. 1일 금융투자업계와 블룸버그 등에 따르면 미국 투자사 서스퀘하나의 메흐디 호세이니 선임연구원은 지난달 29일 삼성전자에 대해 투자의견 ‘긍정(positive)’과 85만원",
+      "title": "‘85만전자’ 파격전망 내놓은 월가…하이닉스엔 “지금도 과하다”",
       "url": "https://www.mk.co.kr/news/stock/12062582",
       "source": "매일경제",
       "sector": "반도체",
@@ -571,10 +490,28 @@
       "context": "이 목표가가 실현될 경우 삼성전자는 시가총액 5000조원대 기업으로 올라선다. 현재 엔비디아, 애플, 구글만이 올라 있는 경지다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "입력 : 2026.06.01 10:05",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "코스피, 장중 8800 돌파…사상 최고치 경신",
+      "url": "https://www.mk.co.kr/news/stock/12062640",
+      "source": "매일경제",
+      "sector": "반도체",
+      "what_happened": "사진 확대 1일 서울 중구 하나은행 딜링룸에서 직원이 업무를 보는 모습. 코스피는 이날 장중 8800선을 돌파했다.",
+      "context": "[연합뉴스] 코스피가 1일 장중 상승폭을 키우며 사상 처음 8800대를 돌파했다. 이날 오전 10시 54분 기준 코스피는 전장보다 350.46포인트(4.13%) 오른 8826.61이다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "입력 : 2026.06.01 10:50",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": true,
+      "cluster_count": 2,
+      "issue_keyword": "8800 10",
+      "related_sources": [
+        "한국경제"
+      ]
     },
     {
       "title": "50 넘으면 ‘극단적 공포구간’인데… 코스피 올해 공포지수 평균 53.24",
@@ -585,24 +522,11 @@
       "context": "통상 주가지수와 반대로 움직이는 변동성지수가 강세장에서도 높은 수준을 유지하면서 시장 내부의 불안정성이 커졌다는 분석이 나온다. 31일 한국거래소에 따르면 지난 29일 VKOSPI는 전 거래일보다 3.72% 오른 74.26에 거래를 마쳤다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "입력 : 2026.06.01 07:11",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "[속보] 삼성전자 시총 2000조 첫 돌파…35만전자 향해 진격",
-      "url": "https://www.mk.co.kr/news/business/12062666",
-      "source": "매일경제",
-      "sector": "반도체",
-      "what_happened": "9%대 급등에 보통주 시총 2000조 코스피도 4% 오르며 8850선 돌파 사진 확대 [연합뉴스] 삼성전자가 장중 9% 넘게 급등하며 보통주 기준 시가총액 2000조원을 처음으로 넘어섰다. 1일 삼성전자는 이날 오전 11시 3분 현재 전 거래일 대비 3만원(9.46%) 오른 34만7000원에 거래되고 있다.",
-      "context": "이 가격 기준 삼성전자의 시가총액은 2028조8500억원에 달한다. 삼성전자는 지난달 29일 우선주를 포함한 전체 시가총액 기준으로 2000조원을 넘어선 데 이어 이날 보통주 기준으로도 2000조원을 돌파했다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "입력 : 2026.06.01 11:11",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "젠슨 황 ‘깐부회동’ 기대감 폭발…국내 로봇주도 상승세 [매경 자이앤트]",
@@ -613,24 +537,11 @@
       "context": "LG전자는 장중 38만500원까지 올라가며 역사적 신고가를 기록했다. 젠슨 황 CEO는 오는 5일 방한해 국내 기업들을 만나 피지컬 AI(인공지능) 관련 논의를 진행할 것으로 예상된다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "입력 : 2026.06.01 10:54",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "회원용 달리는 말에 올라타자…LG 그룹 계열사 ‘줍줍’ [주식 초고수는 지금]",
-      "url": "https://www.mk.co.kr/news/stock/12062645",
-      "source": "매일경제",
-      "sector": "반도체",
-      "what_happened": "[수익률 상위 1% 투자자 오전 9시30분 거래동향] 사진 확대 주식 투자 수익률 상위 1% 초고수들은 1일 오전 9시 30분 기준으로 삼성SDI, LG디스플레이, 포스코홀딩스, SK하이닉스, LG에너지솔루션 등을 많이 순매수 한 것으로 나타났다. 그에 반해 초고수들의 순매도가 몰린 종목은 삼성전자, 현대차, LS 일렉트릭, 이수페타시스 등이다.",
-      "context": "이날 미래에셋엠클럽(m.Club)에 따르면 미래에셋증권을 통해 주식을 거래하는 수익률 상위 1% 투자자들은 개장 이후 오전 9시 30분까지 삼성SDI를 가장 많이 사들인 것으로 집계됐다. 삼성 SDI는 최근 ESS(배터리저장장치) 수요 확대 움직임에 따라 2차전지 종목들이 강세를 보이고 있는 만큼 매수가 몰린 것으로 보인다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "입력 : 2026.06.01 10:54",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "[美공시]미션 프로듀스, 칼라보 그로워스(Calavo Growers) 인수 완료… 북미 아보카도 및 신선 농산물 사업 기반 강화",
@@ -641,10 +552,11 @@
       "context": "미션 프로듀스, 칼라보 그로워스(Calavo Growers) 인수 완료… 북미 아보카도 및 신선 농산물 사업 기반 강화 - 미션 프로듀스는 Calavo Growers 인수를 완료하며 신선 농산물 부문의 선도 기업으로서의 입지를 공고히 했습니다. - 이번 합병을 통해 Mission의 수직 통합 네트워크가 강화되고, 조달 및 포장 역량이 개선되며, 조리 식품 시장 진출이 가속화될 것입니다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "입력 : 2026.06.01 08:52",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "[美공시]Elmet Group Co, 2026년 1분기 실적 발표: 견실한 성장과 성공적인 증액 IPO",
@@ -655,10 +567,11 @@
       "context": "Elmet Group Co, 2026년 1분기 실적 발표: 견실한 성장과 성공적인 증액 IPO - Elmet Group Co는 2026 회계연도 1분기 매출이 약 21% 증가했고, 조정 EBITDA는 106% 증가했다고 발표했는데, 이는 매출 총이익률이 250bp 이상 확대된 데 따른 결과입니다. - 회사의 수주 잔고는 52% 증가하여 1억 1,300만 달러라는 사상 최고치를 기록했습니다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "입력 : 2026.06.01 08:52",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "[美공시]버클, 1분기 순이익 4,690만 달러 기록…매출 6.1% 증가",
@@ -669,10 +582,11 @@
       "context": "버클, 1분기 순이익 4,690만 달러 기록…매출 6.1% 증가 - 버클는 2026년 5월 2일로 종료된 회계 분기에 4,690만 달러(주당 0.93달러)의 순이익을 기록했다고 발표했습니다. - 13주간의 해당 회계 분기 순매출은 전년 동기 2억 7,210만 달러 대비 6.1% 증가한 2억 8,870만 달러를 기록했습니다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "입력 : 2026.06.01 08:49",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "회원용 “없으면 호르무즈 못 지나가” … 비트코인이 종전 합의안을 주목하는 이유",
@@ -683,13 +597,14 @@
       "context": "이란과 미국의 갈등이 장기화되는 가운데, 이란이 호르무즈 해협 통행 요금을 받을 계획을 밝혔고 그 결제수단으로 비트코인 활용을 모색하고 있다는 보도가 나왔다. 이후 미국과 이란은 통행료 징수를 놓고 대립을 이어가고 있다.",
       "implication": "위험자산 선호와 거래대금 변화가 관련 플랫폼 기업의 실적 기대를 좌우합니다. 주식시장으로 유동성이 이동하면 단기 모멘텀은 약해질 수 있습니다.",
       "published_at": "입력 : 2026.06.01 04:00",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
-      "title": "2 “삼전닉스 하락하면 전체가 시퍼런 장”…코스피 거래대금 절반 ‘육박’",
+      "title": "3 “삼전닉스 하락하면 전체가 시퍼런 장”…코스피 거래대금 절반 ‘육박’",
       "url": "https://www.mk.co.kr/news/stock/12062417",
       "source": "매일경제",
       "sector": "반도체",
@@ -697,13 +612,14 @@
       "context": "31일 한국거래소에 따르면 삼성전자와 SK하이닉스의 코스피 시가총액 비중은 이날 기준 50.71%로 집계됐다. 지난 27일 처음 50%를 넘어선 뒤 3거래일 연속 코스피 전체 시총의 절반 이상을 차지했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "입력 : 2026.06.01 06:02",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
-      "title": "3 민주, ‘오빠’ 말실수 이어 ‘뽀뽀해’ 논란…정원오 후보 “깊은 책임감” 사과",
+      "title": "4 민주, ‘오빠’ 말실수 이어 ‘뽀뽀해’ 논란…정원오 후보 “깊은 책임감” 사과",
       "url": "https://www.mk.co.kr/news/politics/12062558",
       "source": "매일경제",
       "sector": "시장",
@@ -711,27 +627,14 @@
       "context": "앞서 전날(31일) 서울 양천구 목동 유세 현장에서 정 후보가 안고 있는 아기에게 우 후보가 “뽀뽀 한번” “뽀뽀”라고 말하는 장면이 영상으로 확산되며 파장이 일었다. 국민의힘은 해당 발언이 부적절하다고 맹비난했으며 정청래 민주당 대표가 과거 부산 북갑 지원 유세에서 한 여아에게 “오빠라고 해보라”고 했던 발언까지 재소환하며 공세 수준을 높였다.",
       "implication": "시장 전반의 유동성, 실적 전망, 정책 변수에 따라 관련 종목별 차별화가 나타날 수 있습니다. 기사별 수치와 기업 노출도를 함께 확인해야 합니다.",
       "published_at": "입력 : 2026.06.01 09:44",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
-      "title": "6 회원용 삼전닉스, 이젠 진짜 늦은거죠?”… 가격 보단 ‘칩 사이클’ 알아야",
-      "url": "https://www.mk.co.kr/news/stock/12062266",
-      "source": "매일경제",
-      "sector": "반도체",
-      "what_happened": "사진 확대 반도체 이미지 [게티이미지뱅크] 반도체 초강세장이 계속되고 있습니다. 최근 삼성전자, SK하이닉스 레버리지 ETF(상장지수펀드)까지 출시되면서 시중자금이 국내 반도체 업종으로 더 쏠리고 있습니다.",
-      "context": "기존 반도체 투자자들에겐 엄청난 기회가 찾아온 것이지만, 이제 막 투자를 시작한 분들에겐 지금 반도체에 투자해도 되는지 고민이 많으실 겁니다. 그렇지만 몇 년을 주기로 상승과 하락의 사이클을 그리며 움직여 왔습니다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "입력 : 2026.06.01 05:00",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "7 외국인 2조 팔아도 안 꺾였다…코스피, 사상 첫 8600선 돌파",
+      "title": "6 외국인 2조 팔아도 안 꺾였다…코스피, 사상 첫 8600선 돌파",
       "url": "https://www.mk.co.kr/news/stock/12062580",
       "source": "매일경제",
       "sector": "반도체",
@@ -739,27 +642,59 @@
       "context": "외국인이 2조원에 가까운 매도 물량을 쏟아냈지만, 개인과 기관이 이를 받아내며 지수를 끌어올렸다. 1일 오전 9시45분 현재 코스피는 전일 대비 212.50포인트(2.51%) 오른 8688.65를 가리키고 있다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "입력 : 2026.06.01 10:04",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
-      "title": "[속보] 코스피, 장중 8800 돌파…사상 최고치 경신 코스피가 1일 장중 상승폭을 키우며 사상 처음 8800대를 돌파했다. 이날 오전 10시 54분 기준 코스피는 전장보다 350.46포인트(4.13%) 오른 8826.61이다. 지수는 전장보다 9.52포인트(0.11%) 오른 8485.67로 출발해 직전 거래일(지난달 29일) 기록한 장중·종가 사상 최고치(8476.15)를 재차 경신했다. 이후 상승폭을 키워 28분 전 06.01 2026",
-      "url": "https://www.mk.co.kr/news/stock/12062640",
+      "title": "7 회원용 삼전닉스, 이젠 진짜 늦은거죠?”… 가격 보단 ‘칩 사이클’ 알아야",
+      "url": "https://www.mk.co.kr/news/stock/12062266",
       "source": "매일경제",
       "sector": "반도체",
-      "what_happened": "사진 확대 1일 서울 중구 하나은행 딜링룸에서 직원이 업무를 보는 모습. 코스피는 이날 장중 8800선을 돌파했다.",
-      "context": "[연합뉴스] 코스피가 1일 장중 상승폭을 키우며 사상 처음 8800대를 돌파했다. 이날 오전 10시 54분 기준 코스피는 전장보다 350.46포인트(4.13%) 오른 8826.61이다.",
+      "what_happened": "사진 확대 반도체 이미지 [게티이미지뱅크] 반도체 초강세장이 계속되고 있습니다. 최근 삼성전자, SK하이닉스 레버리지 ETF(상장지수펀드)까지 출시되면서 시중자금이 국내 반도체 업종으로 더 쏠리고 있습니다.",
+      "context": "기존 반도체 투자자들에겐 엄청난 기회가 찾아온 것이지만, 이제 막 투자를 시작한 분들에겐 지금 반도체에 투자해도 되는지 고민이 많으실 겁니다. 그렇지만 몇 년을 주기로 상승과 하락의 사이클을 그리며 움직여 왔습니다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "입력 : 2026.06.01 10:50",
-      "collected_at": "2026-06-01T11:19:59",
+      "published_at": "입력 : 2026.06.01 05:00",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
-      "title": "한국투자증권, 일본 엔화 RP 투자 서비스 출시 한국투자증권은 일본 엔화(JPY)로 단기 투자할 수 있는 환매조건부채권(RP) 상품을 1일부터 판매한다고 밝혔다. 외화 환매조건부채권(RP)은 금융기관이 보유한 채권을 일정 기간이 지난 후 다시 매수하는 조건으로 투자자에게 매도하고, 보유 기간에 따른 약정 금리를 외화로 지급하는 금융상품이다. 외화를 안전하게 굴리면서도 수시 입출금이 가능해 단기 유휴 자금 33분 전 06.01 2026",
+      "title": "9 “LG전자가 로봇대장주였어?”…젠슨 황만으론 설명 안되는 상한가행진",
+      "url": "https://www.mk.co.kr/news/stock/12062574",
+      "source": "매일경제",
+      "sector": "반도체",
+      "what_happened": "사진 확대 젠슨 황 엔비디아 최고경영자(CEO). [연합뉴스] 엔비디아 최고경영자(CEO) 젠슨 황의 방한 가능성이 부각되면서 LG그룹 계열사들이 이틀 연속 강세를 이어가고 있다.",
+      "context": "인공지능(AI) 협력 확대 기대감이 커지면서 LG전자는 장 초반 상한가에 직행했고, 계열사 전반으로 매수세가 확산되는 모습이다. 1일 오전 9시35분 현재 LG전자는 전일 대비 8만1500원(27.82%) 오른 37만4500원에 거래되고 있다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "입력 : 2026.06.01 10:00",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "회원용 달리는 말에 올라타자…LG 그룹 계열사 ‘줍줍’ [주식 초고수는 지금]",
+      "url": "https://www.mk.co.kr/news/stock/12062645",
+      "source": "매일경제",
+      "sector": "반도체",
+      "what_happened": "[수익률 상위 1% 투자자 오전 9시30분 거래동향] 사진 확대 주식 투자 수익률 상위 1% 초고수들은 1일 오전 9시 30분 기준으로 삼성SDI, LG디스플레이, 포스코홀딩스, SK하이닉스, LG에너지솔루션 등을 많이 순매수 한 것으로 나타났다. 그에 반해 초고수들의 순매도가 몰린 종목은 삼성전자, 현대차, LS 일렉트릭, 이수페타시스 등이다.",
+      "context": "이날 미래에셋엠클럽(m.Club)에 따르면 미래에셋증권을 통해 주식을 거래하는 수익률 상위 1% 투자자들은 개장 이후 오전 9시 30분까지 삼성SDI를 가장 많이 사들인 것으로 집계됐다. 삼성 SDI는 최근 ESS(배터리저장장치) 수요 확대 움직임에 따라 2차전지 종목들이 강세를 보이고 있는 만큼 매수가 몰린 것으로 보인다.",
+      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
+      "published_at": "입력 : 2026.06.01 10:54",
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
+      "cluster_count": 1,
+      "issue_keyword": "",
+      "related_sources": []
+    },
+    {
+      "title": "한국투자증권, 일본 엔화 RP 투자 서비스 출시 한국투자증권은 일본 엔화(JPY)로 단기 투자할 수 있는 환매조건부채권(RP) 상품을 1일부터 판매한다고 밝혔다. 외화 환매조건부채권(RP)은 금융기관이 보유한 채권을 일정 기간이 지난 후 다시 매수하는 조건으로 투자자에게 매도하고, 보유 기간에 따른 약정 금리를 외화로 지급하는 금융상품이다. 외화를 안전하게 굴리면서도 수시 입출금이 가능해 단기 유휴 자금 50분 전 06.01 2026",
       "url": "https://www.mk.co.kr/news/stock/12062634",
       "source": "매일경제",
       "sector": "금융",
@@ -767,10 +702,11 @@
       "context": "외화를 안전하게 굴리면서도 수시 입출금이 가능해 단기 유휴 자금을 활용하기에 적합하다. 예컨대 일본 주식을 거래하는 투자자가 보유 주식 매도 후 새로운 투자처를 찾을 때까지 엔화 RP에 투자하며 미투자 예수금에 대한 이자 수익을 얻을 수 있다.",
       "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
       "published_at": "입력 : 2026.06.01 10:45",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "[MK시그널] 아크록 매도신호 포착, 수익률 38.4% 달성 안녕하세요. 미국 주식 핫 이슈 종목을 분석해드리는 AI 기자 ‘MK시그널’입니다. 29일, 아크록(AROC)이 MK시그널에서 매도 신호가 포착돼 수익률 38.46% 달성했습니다. 미드스트림 천연가스 압축 서비스를 제공하는 에너지 인프라 기업으로, 미국 내 천연가스 압축 시장에서 선두적인 위치를 차지하고 있습니다. 고객사들의 천연가스가 파이프라인을 통해 효 1시간 전 06.01 2026",
@@ -781,38 +717,11 @@
       "context": "미드스트림 천연가스 압축 서비스를 제공하는 에너지 인프라 기업으로, 미국 내 천연가스 압축 시장에서 선두적인 위치를 차지하고 있습니다. 고객사들의 천연가스가 파이프라인을 통해 효율적으로 이동할 수 있도록 압축 장비 운영 및 유지보수 서비스를 제공합니다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "입력 : 2026.06.01 10:04",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "“LG전자가 로봇대장주였어?”…젠슨 황만으론 설명 안되는 상한가행진 엔비디아 최고경영자(CEO) 젠슨 황의 방한 가능성이 부각되면서 LG그룹 계열사들이 이틀 연속 강세를 이어가고 있다. 인공지능(AI) 협력 확대 기대감이 커지면서 LG전자는 장 초반 상한가에 직행했고, 계열사 전반으로 매수세가 확산되는 모습이다. 1일 오전 9시35분 현재 LG전자는 전일 대비 8만1500원(27.82%) 오른 37만4500원에 거래되고 있 1시간 전 06.01 2026",
-      "url": "https://www.mk.co.kr/news/stock/12062574",
-      "source": "매일경제",
-      "sector": "반도체",
-      "what_happened": "사진 확대 젠슨 황 엔비디아 최고경영자(CEO). [연합뉴스] 엔비디아 최고경영자(CEO) 젠슨 황의 방한 가능성이 부각되면서 LG그룹 계열사들이 이틀 연속 강세를 이어가고 있다.",
-      "context": "인공지능(AI) 협력 확대 기대감이 커지면서 LG전자는 장 초반 상한가에 직행했고, 계열사 전반으로 매수세가 확산되는 모습이다. 1일 오전 9시35분 현재 LG전자는 전일 대비 8만1500원(27.82%) 오른 37만4500원에 거래되고 있다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "입력 : 2026.06.01 10:00",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "[MK 골든크로스 돌파종목 : NAVER(035420) & 나이스디앤비(130580)] 안녕하세요. 국내 핫 이슈 종목을 분석해드리는 AI 기자 ‘MK시그널’ 입니다. MK시그널이 오늘 분석한 핫 이슈 골든크로스 종목은 NAVER & 나이스디앤비 입니다. - NAVER(035420)은(는) 1999년 설립되어 2002년 코스닥 상장, 2008년 유가증권시장 이전 상장하였고, 2013년 한게임 사업부문을 인적분할함. 국내 1위 인터넷 검색 포털 1시간 전 06.01 2026",
-      "url": "https://www.mk.co.kr/news/stock/12062564",
-      "source": "매일경제",
-      "sector": "AI",
-      "what_happened": "국내 핫 이슈 종목을 분석해드리는 AI 기자 ‘MK시그널’ 입니다. MK시그널이 오늘 분석한 핫 이슈 골든크로스 종목은 NAVER & 나이스디앤비 입니다.",
-      "context": "사진 확대 - NAVER(035420)은(는) 1999년 설립되어 2002년 코스닥 상장, 2008년 유가증권시장 이전 상장하였고, 2013년 한게임 사업부문을 인적분할함. 국내 1위 인터넷 검색 포털 네이버 서비스를 기반으로 광고, 커머스, 핀테크, 콘텐츠, 엔터프라이즈 등 다양한 사업을 진행 중임.",
-      "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
-      "published_at": "입력 : 2026.06.01 09:50",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "거래소 \"6월29일 삼전·SK하닉·현대차·LG엔솔 위클리 옵션 상장\"",
@@ -823,24 +732,11 @@
       "context": "커버드콜 ETF 등 배당형 상품에 대한 수요가 지속됨에도 위클리옵션 관련 상품이 부족해 다양한 ETF 개발에 한계가 있는 실정이라고 거래소는 설명했다. 국내와 달리 해외 시장에선 위클리옵션을 활용한 파생형 ETF가 다양하게 출시돼 있다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 11:16",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "코스피, 8800선 돌파해 최고치 재경신…삼성전자 10% 급등",
-      "url": "https://www.hankyung.com/article/2026060102646",
-      "source": "한국경제",
-      "sector": "반도체",
-      "what_happened": "사진=연합뉴스 코스피지수가 1일 장중 상단을 8800선까지 높였다. 삼성전자 는 장중 10%대 급등하면서 사상 처음으로 보통주 시가총액이 2000조원을 넘어섰다.",
-      "context": "이날 오전 10시55분 현재 코스피지수는 전 거래일보다 355.01포인트(4.19%) 오른 8831.16을 기록 중이다. 이 시각 현재 유가증권시장에서 개인과 기관은 각각 6603억원, 1조7845억원어치를 순매수하고 있다.",
-      "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
-      "published_at": "2026.06.01 11:12",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
-      "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "비에이치아이 \"일본서 1883억원 규모 HRSG 2기 수주\"",
@@ -851,10 +747,11 @@
       "context": "이 발전소는 도쿄 인근 공업단지에 위치해 수도권 전력 수요를 담당하는 발전 거점이라고 회사 측은 설명했다. 이번 수주는 일본 내 노후 LNG 화력발전소를 고효율 복합화력발전으로 전환하는 '리파워링' 시장에서 확보한 성과라고 비에이치아이는 자평했다.",
       "implication": "AI 데이터센터와 전력망 투자는 전력기기, 변압기, ESS, 원전 관련 기업에 구조적 수요를 만들 수 있습니다.",
       "published_at": "2026.06.01 11:03",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "거래소 이사장, WEF 이사회 참석 및 노르웨이 국부펀드 면담 위해 출국",
@@ -865,10 +762,11 @@
       "context": "주요 논의 의제는 해외 디지털 거래 플랫폼을 중심으로 확대 중인 토큰화 주식에 대응하기 위한 정규 거래소의 기술적·법적 표준 선점 전략이다. 또한 금리 수준과 지정학적 리스크 등 정치·경제 이슈에 대응해 성장하고 있는 예측 시장이 전통 거래소 산업에 미치는 영향과 이에 따른 대응 전략도 다룬다.",
       "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
       "published_at": "2026.06.01 10:34",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "하이브랩, 자회사 키스톤마케팅컴퍼니 각자대표로 박정재 CFO 선임",
@@ -879,10 +777,11 @@
       "context": "앞서 키스톤마케팅컴퍼니는 지난 3월 주주총회에서 박 대표를 선임한 후 2개월간 내부 정비 기간을 가졌다. 이번 개편으로 회사는 기존 이기호 대표가 사업 부문을, 박정재 신임 대표가 관리 부문을 맡는다.",
       "implication": "시장 전반의 유동성, 실적 전망, 정책 변수에 따라 관련 종목별 차별화가 나타날 수 있습니다. 기사별 수치와 기업 노출도를 함께 확인해야 합니다.",
       "published_at": "2026.06.01 10:19",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": true,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "한국투자증권, 일본 엔화 RP 판매 개시",
@@ -893,10 +792,11 @@
       "context": "외화를 안전하게 운용하면서도 수시 입출금이 가능해 단기 유휴 자금 활용에 적합하다. 예를 들어 일본 주식 거래 투자자가 보유 주식 매도 후 새로운 투자처를 찾을 때까지 엔화 RP에 투자하면 미투자 예수금에 대한 이자 수익을 얻을 수 있다.",
       "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
       "published_at": "2026.06.01 10:05",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": true,
+      "collected_at": "2026-06-01T11:37:02",
+      "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "강훈식, 캐나다 CPSP 수주전 현지 지원 기대에…한화오션 강세",
@@ -907,10 +807,11 @@
       "context": "캐나다 CPSP 수주 기대감이 커지면서 매수세가 몰린 결과로 풀이된다. 한화오션과 원팀으로 CPSP 수주전에 참여하고 있는 HD현대중공업 도 1.87% 상승하고 있다.",
       "implication": "AI 데이터센터와 전력망 투자는 전력기기, 변압기, ESS, 원전 관련 기업에 구조적 수요를 만들 수 있습니다.",
       "published_at": "2026.06.01 09:42",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "'제2의 깐부회동' 기대감에…로봇株 일제 '불기둥'",
@@ -921,24 +822,11 @@
       "context": "이날 오전 9시20분 현재 로보스타 는 가격제한폭(2만8200원·30.0%)까지 뛴 12만2200원을 기록하고 있다. 이밖에 두산 로보틱스(25.07%) 로보티즈 (20.58%) 엔젤로보틱스 (16.02%) 레인보우로보틱스 (13.82%) 해성에어로보틱스 (12.08%) 휴림로봇 (11.02%) 로보로보 (10.32%) 등 다른 로봇주도 일제히 강세다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 09:37",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
-    },
-    {
-      "title": "'젠슨 황 회동 기대감' LG 삼형제, 장 초반 급등…LG전자 '上'",
-      "url": "https://www.hankyung.com/article/2026060198956",
-      "source": "한국경제",
-      "sector": "AI",
-      "what_happened": "사진=연합뉴스 젠슨 황 엔비디아 최고경영자(CEO) 방한 기대감에 LG 그룹 주요 계열사 주가가 장 초반 일제히 급등하고 있다. 1일 오전 9시14분 현재 LG전자 는 전장 대비 27.99% 오른 37만5000원에 거래되고 있다.",
-      "context": "LG전자는 장 초반 한때 가격제한폭까지 뛰기도 했다. 같은 시각 LG는 20.33% 상승한 17만6400원, LG씨엔에스 는 21.70% 오른 13만8500원을 기록 중이다.",
-      "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
-      "published_at": "2026.06.01 09:37",
-      "collected_at": "2026-06-01T11:19:59",
-      "is_headline": false,
-      "cluster_count": 6,
-      "issue_keyword": "lg전자 lg그룹"
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "코스피, 미·이란 합의 기대 장 초반 8600선 '터치'…시총 7000조",
@@ -949,10 +837,11 @@
       "context": "1일 오전 9시13분 현재 코스피지수는 전 거래일보다 102.43포인트(1.21%) 오른 8578.58을 기록 중이다. 이날 코스피지수는 0.11% 상승 출발한 뒤 상단을 높이면서 장 초반 한때 8623선까지 오르기도 했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 09:35",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"역대급 '불장'이라는데 내 주식만 한겨울\"…이유 있었네",
@@ -963,10 +852,11 @@
       "context": "\"반도체 빼면 4100~4200선\" 1일 허재환 유진투자증권 연구원은 '반도체 거인의 그림자' 보고서에서 \"반도체를 제외한 코스피는 4100~4200선으로 추정된다\"고 밝혔다. 허 연구원은 \"2025년 이후 반도체를 제외한 다른 업체들의 주가 부진은 올해 더 심해지고 있다\"고 분석했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 08:56",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"NC, 1분기 호실적에 AI 사업 기대 커져…목표가↑\"-IBK",
@@ -977,10 +867,11 @@
       "context": "이어 \"최근 전략적으로 인수한 모바일 캐주얼 게임사들의 연결 실적 편입 효과가 더해져 외형과 이익이 모두 폭발적으로 성장했다\"며 \"영업비용은 전년 동기 대비 25.1% 증가했는데, 이는 '리니지 클래식' 흥행에 따른 전사 인센티브 선반영분과 핵심 인력 락인을 위한 직원 대상 자기주식 보상 비용이 반영된 것\"이라고 부연했다. 이와 함께 \"엔씨소프트는 AI 비즈니스의 전문성과 기민성을 높이기 위해 지난해 2월 AI 전문 조직을 성공적으로 물적분할해 독립 자회사 'NC AI'를 공식 출범시켰다\"며 \"여기서는 게임 그래픽 디지털 휴먼 제작, 고해상도 사운드 생성, 실시간 다국어 번역, 디지털 패션 디자인 등을 통합 지원하는 차세대 멀티모달 AI 플랫폼 'VARCO'를 고도화해 운영한다\"고 설명했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 08:46",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"더블유게임즈, AI 활용해 수익성 강화…목표가↑\"-IBK",
@@ -991,10 +882,11 @@
       "context": "더블유게임즈는 올해 1분기 매출 2050억원, 영업이익 685억원을 기록하며 창사 이후 처음으로 분기 매출 2000억원을 넘어섰다. 캐주얼 게임 부문도 처음으로 흑자를 냈다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "2026.06.01 08:43",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "'코스피 고점' 같아 다 팔았는데…\"만이천피 간다\" 파격 전망",
@@ -1005,10 +897,11 @@
       "context": "일부 증권사는 1만선을 넘어서는 시나리오까지 내놨다. 100% 넘게 뛴 코스피 1일 한경 인공지능(AI) 기반 투자 정보 플랫폼 에픽AI를 활용해 국내외 주요 증권사들의 코스피 전망치를 종합한 결과 NH투자증권과 골드만삭스는 코스피 목표치를 9000선으로 제시했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 08:42",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "저렴한 시대와의 작별",
@@ -1019,10 +912,11 @@
       "context": "파이낸셜타임스(FT)는 1일 칼럼에서 미국 30년물 국채금리가 다시 5%를 넘어선 현상에 주목했다. 2023년에는 같은 수준까지 올랐다 하락했지만 이번에는 투자자들이 이를 일시적 현상이 아닌 구조적 변화의 신호로 받아들이고 있다고 봤다.",
       "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
       "published_at": null,
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "한미약품, 美릴리에 1조9000억 소화기질환 신약 기술 수출",
@@ -1033,10 +927,11 @@
       "context": "소네페글루타이드는 한미약품의 장기 지속형 바이오 플랫폼인 랩스커버리(LAPSCOVERY) 기술이 적용된 GLP-2 아날로그 신약 후보물질이다. 장 점막 성장과 기능 회복을 촉진하는 호르몬으로 단장증후군(SBS) 등 희귀 소화기 질환 치료제로 개발되고 있다.",
       "implication": "임상 결과, 기술이전, 실적 가시성이 밸류에이션을 좌우합니다. 개별 이벤트 의존도가 높아 분산 접근이 필요합니다.",
       "published_at": "2026.06.01 08:11",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"한화솔루션, 재무 안전성 위해 유증 꼭 필요…목표가↑\"-유안타",
@@ -1047,10 +942,11 @@
       "context": "황규원 유안타증권 연구원은 “올해 한화솔루션의 이자 발생 차입성 채무는 약 18조9000억원으로, 만기 구조를 살펴보면 올해와 내년에 상환 부담이 증가한다”면서 “하지만 올해 현금이 과부족 상태”라고 지적했다. 이에 한화솔루션은 약 1조7000억원 규모의 유상증자를 진행하고 있다.",
       "implication": "금리와 자본정책 변화가 금융주 밸류에이션에 직접 영향을 줄 수 있습니다. 보험·증권은 인수합병과 시장 거래대금 변화를 함께 봐야 합니다.",
       "published_at": "2026.06.01 07:54",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"에코프로에이치엔, 반도체 팹 증설 수혜주\"-DS",
@@ -1061,10 +957,11 @@
       "context": "이 증권사 안주원 연구원은 \"에코프로에이치엔의 제품들은 반도체 및 디스플레이 제조 공정에서 발생하는 유해가스와 온실가스를 처리한다\"며 \"클린룸 케미컬 필터는 소모품으로 교체 수요가 꾸준히 발생한다\"고 분석했다. 이어 \"반면 온실가스 저감 솔루션은 신규 투자가 일어나야 매출 규모가 커진다\"며 \"현재 국내 전방산업의 투자가 진행되고 있어 올해부터 본격적인 수주 증가가 나타날 것\"이라고 전망했다.",
       "implication": "국내 증시 영향은 삼성전자, SK하이닉스, 장비·소재 공급망으로 집중될 가능성이 큽니다. 단기 쏠림이 강하면 이벤트 이후 변동성 관리가 필요합니다.",
       "published_at": "2026.06.01 07:50",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     },
     {
       "title": "\"LG, 주요 자회사 신사업 수혜 기대…목표가↑\"-키움",
@@ -1075,10 +972,11 @@
       "context": "AI 모델 개발을 담당하는 LG AI 연구원은 LG가 100% 지분을 보유 중인 LG 경영개발원 산하 조직이고, 순수지주회사인 특성상 신사업에 대한 투자를 직접 단행할 가능성이 높다는 점을 이유로 제시했다. 이어 안 연구원은 \"LG AI 연구원이 개발한 AI 모델 '엑사원'은 지난 1월 국정 과제인 독자 AI 파운데이션 모델 프로젝트 1차 평가에서 1위를 기록해 소프트웨어 역량을 입증했다\"며 \"오는 8월 2차 평가가 예정돼 있어 보유하고 있는 AI 모델 개발 역량이 다시금 부각될 것\"이라고 설명했다.",
       "implication": "AI 인프라 투자는 반도체, 서버, 전력장비, 데이터센터 밸류체인에 우호적입니다. 수주와 실적 전환 여부가 주가 지속성을 가릅니다.",
       "published_at": "2026.06.01 07:44",
-      "collected_at": "2026-06-01T11:19:59",
+      "collected_at": "2026-06-01T11:37:02",
       "is_headline": false,
       "cluster_count": 1,
-      "issue_keyword": ""
+      "issue_keyword": "",
+      "related_sources": []
     }
   ]
 }

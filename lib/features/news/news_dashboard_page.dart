@@ -146,7 +146,7 @@ class _SelectableNewsLayout extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(28, 22, 28, 28),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     header,
                     const SizedBox(height: 14),
@@ -270,9 +270,12 @@ class _SectorFilterBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SizedBox(
+      width: double.infinity,
       height: 42,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        clipBehavior: Clip.none,
+        padding: const EdgeInsets.only(right: 18),
         itemCount: filters.length,
         separatorBuilder: (context, index) => const SizedBox(width: 8),
         itemBuilder: (context, index) {
@@ -281,25 +284,58 @@ class _SectorFilterBar extends StatelessWidget {
           final color = filter.sector == _allSectorFilter
               ? theme.colorScheme.primary
               : sectorColor(filter.sector);
-          return ChoiceChip(
+          return _FilterPill(
+            label: '${filter.sector} ${filter.count}',
             selected: selected,
-            showCheckmark: false,
-            label: Text('${filter.sector} ${filter.count}'),
-            onSelected: (_) => onChanged(filter.sector),
-            labelStyle: theme.textTheme.labelMedium?.copyWith(
-              color: selected ? theme.colorScheme.onPrimary : color,
-              fontWeight: FontWeight.w900,
-            ),
-            backgroundColor: theme.colorScheme.surface,
-            selectedColor: selected
-                ? color.withValues(alpha: 0.92)
-                : color.withValues(alpha: 0.11),
-            side: BorderSide.none,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(999),
-            ),
+            color: color,
+            onTap: () => onChanged(filter.sector),
           );
         },
+      ),
+    );
+  }
+}
+
+class _FilterPill extends StatelessWidget {
+  const _FilterPill({
+    required this.label,
+    required this.selected,
+    required this.color,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool selected;
+  final Color color;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final foreground = selected ? theme.colorScheme.onPrimary : color;
+    final background = selected
+        ? color.withValues(alpha: 0.92)
+        : theme.colorScheme.surface;
+
+    return Material(
+      color: background,
+      borderRadius: BorderRadius.circular(999),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(999),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 9),
+          child: Text(
+            label,
+            maxLines: 1,
+            softWrap: false,
+            style: theme.textTheme.labelMedium?.copyWith(
+              color: foreground,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 0,
+            ),
+          ),
+        ),
       ),
     );
   }

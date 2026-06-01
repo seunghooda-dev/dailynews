@@ -35,10 +35,19 @@ class FirestoreClient:
             snapshot = doc_ref.get(transaction=transaction)
             current = snapshot.to_dict() if snapshot.exists else {}
             existing_articles = current.get("articles", [])
-            existing_urls = {item.get("url") for item in existing_articles}
-            merged_articles = existing_articles + [
-                item for item in incoming if item.get("url") not in existing_urls
+            incoming_urls = {item.get("url") for item in incoming}
+            incoming_issue_keywords = {
+                item.get("issue_keyword")
+                for item in incoming
+                if item.get("issue_keyword") and item.get("cluster_count", 1) >= 2
+            }
+            retained_articles = [
+                item
+                for item in existing_articles
+                if item.get("url") not in incoming_urls
+                and item.get("issue_keyword") not in incoming_issue_keywords
             ]
+            merged_articles = retained_articles + incoming
             transaction.set(
                 doc_ref,
                 {
