@@ -32,6 +32,10 @@ final selectedArticleIndexProvider = StateProvider<int>((ref) {
   return 0;
 });
 
+final selectedSectorFilterProvider = StateProvider<String>((ref) {
+  return '전체';
+});
+
 final newsProvider = FutureProvider.autoDispose<DailyNewsDocument>((ref) {
   final targetDate = ref.watch(targetDateProvider);
   final dateId = DateFormat('yyyy-MM-dd').format(targetDate);

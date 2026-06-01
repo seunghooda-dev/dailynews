@@ -5,7 +5,7 @@ import 'package:dailynews/features/news/models/news_article.dart';
 import 'package:dailynews/features/news/widgets/article_card.dart';
 
 void main() {
-  testWidgets('ArticleCard renders collapsed article summary', (tester) async {
+  testWidgets('ArticleCard renders compact article headline', (tester) async {
     const article = NewsArticle(
       title: '반도체 업종 실적 개선 기대가 커지고 있다',
       sector: '반도체',
@@ -24,6 +24,7 @@ void main() {
 
     expect(find.text('반도체'), findsOneWidget);
     expect(find.text('반도체 업종 실적 개선 기대가 커지고 있다'), findsOneWidget);
+    expect(find.text('주요 기업의 실적 전망이 상향됐다.'), findsNothing);
   });
 
   testWidgets('ArticleDetailPanel shows original article link', (tester) async {
@@ -44,5 +45,10 @@ void main() {
 
     expect(find.text('원문 보기'), findsOneWidget);
     expect(find.byIcon(Icons.open_in_new), findsOneWidget);
+  });
+
+  test('sectorColor maps major sectors to distinct colors', () {
+    expect(sectorColor('반도체'), isNot(sectorColor('금융')));
+    expect(sectorColor('금융'), isNot(sectorColor('방산 수출')));
   });
 }

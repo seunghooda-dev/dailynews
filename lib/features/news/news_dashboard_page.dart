@@ -6,6 +6,8 @@ import 'models/news_article.dart';
 import 'widgets/article_card.dart';
 import 'widgets/news_skeleton.dart';
 
+const _allSectorFilter = '전체';
+
 class NewsDashboardPage extends ConsumerWidget {
   const NewsDashboardPage({super.key});
 
@@ -13,6 +15,7 @@ class NewsDashboardPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final newsState = ref.watch(newsProvider);
     final selectedIndex = ref.watch(selectedArticleIndexProvider);
+    final selectedSector = ref.watch(selectedSectorFilterProvider);
     final firebaseEnabled = ref.watch(firebaseEnabledProvider);
 
     return Scaffold(
@@ -47,19 +50,49 @@ class NewsDashboardPage extends ConsumerWidget {
             return const _EmptyView();
           }
 
+          final sectorFilters = _buildSectorFilters(dailyNews.articles);
+          final availableSectors = sectorFilters
+              .map((filter) => filter.sector)
+              .toSet();
+          final effectiveSector = availableSectors.contains(selectedSector)
+              ? selectedSector
+              : _allSectorFilter;
+          final visibleArticles = effectiveSector == _allSectorFilter
+              ? dailyNews.articles
+              : dailyNews.articles
+                    .where((article) => article.sector == effectiveSector)
+                    .toList(growable: false);
+
+          if (visibleArticles.isEmpty) {
+            return _FilteredEmptyView(
+              sectorFilters: sectorFilters,
+              selectedSector: effectiveSector,
+              onFilterChanged: (sector) {
+                ref.read(selectedSectorFilterProvider.notifier).state = sector;
+                ref.read(selectedArticleIndexProvider.notifier).state = 0;
+              },
+            );
+          }
+
           final safeIndex = selectedIndex < 0
               ? 0
-              : selectedIndex >= dailyNews.articles.length
-              ? dailyNews.articles.length - 1
+              : selectedIndex >= visibleArticles.length
+              ? visibleArticles.length - 1
               : selectedIndex;
 
           return _SelectableNewsLayout(
             date: dailyNews.date,
-            articles: dailyNews.articles,
+            articles: visibleArticles,
+            sectorFilters: sectorFilters,
+            selectedSector: effectiveSector,
             selectedIndex: safeIndex,
-            selectedArticle: dailyNews.articles[safeIndex],
+            selectedArticle: visibleArticles[safeIndex],
             usingSampleData: !firebaseEnabled,
             onRefresh: () async => ref.invalidate(newsProvider),
+            onFilterChanged: (sector) {
+              ref.read(selectedSectorFilterProvider.notifier).state = sector;
+              ref.read(selectedArticleIndexProvider.notifier).state = 0;
+            },
             onSelect: (index) {
               ref.read(selectedArticleIndexProvider.notifier).state = index;
             },
@@ -74,19 +107,25 @@ class _SelectableNewsLayout extends StatelessWidget {
   const _SelectableNewsLayout({
     required this.date,
     required this.articles,
+    required this.sectorFilters,
+    required this.selectedSector,
     required this.selectedIndex,
     required this.selectedArticle,
     required this.usingSampleData,
     required this.onRefresh,
+    required this.onFilterChanged,
     required this.onSelect,
   });
 
   final String date;
   final List<NewsArticle> articles;
+  final List<_SectorFilter> sectorFilters;
+  final String selectedSector;
   final int selectedIndex;
   final NewsArticle selectedArticle;
   final bool usingSampleData;
   final Future<void> Function() onRefresh;
+  final ValueChanged<String> onFilterChanged;
   final ValueChanged<int> onSelect;
 
   @override
@@ -110,7 +149,13 @@ class _SelectableNewsLayout extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     header,
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 14),
+                    _SectorFilterBar(
+                      filters: sectorFilters,
+                      selectedSector: selectedSector,
+                      onChanged: onFilterChanged,
+                    ),
+                    const SizedBox(height: 20),
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,10 +196,16 @@ class _SelectableNewsLayout extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(18, 18, 18, 28),
             children: [
               header,
+              const SizedBox(height: 14),
+              _SectorFilterBar(
+                filters: sectorFilters,
+                selectedSector: selectedSector,
+                onChanged: onFilterChanged,
+              ),
               const SizedBox(height: 18),
               for (var index = 0; index < articles.length; index++) ...[
                 SizedBox(
-                  height: 228,
+                  height: 158,
                   child: ArticleCard(
                     article: articles[index],
                     selected: selectedIndex == index,
@@ -188,7 +239,7 @@ class _ArticleGrid extends StatelessWidget {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 304,
-        mainAxisExtent: 228,
+        mainAxisExtent: 158,
         mainAxisSpacing: 20,
         crossAxisSpacing: 20,
       ),
@@ -200,6 +251,56 @@ class _ArticleGrid extends StatelessWidget {
           onTap: () => onSelect(index),
         );
       },
+    );
+  }
+}
+
+class _SectorFilterBar extends StatelessWidget {
+  const _SectorFilterBar({
+    required this.filters,
+    required this.selectedSector,
+    required this.onChanged,
+  });
+
+  final List<_SectorFilter> filters;
+  final String selectedSector;
+  final ValueChanged<String> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return SizedBox(
+      height: 42,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: filters.length,
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
+        itemBuilder: (context, index) {
+          final filter = filters[index];
+          final selected = filter.sector == selectedSector;
+          final color = filter.sector == _allSectorFilter
+              ? theme.colorScheme.primary
+              : sectorColor(filter.sector);
+          return ChoiceChip(
+            selected: selected,
+            showCheckmark: false,
+            label: Text('${filter.sector} ${filter.count}'),
+            onSelected: (_) => onChanged(filter.sector),
+            labelStyle: theme.textTheme.labelMedium?.copyWith(
+              color: selected ? theme.colorScheme.onPrimary : color,
+              fontWeight: FontWeight.w900,
+            ),
+            backgroundColor: theme.colorScheme.surface,
+            selectedColor: selected
+                ? color.withValues(alpha: 0.92)
+                : color.withValues(alpha: 0.11),
+            side: BorderSide.none,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(999),
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -309,6 +410,38 @@ class _Metric extends StatelessWidget {
   }
 }
 
+class _SectorFilter {
+  const _SectorFilter({required this.sector, required this.count});
+
+  final String sector;
+  final int count;
+}
+
+List<_SectorFilter> _buildSectorFilters(List<NewsArticle> articles) {
+  final counts = <String, int>{};
+  for (final article in articles) {
+    final sector = article.sector.trim().isEmpty ? '기타' : article.sector;
+    counts[sector] = (counts[sector] ?? 0) + 1;
+  }
+
+  final filters =
+      counts.entries
+          .map((entry) => _SectorFilter(sector: entry.key, count: entry.value))
+          .toList()
+        ..sort((a, b) {
+          final countCompare = b.count.compareTo(a.count);
+          if (countCompare != 0) {
+            return countCompare;
+          }
+          return a.sector.compareTo(b.sector);
+        });
+
+  return [
+    _SectorFilter(sector: _allSectorFilter, count: articles.length),
+    ...filters,
+  ];
+}
+
 class _ErrorView extends StatelessWidget {
   const _ErrorView({required this.message, required this.onRetry});
 
@@ -343,6 +476,39 @@ class _ErrorView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _FilteredEmptyView extends StatelessWidget {
+  const _FilteredEmptyView({
+    required this.sectorFilters,
+    required this.selectedSector,
+    required this.onFilterChanged,
+  });
+
+  final List<_SectorFilter> sectorFilters;
+  final String selectedSector;
+  final ValueChanged<String> onFilterChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return ListView(
+      padding: const EdgeInsets.all(24),
+      children: [
+        _SectorFilterBar(
+          filters: sectorFilters,
+          selectedSector: selectedSector,
+          onChanged: onFilterChanged,
+        ),
+        const SizedBox(height: 32),
+        Text(
+          '선택한 섹터의 뉴스가 없습니다',
+          textAlign: TextAlign.center,
+          style: theme.textTheme.titleMedium,
+        ),
+      ],
     );
   }
 }

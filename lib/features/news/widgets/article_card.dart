@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,17 +22,19 @@ class ArticleCard extends StatelessWidget {
 
     return Card(
       margin: EdgeInsets.zero,
-      elevation: selected ? 2.5 : 1.2,
+      elevation: selected ? 4 : 1.1,
       shadowColor: theme.colorScheme.primary.withValues(
-        alpha: selected ? 0.18 : 0.10,
+        alpha: selected ? 0.24 : 0.08,
       ),
       clipBehavior: Clip.antiAlias,
-      color: selected
-          ? theme.colorScheme.primaryContainer.withValues(alpha: 0.48)
-          : theme.colorScheme.surface,
+      color: selected ? const Color(0xFFF0F7FF) : theme.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: BorderSide.none,
+        side: selected
+            ? BorderSide(
+                color: theme.colorScheme.primary.withValues(alpha: 0.34),
+              )
+            : BorderSide.none,
       ),
       child: InkWell(
         onTap: onTap,
@@ -72,16 +72,6 @@ class ArticleCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.titleMedium,
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      article.whatHappened,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        height: 1.5,
-                      ),
                     ),
                     const Spacer(),
                     const SizedBox(height: 12),
@@ -146,7 +136,14 @@ class ArticleDetailPanel extends StatelessWidget {
         children: [
           _SectorChip(label: article.sector, color: color),
           const SizedBox(height: 16),
-          Text(article.title, style: theme.textTheme.headlineSmall),
+          Text(
+            article.title,
+            style: theme.textTheme.headlineSmall?.copyWith(
+              fontSize: 27,
+              height: 1.32,
+              letterSpacing: 0,
+            ),
+          ),
           const SizedBox(height: 10),
           Text(
             [
@@ -155,10 +152,6 @@ class ArticleDetailPanel extends StatelessWidget {
             ].whereType<String>().join(' · '),
             style: theme.textTheme.bodySmall,
           ),
-          if (_isUsableUrl(article.url)) ...[
-            const SizedBox(height: 14),
-            _OriginalLinkButton(url: article.url!),
-          ],
           const SizedBox(height: 22),
           const Divider(height: 1),
           _ArticleSection(
@@ -176,6 +169,12 @@ class ArticleDetailPanel extends StatelessWidget {
             title: '향후 주가 전망',
             body: article.implication,
           ),
+          if (_isUsableUrl(article.url)) ...[
+            const SizedBox(height: 28),
+            const Divider(height: 1),
+            const SizedBox(height: 18),
+            _OriginalLinkButton(url: article.url!),
+          ],
         ],
       ),
     );
@@ -246,16 +245,39 @@ class _OriginalLinkButton extends StatelessWidget {
 }
 
 Color sectorColor(String sector) {
-  const colors = [
-    Color(0xFF0077C8),
-    Color(0xFFFFB703),
-    Color(0xFF00A896),
-    Color(0xFFFF7A6B),
-    Color(0xFF7C5CFF),
-    Color(0xFF00B4D8),
-  ];
-  final index = sector.runes.fold<int>(0, (sum, rune) => sum + rune);
-  return colors[index % max(colors.length, 1)];
+  final normalized = sector.toLowerCase();
+  if (_containsAny(normalized, const ['반도체', 'hbm', 'd램', '메모리'])) {
+    return const Color(0xFF0077C8);
+  }
+  if (_containsAny(normalized, const ['금융', '은행', '증권', '보험', '채권'])) {
+    return const Color(0xFF16845B);
+  }
+  if (_containsAny(normalized, const ['방산', '우주', '항공', '수출'])) {
+    return const Color(0xFFB26A00);
+  }
+  if (_containsAny(normalized, const ['금리', '환율', '매크로', 'fed', '연준'])) {
+    return const Color(0xFF6F5BD6);
+  }
+  if (_containsAny(normalized, const ['가상자산', '비트코인', '코인'])) {
+    return const Color(0xFFE06C00);
+  }
+  if (_containsAny(normalized, const ['자동차', '전기차', '배터리'])) {
+    return const Color(0xFF007A7A);
+  }
+  if (_containsAny(normalized, const ['바이오', '제약', '헬스'])) {
+    return const Color(0xFFC24178);
+  }
+  if (_containsAny(normalized, const ['전력', '원전', 'ess', '인프라'])) {
+    return const Color(0xFF07866B);
+  }
+  if (_containsAny(normalized, const ['ai', '인공지능', '데이터센터'])) {
+    return const Color(0xFF4267D6);
+  }
+  return const Color(0xFF3F6F94);
+}
+
+bool _containsAny(String value, List<String> needles) {
+  return needles.any((needle) => value.contains(needle.toLowerCase()));
 }
 
 class _SectorChip extends StatelessWidget {
