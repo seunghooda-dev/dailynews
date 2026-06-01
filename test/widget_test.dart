@@ -59,6 +59,12 @@ void main() {
     );
 
     expect(find.text('원문 보기'), findsOneWidget);
+    expect(find.text('핵심 요약'), findsOneWidget);
+    expect(find.text('핵심 팩트 및 수치'), findsNothing);
+    expect(find.text('시장 배경 분석'), findsNothing);
+    expect(find.textContaining('시장 금리가 상승했다.'), findsOneWidget);
+    expect(find.textContaining('정책 불확실성이 투자 심리에 영향을 줬다.'), findsOneWidget);
+    expect(find.text('향후 주가 전망'), findsOneWidget);
     expect(find.textContaining('2026.06.01 09:03'), findsOneWidget);
     expect(find.byIcon(Icons.open_in_new), findsOneWidget);
     expect(find.byType(Link), findsOneWidget);

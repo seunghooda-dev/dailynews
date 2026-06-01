@@ -36,6 +36,8 @@ class AIEngineTest(unittest.TestCase):
         self.assertIn("sector, what_happened, context, implication", messages)
         self.assertIn("인과관계", messages)
         self.assertIn("원인 -> 전이 경로 -> 시장/종목 결과", messages)
+        self.assertIn("하나의 \"핵심 요약\" 블록", messages)
+        self.assertIn("하나의 완성된 요약문", messages)
         self.assertIn("수혜 또는 타격", messages)
         self.assertIn("12조원", messages)
         self.assertIn("24%", messages)

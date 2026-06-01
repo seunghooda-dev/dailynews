@@ -249,14 +249,9 @@ class _ArticleDetailContent extends StatelessWidget {
         const SizedBox(height: 22),
         const Divider(height: 1),
         _ArticleSection(
-          icon: Icons.lightbulb_outline,
-          title: '핵심 팩트 및 수치',
-          body: article.whatHappened,
-        ),
-        _ArticleSection(
-          icon: Icons.search,
-          title: '시장 배경 분석',
-          body: article.context,
+          icon: Icons.insights_outlined,
+          title: '핵심 요약',
+          body: _buildCoreSummaryBody(article),
         ),
         _ArticleSection(
           icon: Icons.trending_up,
@@ -443,6 +438,14 @@ String _formatRelatedSources(List<String> sources) {
     return preview;
   }
   return '$preview 외 $rest곳';
+}
+
+String _buildCoreSummaryBody(NewsArticle article) {
+  final parts = [
+    article.whatHappened.trim(),
+    article.context.trim(),
+  ].where((part) => part.isNotEmpty).toList();
+  return parts.join('\n\n');
 }
 
 class _ArticleSection extends StatelessWidget {
