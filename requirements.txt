@@ -2,3 +2,6 @@ beautifulsoup4==4.12.3
 firebase-admin==6.5.0
 requests==2.32.3
 python-dotenv==1.0.1
+newspaper3k==0.2.8
+lxml_html_clean==0.4.2
+playwright==1.48.0
