@@ -70,6 +70,8 @@ class ArticleCard extends StatelessWidget {
                             runSpacing: 4,
                             children: [
                               _SectorChip(label: article.sector, color: color),
+                              if (article.isHotIssue)
+                                _ReportCountBadge(count: article.clusterCount),
                             ],
                           ),
                         ),
@@ -85,12 +87,8 @@ class ArticleCard extends StatelessWidget {
                         ],
                       ],
                     ),
-                    if (article.isHotIssue) ...[
-                      const SizedBox(height: 6),
-                      _ReportCountBadge(count: article.clusterCount),
-                    ],
                     if (article.isHotIssue && article.issueKeyword != null) ...[
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 8),
                       _IssueKeywordBadge(label: article.issueKeyword!),
                     ],
                     const SizedBox(height: 8),
