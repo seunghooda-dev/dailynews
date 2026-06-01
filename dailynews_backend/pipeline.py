@@ -35,8 +35,14 @@ class NewsPipeline:
         )
         structured_articles: list[StructuredArticle] = []
         for raw_article in candidates:
-            summary = self.ai_engine.summarize(raw_article)
-            structured_articles.append(StructuredArticle.from_raw_and_summary(raw_article, summary))
+            try:
+                summary = self.ai_engine.summarize(raw_article)
+            except Exception as exc:
+                print(f"skip summary {raw_article.url}: {exc}")
+                continue
+            structured_articles.append(
+                StructuredArticle.from_raw_and_summary(raw_article, summary)
+            )
 
         self.firestore.upsert_daily_articles(structured_articles)
         return len(structured_articles)

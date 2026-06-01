@@ -48,19 +48,28 @@ class NewsRepository {
   final FirebaseFirestore? _firestore;
 
   Future<DailyNewsDocument> fetchByDate(String dateId) async {
-    if (_firestore == null) {
-      final snapshot = await _fetchLocalSnapshot(dateId);
-      if (snapshot != null) {
-        return snapshot;
+    if (_firestore != null) {
+      try {
+        final snapshot = await _firestore
+            .collection('korea_economy_news')
+            .doc(dateId)
+            .get()
+            .timeout(const Duration(seconds: 6));
+        final document = DailyNewsDocument.fromSnapshot(snapshot);
+        if (document.articles.isNotEmpty) {
+          return document;
+        }
+      } catch (_) {
+        // Fall through to the local snapshot so the dashboard remains usable.
       }
-      await Future<void>.delayed(const Duration(milliseconds: 450));
-      return sampleDailyNews;
     }
-    final snapshot = await _firestore
-        .collection('korea_economy_news')
-        .doc(dateId)
-        .get();
-    return DailyNewsDocument.fromSnapshot(snapshot);
+
+    final snapshot = await _fetchLocalSnapshot(dateId);
+    if (snapshot != null && snapshot.articles.isNotEmpty) {
+      return snapshot;
+    }
+    await Future<void>.delayed(const Duration(milliseconds: 450));
+    return sampleDailyNews;
   }
 
   Future<DailyNewsDocument?> _fetchLocalSnapshot(String dateId) async {

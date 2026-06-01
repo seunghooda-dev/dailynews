@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import re
+from urllib.parse import urlparse
+
 from bs4 import BeautifulSoup
 
 from dailynews_backend.crawlers.base import BaseCrawler
@@ -20,7 +23,7 @@ class MaeilCrawler(BaseCrawler):
         for anchor in soup.select("a[href*='/news/'], a[href*='stock.mk.co.kr/news']"):
             title = self.clean_text(anchor.get_text(" ", strip=True))
             href = anchor.get("href")
-            if len(title) >= 8 and href:
+            if len(title) >= 8 and href and self._is_article_href(href):
                 article_index = len(articles)
                 articles.append(
                     RawArticle(
@@ -35,6 +38,10 @@ class MaeilCrawler(BaseCrawler):
                     )
                 )
         return articles
+
+    def _is_article_href(self, href: str) -> bool:
+        path = urlparse(self.absolute_url(href)).path.rstrip("/")
+        return bool(re.search(r"/news/(?:[^/]+/)?\d+$", path))
 
     def parse_content(self, soup: BeautifulSoup) -> str:
         selectors = (
