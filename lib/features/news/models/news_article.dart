@@ -32,6 +32,14 @@ class NewsArticle {
   bool get isHotIssue => clusterCount >= 3;
   int get relatedSourceCount => relatedSources.length;
 
+  String? get publishedAtDisplay {
+    return _formatPublishedAt(publishedAt, compact: false);
+  }
+
+  String? get publishedAtCompactDisplay {
+    return _formatPublishedAt(publishedAt, compact: true);
+  }
+
   String get sourceSummary {
     final primarySource = source?.trim();
     if (primarySource == null || primarySource.isEmpty) {
@@ -69,6 +77,62 @@ class NewsArticle {
     );
   }
 }
+
+String? _formatPublishedAt(String? value, {required bool compact}) {
+  if (value == null || value.trim().isEmpty) {
+    return null;
+  }
+
+  final normalized = _normalizeKoreanMeridiem(
+    value
+        .trim()
+        .replaceAll(RegExp(r'입력\s*[:：]\s*'), '')
+        .replaceAll(RegExp(r'수정\s*[:：]\s*'), ''),
+  ).replaceAll(RegExp(r'\s+'), ' ');
+
+  final dateMatch = RegExp(
+    r'(\d{4})[.\-/년]\s*(\d{1,2})[.\-/월]\s*(\d{1,2})',
+  ).firstMatch(normalized);
+  final timeMatch = RegExp(r'(\d{1,2}):(\d{2})').firstMatch(normalized);
+
+  if (dateMatch != null && timeMatch != null) {
+    final year = dateMatch.group(1)!;
+    final month = _twoDigits(int.parse(dateMatch.group(2)!));
+    final day = _twoDigits(int.parse(dateMatch.group(3)!));
+    final hour = _twoDigits(int.parse(timeMatch.group(1)!));
+    final minute = timeMatch.group(2)!;
+    return compact
+        ? '$month.$day $hour:$minute'
+        : '$year.$month.$day $hour:$minute';
+  }
+
+  if (timeMatch != null) {
+    final hour = _twoDigits(int.parse(timeMatch.group(1)!));
+    final minute = timeMatch.group(2)!;
+    return '$hour:$minute';
+  }
+
+  return normalized;
+}
+
+String _normalizeKoreanMeridiem(String value) {
+  return value.replaceAllMapped(RegExp(r'(오전|오후)\s*(\d{1,2}):(\d{2})'), (
+    match,
+  ) {
+    final meridiem = match.group(1)!;
+    var hour = int.parse(match.group(2)!);
+    final minute = match.group(3)!;
+    if (meridiem == '오후' && hour < 12) {
+      hour += 12;
+    }
+    if (meridiem == '오전' && hour == 12) {
+      hour = 0;
+    }
+    return '${_twoDigits(hour)}:$minute';
+  });
+}
+
+String _twoDigits(int value) => value.toString().padLeft(2, '0');
 
 class DailyNewsDocument {
   const DailyNewsDocument({required this.date, required this.articles});

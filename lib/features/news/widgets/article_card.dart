@@ -20,6 +20,7 @@ class ArticleCard extends StatelessWidget {
     final color = sectorColor(article.sector);
     final theme = Theme.of(context);
     final hotColor = const Color(0xFFE25555);
+    final compactPublishedAt = article.publishedAtCompactDisplay;
     final borderColor = article.isHotIssue
         ? hotColor.withValues(alpha: 0.48)
         : theme.colorScheme.primary.withValues(alpha: 0.34);
@@ -106,12 +107,6 @@ class ArticleCard extends StatelessWidget {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        Icon(
-                          Icons.article_outlined,
-                          size: 15,
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                        const SizedBox(width: 6),
                         Expanded(
                           child: Text(
                             article.sourceSummary,
@@ -120,15 +115,13 @@ class ArticleCard extends StatelessWidget {
                             style: theme.textTheme.labelMedium,
                           ),
                         ),
-                        if (article.publishedAt != null) ...[
+                        if (compactPublishedAt != null) ...[
                           const SizedBox(width: 8),
-                          Flexible(
-                            child: Text(
-                              article.publishedAt!,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.labelSmall,
-                            ),
+                          Text(
+                            compactPublishedAt,
+                            maxLines: 1,
+                            softWrap: false,
+                            style: theme.textTheme.labelSmall,
                           ),
                         ],
                       ],
@@ -210,6 +203,7 @@ class _ArticleDetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final publishedAt = article.publishedAtDisplay;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -238,10 +232,9 @@ class _ArticleDetailContent extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          [
-            article.sourceSummary,
-            if (article.publishedAt != null) article.publishedAt,
-          ].whereType<String>().join(' · '),
+          publishedAt == null
+              ? article.sourceSummary
+              : '${article.sourceSummary} · $publishedAt',
           style: theme.textTheme.bodySmall,
         ),
         if (article.relatedSources.isNotEmpty) ...[

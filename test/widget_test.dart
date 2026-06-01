@@ -11,6 +11,7 @@ void main() {
       title: '반도체 업종 실적 개선 기대가 커지고 있다',
       sector: '반도체',
       source: '한국경제',
+      publishedAt: '2026.06.01. 오후 1:05',
       whatHappened: '주요 기업의 실적 전망이 상향됐다.',
       context: 'AI 서버 투자 확대가 수요를 견인했다.',
       implication: '관련 공급망 기업의 변동성이 확대될 수 있다.',
@@ -33,6 +34,9 @@ void main() {
     expect(find.text('(3곳 보도)'), findsOneWidget);
     expect(find.text('삼성전자 HBM'), findsOneWidget);
     expect(find.text('한국경제 외 2곳'), findsOneWidget);
+    expect(find.text('06.01 13:05'), findsOneWidget);
+    expect(find.textContaining('오후'), findsNothing);
+    expect(find.byIcon(Icons.article_outlined), findsNothing);
     expect(find.text('반도체 업종 실적 개선 기대가 커지고 있다'), findsOneWidget);
     expect(find.text('주요 기업의 실적 전망이 상향됐다.'), findsNothing);
   });
@@ -44,6 +48,7 @@ void main() {
       whatHappened: '시장 금리가 상승했다.',
       context: '정책 불확실성이 투자 심리에 영향을 줬다.',
       implication: '금융주와 성장주의 차별화가 커질 수 있다.',
+      publishedAt: '입력 : 2026.06.01. 오전 9:03',
       url: 'https://example.com/news/1',
     );
 
@@ -54,6 +59,7 @@ void main() {
     );
 
     expect(find.text('원문 보기'), findsOneWidget);
+    expect(find.textContaining('2026.06.01 09:03'), findsOneWidget);
     expect(find.byIcon(Icons.open_in_new), findsOneWidget);
     expect(find.byType(Link), findsOneWidget);
   });
