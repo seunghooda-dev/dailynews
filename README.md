@@ -64,7 +64,7 @@ Flutter 앱에는 Firebase Admin SDK JSON을 넣지 않습니다. 앱에서 Fire
 
 ## GitHub Actions
 
-`.github/workflows/daily_news.yml`는 매일 08:00 KST에 실행됩니다. GitHub Secrets에 아래 값을 등록해야 합니다.
+`.github/workflows/daily_news.yml`는 매일 06:00 KST에 실행됩니다. GitHub Secrets에 아래 값을 등록해야 합니다.
 
 - `LLM_API_KEY`
 - `FIREBASE_CREDENTIALS_JSON`: Firebase 서비스 계정 JSON 전체 문자열

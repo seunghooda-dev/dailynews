@@ -2,8 +2,8 @@ name: Daily Korea Economy News
 
 on:
   schedule:
-    # 08:00 KST is 23:00 UTC on the previous day.
-    - cron: "0 23 * * *"
+    # 06:00 KST is 21:00 UTC on the previous day.
+    - cron: "0 21 * * *"
   workflow_dispatch:
 
 jobs:
