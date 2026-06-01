@@ -9,9 +9,9 @@ class AppTheme {
   static const violet = Color(0xFF8B7CFF);
   static const ink = Color(0xFF123047);
   static const blueInk = Color(0xFF3F6F94);
-  static const page = Color(0xFFEFFBFF);
+  static const page = Color(0xFFF6FAFD);
   static const surface = Color(0xFFFFFFFF);
-  static const line = Color(0xFFAEE5FF);
+  static const line = Color(0xFFD9ECF6);
 
   static ThemeData light() {
     final scheme =
@@ -20,9 +20,9 @@ class AppTheme {
           brightness: Brightness.light,
         ).copyWith(
           primary: skyDeep,
-          primaryContainer: const Color(0xFFD9F4FF),
+          primaryContainer: const Color(0xFFE8F7FF),
           secondary: yuzu,
-          secondaryContainer: const Color(0xFFFFF3B8),
+          secondaryContainer: const Color(0xFFEAF6FF),
           tertiary: mint,
           tertiaryContainer: const Color(0xFFD6FFF6),
           surface: surface,
@@ -54,15 +54,16 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: surface,
         surfaceTintColor: Colors.transparent,
-        elevation: 0,
+        elevation: 1,
+        shadowColor: const Color(0x1F2D6F95),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: const BorderSide(color: line),
+          borderRadius: BorderRadius.circular(10),
+          side: BorderSide.none,
         ),
       ),
       chipTheme: ChipThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        side: const BorderSide(color: line),
+        side: BorderSide.none,
         backgroundColor: const Color(0xFFE8F8FF),
       ),
       iconTheme: const IconThemeData(color: skyDeep),

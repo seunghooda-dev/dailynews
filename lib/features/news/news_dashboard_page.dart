@@ -105,12 +105,12 @@ class _SelectableNewsLayout extends StatelessWidget {
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 1440),
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+                padding: const EdgeInsets.fromLTRB(28, 22, 28, 28),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     header,
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 24),
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,6 +122,13 @@ class _SelectableNewsLayout extends StatelessWidget {
                               selectedIndex: selectedIndex,
                               onSelect: onSelect,
                             ),
+                          ),
+                          const SizedBox(width: 20),
+                          Container(
+                            width: 1,
+                            height: double.infinity,
+                            color: Theme.of(context).colorScheme.outlineVariant
+                                .withValues(alpha: 0.72),
                           ),
                           const SizedBox(width: 20),
                           Expanded(
@@ -141,10 +148,10 @@ class _SelectableNewsLayout extends StatelessWidget {
         return RefreshIndicator(
           onRefresh: onRefresh,
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            padding: const EdgeInsets.fromLTRB(18, 18, 18, 28),
             children: [
               header,
-              const SizedBox(height: 16),
+              const SizedBox(height: 18),
               for (var index = 0; index < articles.length; index++) ...[
                 SizedBox(
                   height: 228,
@@ -154,7 +161,7 @@ class _SelectableNewsLayout extends StatelessWidget {
                     onTap: () => onSelect(index),
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
               ],
               ArticleDetailPanel(article: selectedArticle, scrollable: false),
             ],
@@ -182,8 +189,8 @@ class _ArticleGrid extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 304,
         mainAxisExtent: 228,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
       ),
       itemCount: articles.length,
       itemBuilder: (context, index) {
@@ -213,11 +220,17 @@ class _DashboardHeader extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: theme.colorScheme.primaryContainer.withValues(alpha: 0.54),
-        border: Border.all(color: theme.colorScheme.outlineVariant),
-        borderRadius: BorderRadius.circular(8),
+        color: theme.colorScheme.primaryContainer.withValues(alpha: 0.72),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: theme.colorScheme.primary.withValues(alpha: 0.06),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
-      padding: const EdgeInsets.fromLTRB(18, 16, 18, 16),
+      padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
       child: Row(
         children: [
           Expanded(
@@ -265,9 +278,15 @@ class _Metric extends StatelessWidget {
     return Container(
       width: 108,
       decoration: BoxDecoration(
-        color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.92),
-        border: Border.all(color: theme.colorScheme.secondary),
-        borderRadius: BorderRadius.circular(8),
+        color: theme.colorScheme.surface.withValues(alpha: 0.76),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: theme.colorScheme.primary.withValues(alpha: 0.07),
+            blurRadius: 14,
+            offset: const Offset(0, 6),
+          ),
+        ],
       ),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       child: Column(

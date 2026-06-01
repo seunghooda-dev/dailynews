@@ -24,18 +24,17 @@ class ArticleCard extends StatelessWidget {
 
     return Card(
       margin: EdgeInsets.zero,
+      elevation: selected ? 2.5 : 1.2,
+      shadowColor: theme.colorScheme.primary.withValues(
+        alpha: selected ? 0.18 : 0.10,
+      ),
       clipBehavior: Clip.antiAlias,
       color: selected
-          ? theme.colorScheme.primaryContainer.withValues(alpha: 0.68)
+          ? theme.colorScheme.primaryContainer.withValues(alpha: 0.48)
           : theme.colorScheme.surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(
-          color: selected
-              ? theme.colorScheme.primary
-              : theme.colorScheme.outlineVariant,
-          width: selected ? 1.4 : 1,
-        ),
+        borderRadius: BorderRadius.circular(10),
+        side: BorderSide.none,
       ),
       child: InkWell(
         onTap: onTap,
@@ -43,12 +42,12 @@ class ArticleCard extends StatelessWidget {
           children: [
             AnimatedContainer(
               duration: const Duration(milliseconds: 160),
-              width: 4,
-              color: selected ? theme.colorScheme.primary : color,
+              width: selected ? 5 : 0,
+              color: theme.colorScheme.primary,
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+                padding: const EdgeInsets.fromLTRB(18, 15, 18, 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -183,18 +182,24 @@ class ArticleDetailPanel extends StatelessWidget {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        border: Border.all(color: theme.colorScheme.outlineVariant),
-        borderRadius: BorderRadius.circular(8),
+        color: const Color(0xFFFEFFFF),
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: theme.colorScheme.primary.withValues(alpha: 0.12),
+            blurRadius: 28,
+            offset: const Offset(0, 12),
+          ),
+        ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         child: scrollable
             ? SingleChildScrollView(
-                padding: const EdgeInsets.all(28),
+                padding: const EdgeInsets.all(32),
                 child: content,
               )
-            : Padding(padding: const EdgeInsets.all(24), child: content),
+            : Padding(padding: const EdgeInsets.all(26), child: content),
       ),
     );
   }
@@ -218,6 +223,10 @@ class _OriginalLinkButton extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: FilledButton.tonalIcon(
+        style: FilledButton.styleFrom(
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          foregroundColor: Theme.of(context).colorScheme.primary,
+        ),
         onPressed: () => _openUrl(context),
         icon: const Icon(Icons.open_in_new, size: 18),
         label: const Text('원문 보기'),
@@ -229,9 +238,9 @@ class _OriginalLinkButton extends StatelessWidget {
     final uri = Uri.parse(url.trim());
     final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
     if (!opened && context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('원문 링크를 열 수 없습니다')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('원문 링크를 열 수 없습니다')));
     }
   }
 }
@@ -269,8 +278,8 @@ class _SectorChip extends StatelessWidget {
             fontSize: 12,
           ),
         ),
-        backgroundColor: color.withValues(alpha: 0.12),
-        side: BorderSide(color: color.withValues(alpha: 0.34)),
+        backgroundColor: color.withValues(alpha: 0.11),
+        side: BorderSide.none,
         visualDensity: VisualDensity.compact,
       ),
     );
