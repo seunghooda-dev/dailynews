@@ -33,7 +33,7 @@ Firestore 저장 경로는 `korea_economy_news/{YYYY-MM-DD}`이며, 문서 안�
 
 Firebase Admin SDK에서 보이는 `client_email` 값만으로는 인증할 수 없습니다. 로컬 실행에는 서비스 계정 JSON 전체 파일이 필요하고, GitHub Actions에는 같은 JSON 전체 문자열을 Secret으로 넣어야 합니다.
 
-키 없이 로컬 기사 카드만 확인하려면 오늘자 스냅샷을 만들고 정적 웹 서버를 띄웁니다.
+키 없이 로컬 기사 카드만 확인하려면 오늘자 스냅샷을 만들고 정적 웹 서버를 띄웁니다. 이 스크립트는 한국 시장용 `web/news_snapshot.json`과 월드 시장용 `web/world_news_snapshot.json`을 함께 갱신합니다.
 
 ```powershell
 .\scripts\refresh_news.ps1
@@ -42,6 +42,7 @@ Firebase Admin SDK에서 보이는 `client_email` 값만으로는 인증할 수 
 ## Flutter App
 
 앱은 Firestore의 지정 날짜 문서를 읽어 선택형 뉴스 카드와 상세 분석 패널로 렌더링합니다. Firebase 설정이 없으면 로컬 샘플 데이터로 먼저 실행됩니다.
+상단의 `Korea Market` / `World Market` 토글로 한국 경제 뉴스와 Google News/Yahoo Finance 기반 월드 마켓 뉴스를 전환할 수 있습니다.
 
 ```bash
 flutter pub get

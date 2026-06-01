@@ -2,6 +2,7 @@ param(
   [string]$Date = (Get-Date -Format "yyyy-MM-dd"),
   [int]$Limit = 160,
   [int]$Port = 5555,
+  [switch]$SkipWorld,
   [switch]$NoServe
 )
 
@@ -14,9 +15,16 @@ py -3 -m dailynews_backend.local_snapshot `
   --limit $Limit `
   --output "web/news_snapshot.json"
 
+if (-not $SkipWorld) {
+  py -3 -m dailynews_backend.world_snapshot `
+    --date $Date `
+    --limit $Limit `
+    --output "web/world_news_snapshot.json"
+}
+
 if (-not $NoServe) {
   & (Join-Path $PSScriptRoot "serve_web.ps1") -Port $Port
-  Write-Host "Updated snapshot for $Date and serving at http://127.0.0.1:$Port"
+  Write-Host "Updated snapshots for $Date and serving at http://127.0.0.1:$Port"
 } else {
-  Write-Host "Updated snapshot for $Date. Serving skipped."
+  Write-Host "Updated snapshots for $Date. Serving skipped."
 }

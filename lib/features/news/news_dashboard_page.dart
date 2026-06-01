@@ -17,20 +17,21 @@ class NewsDashboardPage extends ConsumerWidget {
     final selectedIndex = ref.watch(selectedArticleIndexProvider);
     final selectedSector = ref.watch(selectedSectorFilterProvider);
     final firebaseEnabled = ref.watch(firebaseEnabledProvider);
+    final marketScope = ref.watch(marketScopeProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dailynews'),
         centerTitle: false,
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 4),
-            child: Center(
-              child: Text(
-                'Korea Market',
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-            ),
+          _MarketScopeSelector(
+            selected: marketScope,
+            onChanged: (scope) {
+              ref.read(marketScopeProvider.notifier).state = scope;
+              ref.read(selectedSectorFilterProvider.notifier).state =
+                  _allSectorFilter;
+              ref.read(selectedArticleIndexProvider.notifier).state = 0;
+            },
           ),
           IconButton(
             tooltip: '새로고침',
@@ -82,12 +83,14 @@ class NewsDashboardPage extends ConsumerWidget {
 
           return _SelectableNewsLayout(
             date: dailyNews.date,
+            title: marketScope.headerTitle,
             articles: visibleArticles,
             sectorFilters: sectorFilters,
             selectedSector: effectiveSector,
             selectedIndex: safeIndex,
             selectedArticle: visibleArticles[safeIndex],
-            usingSampleData: !firebaseEnabled,
+            usingSampleData:
+                !firebaseEnabled || marketScope == MarketScope.world,
             onRefresh: () async => ref.invalidate(newsProvider),
             onFilterChanged: (sector) {
               ref.read(selectedSectorFilterProvider.notifier).state = sector;
@@ -106,6 +109,7 @@ class NewsDashboardPage extends ConsumerWidget {
 class _SelectableNewsLayout extends StatelessWidget {
   const _SelectableNewsLayout({
     required this.date,
+    required this.title,
     required this.articles,
     required this.sectorFilters,
     required this.selectedSector,
@@ -118,6 +122,7 @@ class _SelectableNewsLayout extends StatelessWidget {
   });
 
   final String date;
+  final String title;
   final List<NewsArticle> articles;
   final List<_SectorFilter> sectorFilters;
   final String selectedSector;
@@ -135,6 +140,7 @@ class _SelectableNewsLayout extends StatelessWidget {
         final isWide = constraints.maxWidth >= 940;
         final header = _DashboardHeader(
           date: date,
+          title: title,
           count: articles.length,
           usingSampleData: usingSampleData,
         );
@@ -341,14 +347,91 @@ class _FilterPill extends StatelessWidget {
   }
 }
 
+class _MarketScopeSelector extends StatelessWidget {
+  const _MarketScopeSelector({required this.selected, required this.onChanged});
+
+  final MarketScope selected;
+  final ValueChanged<MarketScope> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(right: 4),
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: theme.colorScheme.primaryContainer.withValues(alpha: 0.54),
+            borderRadius: BorderRadius.circular(999),
+          ),
+          padding: const EdgeInsets.all(3),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final scope in MarketScope.values)
+                _MarketScopeButton(
+                  scope: scope,
+                  selected: scope == selected,
+                  onTap: () => onChanged(scope),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _MarketScopeButton extends StatelessWidget {
+  const _MarketScopeButton({
+    required this.scope,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final MarketScope scope;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Material(
+      color: selected ? theme.colorScheme.primary : Colors.transparent,
+      borderRadius: BorderRadius.circular(999),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(999),
+        onTap: selected ? null : onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          child: Text(
+            scope.label,
+            maxLines: 1,
+            softWrap: false,
+            style: theme.textTheme.labelSmall?.copyWith(
+              color: selected
+                  ? theme.colorScheme.onPrimary
+                  : theme.colorScheme.primary,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 0,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _DashboardHeader extends StatelessWidget {
   const _DashboardHeader({
     required this.date,
+    required this.title,
     required this.count,
     required this.usingSampleData,
   });
 
   final String date;
+  final String title;
   final int count;
   final bool usingSampleData;
 
@@ -386,7 +469,7 @@ class _DashboardHeader extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    Text('시장 브리핑', style: theme.textTheme.headlineSmall),
+                    Text(title, style: theme.textTheme.headlineSmall),
                   ],
                 ),
                 _Metric(label: '뉴스', value: '$count'),
