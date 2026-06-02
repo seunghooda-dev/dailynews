@@ -68,7 +68,8 @@ void main() {
       ),
       findsOneWidget,
     );
-    expect(find.text('향후 주가 전망'), findsOneWidget);
+    expect(find.text('향후 주가 전망'), findsNothing);
+    expect(find.text('시장 영향 및 체크포인트'), findsOneWidget);
     expect(find.textContaining('2026.06.01 09:03'), findsOneWidget);
     expect(find.byIcon(Icons.open_in_new), findsOneWidget);
     expect(find.byType(Link), findsOneWidget);

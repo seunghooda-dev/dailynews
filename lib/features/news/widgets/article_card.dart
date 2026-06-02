@@ -254,9 +254,9 @@ class _ArticleDetailContent extends StatelessWidget {
           body: _buildCoreSummaryBody(article),
         ),
         _ArticleSection(
-          icon: Icons.trending_up,
-          title: '향후 주가 전망',
-          body: article.implication,
+          icon: Icons.fact_check_outlined,
+          title: '시장 영향 및 체크포인트',
+          body: _cleanReportSummaryText(article.implication, article),
         ),
       ],
     );
