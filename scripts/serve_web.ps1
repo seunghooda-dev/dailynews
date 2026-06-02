@@ -17,7 +17,7 @@ if ($Clean) {
 }
 
 flutter pub get
-flutter build web --no-web-resources-cdn
+flutter build web --no-web-resources-cdn --pwa-strategy=none
 
 $outLog = Join-Path $root "static_web.out.log"
 $errLog = Join-Path $root "static_web.err.log"
@@ -30,7 +30,7 @@ foreach ($file in @($outLog, $errLog)) {
 $python = (Get-Command py).Source
 Start-Process `
   -FilePath $python `
-  -ArgumentList @("-3", "-m", "http.server", "$Port", "--bind", "127.0.0.1", "-d", "build/web") `
+  -ArgumentList @("-3", "scripts/no_cache_server.py", "--port", "$Port", "--bind", "127.0.0.1", "--directory", "build/web") `
   -WorkingDirectory $root `
   -WindowStyle Hidden `
   -RedirectStandardOutput $outLog `
