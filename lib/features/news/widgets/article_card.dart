@@ -441,11 +441,99 @@ String _formatRelatedSources(List<String> sources) {
 }
 
 String _buildCoreSummaryBody(NewsArticle article) {
-  final parts = [
-    article.whatHappened.trim(),
-    article.context.trim(),
-  ].where((part) => part.isNotEmpty).toList();
-  return parts.join('\n\n');
+  final fact = _cleanReportSummaryText(article.whatHappened, article);
+  final background = _cleanReportSummaryText(article.context, article);
+
+  if (fact.isEmpty) {
+    return background;
+  }
+  if (background.isEmpty || _isSameSummary(fact, background)) {
+    return fact;
+  }
+
+  final bridgedBackground = _startsWithReportConnector(background)
+      ? background
+      : '시장 맥락상 $background';
+  return _normalizeReportSentence('$fact $bridgedBackground');
+}
+
+String _cleanReportSummaryText(String value, NewsArticle article) {
+  var text = _normalizeReportSentence(value);
+  if (text.isEmpty) {
+    return '';
+  }
+
+  text = text.replaceFirst(
+    RegExp(r'^[^.!?。]{1,60}에 올라온 글로벌 시장 기사입니다[.!?。]\s*'),
+    '',
+  );
+  text = text.replaceFirst(
+    RegExp(r'^글로벌 시장 기사입니다[.!?。]\s*'),
+    '',
+  );
+
+  final sourceNames = {
+    article.source,
+    ...article.relatedSources,
+    'Yahoo Finance',
+    'Yahoo Finance UK',
+    'CNBC',
+    'CNBC Markets',
+    'CNBC Investing',
+    'Reuters',
+    'Bloomberg',
+    'Bloomberg.com',
+    'Barron\'s',
+    'Financial Times',
+    'The Economic Times',
+    'TradingView',
+    'Investing.com',
+  }.whereType<String>().map((source) => source.trim()).where((source) {
+    return source.isNotEmpty;
+  });
+
+  for (final source in sourceNames) {
+    final escaped = RegExp.escape(source);
+    text = text.replaceFirst(RegExp(r'\s+' + escaped + r'\s*$'), '');
+  }
+
+  return _normalizeReportSentence(text);
+}
+
+String _normalizeReportSentence(String value) {
+  return value
+      .replaceAll(RegExp(r'\s+'), ' ')
+      .replaceAllMapped(RegExp(r'\s+([,.!?;:])'), (match) => match.group(1)!)
+      .replaceAll(RegExp(r'\.{2,}'), '.')
+      .trim();
+}
+
+bool _isSameSummary(String left, String right) {
+  final normalizedLeft = _summaryFingerprint(left);
+  final normalizedRight = _summaryFingerprint(right);
+  if (normalizedLeft == normalizedRight) {
+    return true;
+  }
+  final shorter = normalizedLeft.length < normalizedRight.length
+      ? normalizedLeft
+      : normalizedRight;
+  final longer = normalizedLeft.length < normalizedRight.length
+      ? normalizedRight
+      : normalizedLeft;
+  return shorter.length >= 24 && longer.contains(shorter);
+}
+
+String _summaryFingerprint(String value) {
+  return value
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9가-힣]'), '')
+      .trim();
+}
+
+bool _startsWithReportConnector(String value) {
+  return RegExp(
+    r'^(이는|이러한|그 결과|배경은|핵심 배경은|시장 맥락상|특히|다만|결국)',
+  ).hasMatch(value.trim());
 }
 
 class _ArticleSection extends StatelessWidget {
