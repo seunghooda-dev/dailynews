@@ -1,9 +1,6 @@
 name: Daily Korea Economy News
 
 on:
-  schedule:
-    # 06:00 KST is 21:00 UTC on the previous day.
-    - cron: "0 21 * * *"
   workflow_dispatch:
 
 jobs:
